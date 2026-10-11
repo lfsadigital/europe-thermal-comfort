@@ -1,0 +1,12 @@
+.cache/
+.venv/
+__pycache__/
+output/
+output-final/
+.openai/
+site/.openai/
+*.tar.gz
+.DS_Store
+site/dist/assets/*
+!site/dist/assets/proj4.js
+!site/dist/assets/proj4-license.md
