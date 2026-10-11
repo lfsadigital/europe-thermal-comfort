@@ -5,6 +5,8 @@ change. For numerical changes, include an independently calculated example
 and verify inclusive limits, leap days, annualization, missing values and
 NOAA interpolation. Keep sources and native resolution visible to visitors.
 
+On a fresh clone, install requirements and run `python rebuild_site.py` first.
+Generated climate assets stay local and are ignored by Git.
 Run the static site with `python3 -m http.server 8000 --directory site/dist`.
 Run `cd site && node verify-dynamic.cjs` to check the browser calculation.
 Rebuild the data with `python rebuild_site.py` after installing requirements.
