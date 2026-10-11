@@ -19,7 +19,7 @@ python3 -m http.server 8000 --directory site/dist
 Open http://localhost:8000. Use a recent browser with Web Workers and gzip
 DecompressionStream. Calculations run locally without weather API calls.
 The URL preserves the interval, year and view for sharing. First use of a
-custom interval loads about 20 MB for five years or 13–15 MB for one year.
+custom interval loads about 13 MB for five years or 9–10 MB for one year.
 
 ## Calculation
 
@@ -34,8 +34,8 @@ Leap years 2020 and 2024 each contain 366 days.
 
 Sparse histograms store counts, original fractional temperature sums and exact
 integer-boundary counts. They are sufficient for integer endpoints without
-storing all daily series in the browser. E-OBS packed sums use int32 and the
-original NetCDF scale; NOAA sums remain float64. Browser arithmetic uses float64.
+storing all daily series in the browser. E-OBS sums use a lossless int16 residual around each bucket midpoint,
+reconstructed with the original NetCDF scale; NOAA sums remain float64. Browser arithmetic uses float64.
 
 ## Data and map
 

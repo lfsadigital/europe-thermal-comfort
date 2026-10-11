@@ -49,9 +49,11 @@ def grid(node_values):
 def save(key,counts,sums,exact,days,years):
  occupied=counts.T>0;offset=np.concatenate([[0],np.cumsum(occupied.sum(axis=1))]).astype('<u4')
  node,binidx=np.nonzero(occupied);bins=(binidx+BMIN).astype('i1');c=counts[binidx,node].astype('<u2');s=sums[binidx,node].astype('<f8');e=exact[binidx,node].astype('<u2')
- ne_entries=int(offset[ne]);centi=np.zeros(len(s),dtype='<i4');centi[:ne_entries]=np.rint(s[:ne_entries]/scale).astype('<i4')
- np.testing.assert_allclose(centi[:ne_entries].astype(float)*scale,s[:ne_entries],atol=1e-8,rtol=0)
- data=struct.pack('<8I',0x434C494D,2,nodes,len(bins),days,years,ne,ne_entries)+struct.pack('<d',scale)+offset.tobytes()+bins.tobytes()+c.tobytes()+centi.tobytes()+e.tobytes()+s[ne_entries:].tobytes()
+ ne_entries=int(offset[ne]);residual=np.zeros(len(s),dtype='<i2');centi=np.rint(s[:ne_entries]/scale).astype(np.int64);center=(bins[:ne_entries].astype(np.int64)*100-50)*c[:ne_entries].astype(np.int64);delta=centi-center
+ assert delta.min()>=-32768 and delta.max()<=32767
+ residual[:ne_entries]=delta.astype('<i2')
+ np.testing.assert_allclose((residual[:ne_entries].astype(np.int64)+center)*scale,s[:ne_entries],atol=1e-8,rtol=0)
+ data=struct.pack('<8I',0x434C494D,3,nodes,len(bins),days,years,ne,ne_entries)+struct.pack('<d',scale)+offset.tobytes()+bins.tobytes()+c.tobytes()+residual.tobytes()+e.tobytes()+s[ne_entries:].tobytes()
  with gzip.open(OUT/f'hist-{key}.gz','wb',compresslevel=6) as f:f.write(data)
  print(key,'histogram:',len(data)//1000000,'MB raw,',(OUT/f'hist-{key}.gz').stat().st_size//1000000,'MB gzip',flush=True)
 
