@@ -9,8 +9,14 @@ The default interval is 20–25 °C. Both endpoints are included.
 ## Run locally
 
 This repository contains code only. Derived climate data and maps are not
-redistributed here. Rebuild them from the official sources first (see below).
-Then run:
+redistributed here. For local development, download the published assets
+from the website (non-commercial research/education terms still apply):
+
+```sh
+python3 download_site_assets.py
+```
+
+Or rebuild from the official sources (see below). Then run:
 
 ```sh
 python3 -m http.server 8000 --directory site/dist
