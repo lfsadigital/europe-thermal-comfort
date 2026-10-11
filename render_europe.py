@@ -18,18 +18,18 @@ from scipy.ndimage import distance_transform_edt
 
 PALETTE = ['#efb1f2','#c784dc','#707ad9','#408fe0','#20bdf0','#47dddc','#65e895','#a8ed57','#f0f431','#ffd429','#ff8c26','#f03f28','#b90934']
 LABELS = [
-('Islândia',-18.6,64.9),('Irlanda',-8.2,53.3),('Reino\nUnido',-2.5,54.0),
-('Portugal',-8.0,39.5),('Espanha',-3.7,40.2),('França',2.4,46.5),
-('Bélgica',4.4,50.5),('Países Baixos',5.7,52.3),('Alemanha',10.0,51.0),
-('Suíça',8.1,46.7),('Áustria',14.0,47.7),('Itália',12.4,43.2),
-('Noruega',8.5,61.1),('Suécia',16.1,62.0),('Finlândia',26.2,64.1),
-('Dinamarca',9.5,56.0),('Polônia',19.0,52.0),('Tchéquia',15.1,49.8),
-('Eslováquia',19.5,48.7),('Hungria',19.4,47.1),('Romênia',25.0,45.8),
-('Bulgária',25.3,42.7),('Grécia',23.1,39.1),('Turquia',34.3,39.2),
-('Ucrânia',31.3,49.3),('Belarus',28.0,53.5),('Lituânia',23.7,55.1),
-('Letônia',25.0,57.0),('Estônia',25.5,58.7),('Sérvia',20.8,44.0),
-('Croácia',16.5,45.4),('Bósnia',17.7,44.0),('Albânia',20.0,41.0),
-('Rússia',39.0,58.0),('Chipre',33.3,35.1)]
+('Iceland',-18.6,64.9),('Ireland',-8.2,53.3),('United\nKingdom',-2.5,54.0),
+('Portugal',-8.0,39.5),('Spain',-3.7,40.2),('France',2.4,46.5),
+('Belgium',4.4,50.5),('Netherlands',5.7,52.3),('Germany',10.0,51.0),
+('Switzerland',8.1,46.7),('Austria',14.0,47.7),('Italy',12.4,43.2),
+('Norway',8.5,61.1),('Sweden',16.1,62.0),('Finland',26.2,64.1),
+('Denmark',9.5,56.0),('Poland',19.0,52.0),('Czechia',15.1,49.8),
+('Slovakia',19.5,48.7),('Hungary',19.4,47.1),('Romania',25.0,45.8),
+('Bulgaria',25.3,42.7),('Greece',23.1,39.1),('Türkiye',34.3,39.2),
+('Ukraine',31.3,49.3),('Belarus',28.0,53.5),('Lithuania',23.7,55.1),
+('Latvia',25.0,57.0),('Estonia',25.5,58.7),('Serbia',20.8,44.0),
+('Croatia',16.5,45.4),('Bosnia',17.7,44.0),('Albania',20.0,41.0),
+('Russia',39.0,58.0),('Cyprus',33.3,35.1)]
 
 def render(data,start,end,output):
     cartopy.config['data_dir']=Path('.cache/cartopy')

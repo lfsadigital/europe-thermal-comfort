@@ -60,7 +60,7 @@ source.tofile(OUT/'source.bin')
 country=np.zeros(lon.shape,dtype=np.uint8)
 names=['']
 for r in selected:
- names.append(r.attributes.get('NAME_PT') or r.attributes['ADMIN'])
+ names.append(r.attributes.get('NAME_EN') or r.attributes['ADMIN'])
  country[shapely.contains_xy(r.geometry,lon,lat)]=len(names)-1
 country.tofile(OUT/'country.bin')
 projection=ccrs.LambertConformal(central_longitude=15,central_latitude=53,standard_parallels=(35,65))
@@ -95,7 +95,7 @@ for key,score,days in periods:
   print(f'Mapa {mode} {key}: pronto',flush=True)
 extent=[float(v) for v in ax.get_extent()]
 plt.close(fig)
-meta={'period':'2020–2024','total_days':1827,'years':5,'palette':PALETTE,'shape':list(lon.shape),'latitude':latitude.tolist(),'longitude':longitude.tolist(),'extent':extent,'projection':projection.proj4_init,'image_size':[width,height],'countries':names,'score_range':[76,98],'days_range':[0,150],'period_stats':period_stats,'coverage':float((on_land&valid).sum()/on_land.sum()),'source_names':{'1':'E-OBS · grade 0,1°','2':'NOAA CPC · grade original 0,5°'},'methodology':{'score':'100 − max(20 − Tmax, 0) − max(Tmax − 25, 0)','days':'Contagem de dias com 20 ≤ Tmax ≤ 25 °C, dividida por 5 para 2020–2024','coastal_display':'Extensão visual de até 0,2°; consulta usa células completas','noaa':'Interpolação da nota e da contagem calculadas na grade original de 0,5°'}}
+meta={'period':'2020–2024','total_days':1827,'years':5,'palette':PALETTE,'shape':list(lon.shape),'latitude':latitude.tolist(),'longitude':longitude.tolist(),'extent':extent,'projection':projection.proj4_init,'image_size':[width,height],'countries':names,'score_range':[76,98],'days_range':[0,150],'period_stats':period_stats,'coverage':float((on_land&valid).sum()/on_land.sum()),'source_names':{'1':'E-OBS · 0.1° grid','2':'NOAA CPC · original 0.5° grid'},'methodology':{'score':'100 − max(20 − Tmax, 0) − max(Tmax − 25, 0)','days':'Count of days with 20 ≤ Tmax ≤ 25 °C, divided by 5 for 2020–2024','coastal_display':'Visual extension up to 0.2°; queries use complete cells','noaa':'Interpolation of scores and counts calculated on the original 0.5° grid'}}
 (OUT/'metadata.json').write_text(json.dumps(meta,ensure_ascii=False,separators=(',',':')))
 # Projection sample points for an independent JavaScript inverse check.
 checks=[]
