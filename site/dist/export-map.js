@@ -4,7 +4,7 @@ function exportImage(url){const img=new Image();img.src=url;return img.decode().
 async function exportMap(){
   const button=$('export-map'),notice=$('export-status');
   if(!state.ready||button.disabled||state.exporting)return;
-  const snapshot={mode:state.mode,period:state.period,lower:state.lower,upper:state.upper,palette:[...state.meta.palette],request:state.request};
+  const snapshot={mode:state.mode,period:state.period,lower:state.lower,upper:state.upper,palette:[...state.meta.palette],periodLabel:state.meta.period,years:state.meta.years,request:state.request};
   const custom=snapshot.lower!==18||snapshot.upper!==26;
   // Copy the current raster before awaiting assets: later user changes cannot alter this export.
   let raster;
@@ -18,19 +18,19 @@ async function exportMap(){
     const days=snapshot.mode==='days',mean=snapshot.period==='mean';
     ctx.font='700 86px system-ui, sans-serif';ctx.fillText(days?'Where are the comfy days?':'How comfy are your days?',80,230);
     ctx.fillStyle='#536a7a';ctx.font='30px system-ui, sans-serif';
-    ctx.fillText(`Europe · ${mean?(days?'2020–2024 · average days/year':'2020–2024 · average daily score'):snapshot.period} · Highs ${snapshot.lower}–${snapshot.upper} °C · Rain ≤1 mm/day`,84,290);
+    ctx.fillText(`Europe · ${mean?(days?`${snapshot.periodLabel} · average days/year`:`${snapshot.periodLabel} · average daily score`):snapshot.period} · Highs ${snapshot.lower}–${snapshot.upper} °C · Rain ≤1 mm/day`,84,290);
     ctx.drawImage(map,80,320,2240,1960);if(overlay)ctx.drawImage(overlay,80,320,2240,1960);
     ctx.textAlign='center';ctx.fillStyle='#183044';ctx.font='600 32px system-ui, sans-serif';
     ctx.fillText(days?(mean?'Comfortable days per year':`Comfortable days in ${snapshot.period}`):'Average daily comfort score',1200,2340);
     const gradient=ctx.createLinearGradient(280,0,2120,0);snapshot.palette.forEach((colour,i)=>gradient.addColorStop(i/(snapshot.palette.length-1),colour));ctx.fillStyle=gradient;ctx.fillRect(280,2370,1840,26);
     const ticks=days?['0','30','60','90','120','150+']:['≤76','82','87','93','98+'];ctx.fillStyle='#536a7a';ctx.font='28px system-ui, sans-serif';ticks.forEach((tick,i)=>ctx.fillText(tick,280+1840*i/(ticks.length-1),2440));
-    ctx.font='27px system-ui, sans-serif';ctx.fillText(days?`Highs ${snapshot.lower}–${snapshot.upper} °C AND rain ≤1 mm. ${mean?'Five-year count ÷ 5.':'Actual count for the selected year.'}`:`100 in ${snapshot.lower}–${snapshot.upper} °C; −1 per °C outside; −1 extra if rain >1 mm.`,1200,2500);
+    ctx.font='27px system-ui, sans-serif';ctx.fillText(days?`Highs ${snapshot.lower}–${snapshot.upper} °C AND rain ≤1 mm. ${mean?`${snapshot.years}-year count ÷ ${snapshot.years}.`:'Actual count for the selected year.'}`:`100 in ${snapshot.lower}–${snapshot.upper} °C; −1 per °C outside; −1 extra if rain >1 mm.`,1200,2500);
     ctx.fillStyle='#73838e';ctx.font='24px system-ui, sans-serif';ctx.fillText('Temperature + daily precipitation · Wind and humidity are not included',1200,2542);
     ctx.font='22px system-ui, sans-serif';ctx.fillText('E-OBS (Cornes et al., 2018) + NOAA CPC / PSL · Natural Earth · Non-commercial research & education',1200,2584);
     ctx.strokeStyle='#e2e8ec';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(80,2610);ctx.lineTo(2320,2610);ctx.stroke();
     ctx.textAlign='left';ctx.fillStyle='#06716a';ctx.font='600 27px system-ui, sans-serif';ctx.fillText('X @buildwithluiz   ·   IG @lfsadigital',80,2660);ctx.textAlign='right';ctx.font='22px system-ui, sans-serif';ctx.fillText(location.host,2320,2660);
     const blob=await new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(new Error('PNG creation failed.')),'image/png'));
-    const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=`comfy-days-${days?'days':'score'}-${snapshot.period}-${snapshot.lower}-to-${snapshot.upper}C-rain-1mm.png`;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);
+    const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=`comfy-days-${days?'days':'score'}-${mean?snapshot.periodLabel:snapshot.period}-${snapshot.lower}-to-${snapshot.upper}C-rain-1mm.png`;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);
     notice.textContent='PNG downloaded. Ready to post.';
   }catch(e){notice.textContent=`Could not export the map. ${e.message}`;console.error('Map export failed:',e.message);}
   finally{state.exporting=false;button.disabled=!state.ready;}

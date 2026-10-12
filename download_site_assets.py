@@ -9,9 +9,9 @@ def request(name):
  return urllib.request.Request(base+name,headers={'User-Agent':'Mozilla/5.0','Accept':'*/*'})
 # These data retain the non-commercial E-OBS research/education terms.
 with urllib.request.urlopen(request('metadata.json'),timeout=120) as r:meta=json.load(r)
-assert meta['shape']==[370,700] and meta['total_days']==1827
-files=['metadata.json','source.bin','country.bin','dynamic-nodes.bin','dynamic-weights.bin','map-lookup.gz','map-overlay.png','audit.json','dynamic-reference.json','rain-audit.json']
-for period in ['mean','2020','2021','2022','2023','2024']:
+assert meta['shape']==[370,700] and meta['total_days']==2192 and meta['years']==6
+files=['metadata.json','source.bin','country.bin','dynamic-nodes.bin','dynamic-weights.bin','map-lookup.gz','map-overlay.png','audit.json','rain-audit.json']
+for period in ['mean',*(str(y) for y in meta['available_years'])]:
  files.extend([f'hist-{period}.gz',f'rain-{period}.gz'])
  for metric in ['score','days']:
   for ext in ['bin','webp']:files.append(f'{metric}-{period}.{ext}')

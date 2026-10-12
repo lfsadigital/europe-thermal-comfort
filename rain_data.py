@@ -5,6 +5,7 @@ import gzip,json,struct
 import h5py,numpy as np,xarray as xr
 from eobs_data import HTTPRangeFile
 from country_table import CachedEOBS
+from period_config import YEARS,YEAR_DAYS,TOTAL_DAYS,N_YEARS,PERIOD
 
 RAIN_URL='https://knmi-ecad-assets-prd.s3.amazonaws.com/ensembles/data/Grid_0.1deg_reg_ensemble/rr_ens_mean_0.1deg_reg_v33.0e.nc'
 RAIN_SIZE=3163228118
@@ -25,11 +26,11 @@ def prepare():
  import requests
  from concurrent.futures import ThreadPoolExecutor
  out=Path('.cache/rain-daily');out.mkdir(exist_ok=True)
- if any(not (out/f'{year}.npy').exists() for year in range(2020,2025)):
+ if any(not (out/f'{year}.npy').exists() for year in YEARS):
   with HTTPRangeFile(RAIN_URL,Path('.cache/eobs-rain-v33')) as remote,h5py.File(remote,'r') as f:
    assert remote.size==RAIN_SIZE
    ys=np.flatnonzero((f['latitude'][:]>=34.5)&(f['latitude'][:]<=71.5));xs=np.flatnonzero((f['longitude'][:]>=-25)&(f['longitude'][:]<=45))
-   for year in range(2020,2025):
+   for year in YEARS:
     p=out/f'{year}.npy'
     if p.exists():continue
     first=(date(year,1,1)-date(1950,1,1)).days;n=(date(year+1,1,1)-date(year,1,1)).days
@@ -52,7 +53,7 @@ def prepare():
     tmp.replace(p);return
    except requests.RequestException:
     if attempt==2:raise
- with ThreadPoolExecutor(max_workers=5) as pool:list(pool.map(download,range(2020,2025)))
+ with ThreadPoolExecutor(max_workers=5) as pool:list(pool.map(download,YEARS))
 
 def build():
  out=Path('site/dist/assets');cache=Path('.cache/rain-joint');cache.mkdir(exist_ok=True)
@@ -69,9 +70,9 @@ def build():
  np.testing.assert_allclose(score,[100,99,98,97,100,100,98.5,-21]);np.testing.assert_equal((temperatures>=20)&(temperatures<=25)&(rain<=1),[1,0,0,0,1,1,0,0]);checks.append('Scalar examples, exactly 1 mm, exact temperature boundaries, fractions and additive penalties PASS')
  with CachedEOBS() as tr,h5py.File(tr,'r') as tf,CachedRain() as rr,h5py.File(rr,'r') as rf:
   ys=np.flatnonzero((tf['latitude'][:]>=34.5)&(tf['latitude'][:]<=71.5));xs=np.flatnonzero((tf['longitude'][:]>=-25)&(tf['longitude'][:]<=45))
-  np.testing.assert_allclose(tf['latitude'][:],rf['latitude'][:],atol=1e-6);np.testing.assert_allclose(tf['longitude'][:],rf['longitude'][:],atol=1e-6)
+  np.testing.assert_allclose(tf['latitude'][:],rf['latitude'][:],atol=2e-6,rtol=0);np.testing.assert_allclose(tf['longitude'][:],rf['longitude'][:],atol=2e-6,rtol=0)
   tx=tf['tx'];rds=rf['rr'];tscale=float(tx.attrs['scale_factor'][0]);tfill=int(tx.attrs['_FillValue'][0]);rfill=float(rds.attrs['_FillValue'][0]);assert rds.attrs['units']==b'mm'
-  for year in range(2020,2025):
+  for year in YEARS:
    nc=(date(year+1,1,1)-date(year,1,1)).days;p=cache/f'{year}.npz'
    if p.exists():
     z=np.load(p);dry=z['dry'];exact=z['exact'];wet=z['wet'];valid=z['valid'];directscore=z['directscore'];directdays=z['directdays']
@@ -109,14 +110,14 @@ def build():
    all_dry+=dry;all_exact+=exact;all_wet+=wet;all_valid+=valid
    print(year,'rain nodes complete',int(good[used].sum()),'/',len(used),flush=True)
   temp=np.load('.cache/dynamic/2020.npz');counts=np.zeros_like(temp['counts'])
-  for year in range(2020,2025):counts+=np.load(f'.cache/dynamic/{year}.npz')['counts']
-  save_rain(out,'mean',all_dry,all_exact,all_wet,all_valid,1827,5,counts)
+  for year in YEARS:counts+=np.load(f'.cache/dynamic/{year}.npz')['counts']
+  save_rain(out,'mean',all_dry,all_exact,all_wet,all_valid,TOTAL_DAYS,N_YEARS,counts)
  annual_score=np.stack(annual_score);annual_days=np.stack(annual_days)
- mean_score=np.sum(annual_score*np.array([366,365,365,365,366])[:,None,None],axis=0)/1827;mean_days=annual_days.sum(axis=0)/5
+ mean_score=np.sum(annual_score*np.array(YEAR_DAYS)[:,None,None],axis=0)/TOTAL_DAYS;mean_days=annual_days.sum(axis=0)/N_YEARS
  np.savez_compressed('output-final/rain_site_grid.npz',latitude=meta['latitude'],longitude=meta['longitude'],score=mean_score,days_per_year=mean_days,annual_score=annual_score,annual_days=annual_days,source=source)
- checks.append('All 1,827 daily paired fields: histogram results match independent raw daily scores and joint comfortable-day counts PASS')
- checks.append('Leap-day weighting and five-year annualization PASS; incomplete joint records excluded')
- report={'checks':checks,'period_days':1827,'year_days':[366,365,365,365,366],'rain_threshold_mm':1,'wet_rule':'precipitation > 1 mm','comfortable_rule':'lower <= Tmax <= upper AND precipitation <= 1 mm','score_rule':'100 - max(lower-Tmax,0) - max(Tmax-upper,0) - (precipitation>1)','valid_land_cells':int(np.isfinite(mean_score).sum()),'reference_cases':refs}
+ checks.append('All 2,192 daily paired fields: histogram results match independent raw daily scores and joint comfortable-day counts PASS')
+ checks.append('Leap-day weighting and six-year annualization PASS; incomplete joint records excluded')
+ report={'checks':checks,'period':PERIOD,'period_days':TOTAL_DAYS,'year_days':list(YEAR_DAYS),'rain_threshold_mm':1,'wet_rule':'precipitation > 1 mm','comfortable_rule':'lower <= Tmax <= upper AND precipitation <= 1 mm','score_rule':'100 - max(lower-Tmax,0) - max(Tmax-upper,0) - (precipitation>1)','valid_land_cells':int(np.isfinite(mean_score).sum()),'reference_cases':refs}
  (out/'rain-audit.json').write_text(json.dumps(report,indent=2));Path('output-final/rain-audit.json').write_text(json.dumps(report,indent=2));print(json.dumps({k:v for k,v in report.items() if k!='reference_cases'},indent=2),flush=True)
 
 def save_rain(out,key,dry,exact,wet,valid,days,years,counts):
