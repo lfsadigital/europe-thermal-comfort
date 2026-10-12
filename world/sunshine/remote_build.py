@@ -1,7 +1,7 @@
 """Worldwide sunshine build. Refuses to run bulk work on a local computer."""
 import os
 if os.environ.get('GITHUB_ACTIONS')!='true':raise SystemExit('Bulk processing is remote-only. Run the sunshine GitHub Actions workflow.')
-import json,datetime,time,hashlib,gzip,struct,concurrent.futures,xml.etree.ElementTree as ET,subprocess,tarfile,shutil
+import json,datetime,time,hashlib,gzip,struct,concurrent.futures,xml.etree.ElementTree as ET,subprocess,tarfile,shutil,threading
 from pathlib import Path
 import numpy as np,requests
 from omfiles import OmFileReader
@@ -10,13 +10,25 @@ ROOT=Path(__file__).resolve().parents[1];OUT=Path(os.environ['RUNNER_TEMP'])/'co
 CONTROL='https://comfy-days-sunshine-build-control.lfsalmeida92.workers.dev';KEY=os.environ['COMFY_SUN_BUILD_KEY'];REPO=os.environ['GITHUB_REPOSITORY'];HEADERS={'User-Agent':'ComfyDays-RemoteSunshineBuild/1.0'}
 def control(name,value):
  r=requests.post(CONTROL+'/'+name,json=value,headers={'Authorization':'Bearer '+KEY},timeout=60);r.raise_for_status()
+status_lock=threading.RLock();last_status=0
 def status(**values):
- values.update(at=datetime.datetime.now(datetime.timezone.utc).isoformat());control('status',values);print(json.dumps(values),flush=True)
+ global last_status
+ with status_lock:
+  time.sleep(max(0,1.05-(time.monotonic()-last_status)));last_status=time.monotonic()
+  values.update(at=datetime.datetime.now(datetime.timezone.utc).isoformat());control('status',values);print(json.dumps(values),flush=True)
 def put(name,data):
  p=OUT/name;p.write_bytes(data);return name
 m=json.loads((ROOT/'site/dist/assets/metadata.json').read_text());grid=np.fromfile(ROOT/'site/dist/assets/node-grid.bin',dtype='<i4').reshape(360,720);n=m['nodes'];nd=2192;dates=np.arange(np.datetime64('2020-01-01'),np.datetime64('2026-01-01'));months=dates.astype('datetime64[M]');offset=np.cumsum([0]+m['year_days']);start=datetime.datetime(2020,1,1,tzinfo=datetime.timezone.utc);epoch=datetime.datetime(1970,1,1,tzinfo=datetime.timezone.utc);end=datetime.datetime(2026,1,1,tzinfo=datetime.timezone.utc)
-arrays={name:np.lib.format.open_memmap(CACHE/(name+'.npy'),mode='w+',dtype='f4',shape=(n,nd)) for name in ['temperature','rain','sunshine']}
-for a in arrays.values():a[:]=np.nan
+places=[('Porto',41.25,-8.25),('Paris',48.75,2.25),('Miami',25.75,-80.25),('Los Angeles',34.25,-118.25),('Nairobi',-1.25,36.75),('Nguruka',-5.25,30.75),('Cape Town',-33.75,18.75),('Oslo',59.75,10.75),('Buenos Aires',-34.75,-58.25),('Tokyo',35.75,139.75),('Sydney',-33.75,151.25),('Tromso',69.75,18.75)]
+# Reject invalid reference coordinates before any bulk download.
+for city,lat,lon in places:
+ assert int(grid[int(round((89.75-lat)/.5)),int(round((lon+179.75)/.5))])>=0,('Reference has no land cell',city,lat,lon)
+checkpoint=CACHE/'completed.json';done=set(json.loads(checkpoint.read_text()) if checkpoint.exists() else [])
+arrays={}
+for name in ['temperature','rain','sunshine']:
+ path=CACHE/(name+'.npy');existing=path.exists();arrays[name]=np.lib.format.open_memmap(path,mode='r+' if existing else 'w+',dtype='f4',shape=(n,nd))
+ assert arrays[name].shape==(n,nd) and arrays[name].dtype==np.float32
+ if not existing:arrays[name][:]=np.nan
 files=[]
 for y in [2020,2021]:
  begin=datetime.datetime(y,1,1,tzinfo=datetime.timezone.utc);hours=(366 if y==2020 else 365)*24;files.append((f'year_{y}',begin,0,hours))
@@ -33,9 +45,9 @@ for variable in ['temperature_2m','precipitation','direct_radiation']:
   key=f'data/copernicus_era5/{variable}/{tag}.om';assert key in inventory
   if variable!='direct_radiation':assert inventory[key]==old[key],('Existing source changed',key)
 required=sum(inventory[f'data/copernicus_era5/{v}/{x[0]}.om']['bytes'] for v in ['temperature_2m','precipitation','direct_radiation'] for x in files)
-status(stage='import',required_source_bytes=required,completed=0,total=len(files)*3)
+status(stage='import',required_source_bytes=required,completed=len(done),total=len(files)*3)
 def download(variable,tag):
- key=f'data/copernicus_era5/{variable}/{tag}.om';info=inventory[key];path=CACHE/'working.om';fd=os.open(path,os.O_CREAT|os.O_RDWR|os.O_TRUNC,0o600);os.ftruncate(fd,info['bytes']);block=8*1024*1024
+ key=f'data/copernicus_era5/{variable}/{tag}.om';info=inventory[key];path=CACHE/(variable+'-working.om');fd=os.open(path,os.O_CREAT|os.O_RDWR|os.O_TRUNC,0o600);os.ftruncate(fd,info['bytes']);block=8*1024*1024
  def part(lo):
   hi=min(info['bytes'],lo+block)-1
   for attempt in range(5):
@@ -48,22 +60,33 @@ def download(variable,tag):
   with concurrent.futures.ThreadPoolExecutor(max_workers=24) as pool:list(pool.map(part,range(0,info['bytes'],block)))
  finally:os.close(fd)
  return path
-completed=0;rows=[row for row in range(360) if (grid[row]>=0).any()]
-for tag,begin,lo,hi in files:
+completed=len(done);rows=[row for row in range(360) if (grid[row]>=0).any()]
+def process(variable,name,tag,begin,lo,hi):
+ global completed
+ key=variable+'/'+tag
+ if key in done:return
  seconds=np.arange(int(begin.timestamp())+lo*3600,int(begin.timestamp())+hi*3600,3600,dtype='i8');off=int(((begin+datetime.timedelta(hours=lo))-start).total_seconds()/86400)
- for variable,name in [('temperature_2m','temperature'),('precipitation','rain'),('direct_radiation','sunshine')]:
-  began=time.time();path=download(variable,tag)
-  with OmFileReader(str(path)) as reader:
-   assert tuple(reader.shape[:2])==(721,1440) and reader.shape[2]>=hi
-   for row in rows:
-    xs=np.flatnonzero(grid[row]>=0);erow=int(round((m['latitude'][row]+90)/.25));ex=xs*2+1;left=int(ex.min());right=int(ex.max())+1;hourly=reader[erow:erow+1,left:right,lo:hi][0][ex-left]
-    assert hourly.shape==(len(xs),hi-lo)
-    if name=='sunshine':hourly=sunshine(hourly,m['latitude'][row],np.asarray(m['longitude'])[xs],seconds)
-    hourly=hourly.reshape(len(xs),-1,24);daily=np.max(hourly,axis=2) if name=='temperature' else np.sum(hourly,axis=2,dtype=np.float64).astype('f4')
-    if name=='rain':assert ((daily>=0)|np.isnan(daily)).all()
-    if name=='sunshine':assert ((daily>=0)&(daily<=86400)|np.isnan(daily)).all()
-    arrays[name][grid[row,xs],off:off+daily.shape[1]]=daily
-  arrays[name].flush();path.unlink();completed+=1;status(stage='import',completed=completed,total=len(files)*3,latest=f'{variable}/{tag}',elapsed_seconds=round(time.time()-began))
+ began=time.time();path=download(variable,tag)
+ with OmFileReader(str(path)) as reader:
+  assert tuple(reader.shape[:2])==(721,1440) and reader.shape[2]>=hi
+  for row in rows:
+   xs=np.flatnonzero(grid[row]>=0);erow=int(round((m['latitude'][row]+90)/.25));ex=xs*2+1;left=int(ex.min());right=int(ex.max())+1;hourly=reader[erow:erow+1,left:right,lo:hi][0][ex-left]
+   assert hourly.shape==(len(xs),hi-lo)
+   if name=='sunshine':hourly=sunshine(hourly,m['latitude'][row],np.asarray(m['longitude'])[xs],seconds)
+   hourly=hourly.reshape(len(xs),-1,24);daily=np.max(hourly,axis=2) if name=='temperature' else np.sum(hourly,axis=2,dtype=np.float64).astype('f4')
+   if name=='rain':assert ((daily>=0)|np.isnan(daily)).all()
+   if name=='sunshine':assert ((daily>=0)&(daily<=86400)|np.isnan(daily)).all()
+   arrays[name][grid[row,xs],off:off+daily.shape[1]]=daily
+ arrays[name].flush();path.unlink()
+ with status_lock:
+  done.add(key);temporary=checkpoint.with_suffix('.tmp');temporary.write_text(json.dumps(sorted(done)));temporary.replace(checkpoint);completed+=1;status(stage='import',completed=completed,total=len(files)*3,latest=key,elapsed_seconds=round(time.time()-began))
+for tag,begin,lo,hi in files:
+ variables=[('temperature_2m','temperature'),('precipitation','rain'),('direct_radiation','sunshine')]
+ if tag.startswith('year_'):
+  for variable,name in variables:process(variable,name,tag,begin,lo,hi)
+ else:
+  with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
+   for future in [pool.submit(process,v,nm,tag,begin,lo,hi) for v,nm in variables]:future.result()
 def rainbins(rr):
  b=np.ceil(rr.astype(float)*10).astype('i8');prev=np.maximum(b-1,0);b-=((b>0)&(rr<=(prev/10).astype('f4')));assert ((b>=0)&(b<65535)).all();return b.astype('<u2')
 def gridfile(name,values,dtype):
@@ -104,7 +127,6 @@ for year in range(2020,2026):
   name=f'sun-daily-{year}-{begin//chunk_size}.gz';put(name,gzip.compress(body,compresslevel=9,mtime=0));assert (OUT/name).stat().st_size<25*1024*1024;raw_files[str(year)].append(name)
   status(stage='packing',year=year,completed=stop,total=n)
 refs=[]
-places=[('Porto',41.25,-8.25),('Paris',48.75,2.25),('Miami',25.75,-80.25),('Los Angeles',34.25,-118.25),('Nairobi',-1.25,36.75),('Nguruka',-5.25,30.75),('Cape Town',-33.75,18.25),('Oslo',59.75,10.75),('Buenos Aires',-34.75,-58.25),('Tokyo',35.75,139.75),('Sydney',-33.75,151.25),('Tromso',69.75,18.75)]
 for name,lat,lon in places:
  y=int(round((89.75-lat)/.5));x=int(round((lon+179.75)/.5));node=int(grid[y,x]);assert node>=0
  refs.append({'city':name,'latitude':lat,'longitude':lon,'node':node,'temperature':arrays['temperature'][node].astype(float).tolist(),'rain':arrays['rain'][node].astype(float).tolist(),'sunshine_seconds':arrays['sunshine'][node].astype(float).tolist()})
@@ -117,7 +139,9 @@ manifest={'/sun-v1/'+p.name:{'hash':hashlib.md5(p.read_bytes()).hexdigest(),'siz
 bundle=CACHE/'sunshine-bundle.tar'
 with tarfile.open(bundle,'w') as tar:
  for p in OUT.iterdir():tar.add(p,arcname=p.name)
-subprocess.run(['gh','release','create','comfy-sunshine-data-v1',str(bundle),'--repo',REPO,'--prerelease','--title','ERA5 sunshine data v1','--notes','Derived ERA5 daily sunshine data for Comfy Days, 2020–2025. Temperature/rain objects pinned to the current release. See world/sunshine source and audit. Data processing ran on GitHub-hosted Linux; raw archives are not stored in Git history.'],check=True)
+if subprocess.run(['gh','release','view','comfy-sunshine-data-v1'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode:
+ subprocess.run(['gh','release','create','comfy-sunshine-data-v1',str(bundle),'--repo',REPO,'--prerelease','--title','ERA5 sunshine data v1','--notes','Derived ERA5 daily sunshine data for Comfy Days, 2020–2025. Temperature/rain objects pinned to the current release. See world/sunshine source and audit. Data processing ran on GitHub-hosted Linux; raw archives are not stored in Git history.'],check=True)
+else:subprocess.run(['gh','release','upload','comfy-sunshine-data-v1',str(bundle),'--clobber'],check=True)
 status(stage='ready-for-upload',output_files=len(manifest),output_bytes=report['output_bytes'])
 # The upload session is created by the authorized Cloudflare connector, not an account-wide token in CI.
 for _ in range(180):

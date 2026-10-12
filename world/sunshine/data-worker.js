@@ -1,4 +1,5 @@
-// Sunshine data is cached at Cloudflare but must not accumulate in browser disk caches.
+// Asset _headers applies CORS and no-store without running code for normal GETs.
+// This fallback handles preflight/errors and must not create browser disk caches.
 export default {async fetch(request,env){
  const headers={'Access-Control-Allow-Origin':'*','Access-Control-Allow-Methods':'GET, HEAD, OPTIONS','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'};
  if(request.method==='OPTIONS')return new Response(null,{status:204,headers});

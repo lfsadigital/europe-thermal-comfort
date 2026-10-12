@@ -1,6 +1,11 @@
 name: Remote ERA5 sunshine build
 on:
   workflow_dispatch:
+    inputs:
+      resume:
+        description: Restore remote recovery checkpoints
+        type: boolean
+        default: false
 permissions:
   contents: write
 concurrency:
@@ -16,8 +21,20 @@ jobs:
         run: |
           python3 -m venv "$RUNNER_TEMP/comfy-venv"
           "$RUNNER_TEMP/comfy-venv/bin/pip" install numpy requests omfiles
+      - name: Restore remote checkpoints if requested
+        if: ${{ inputs.resume }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/comfy-sunshine-cache"
+          gh release download comfy-sunshine-recovery-v1 --pattern '*.npy' --pattern completed.json --dir "$RUNNER_TEMP/comfy-sunshine-cache"
       - name: Build, audit and upload without local bulk storage
         env:
           COMFY_SUN_BUILD_KEY: ${{ secrets.COMFY_SUN_BUILD_KEY }}
           GH_TOKEN: ${{ github.token }}
         run: "$RUNNER_TEMP/comfy-venv/bin/python world/sunshine/remote_build.py"
+      - name: Preserve remote checkpoints after failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 world/sunshine/remote-recovery.py
