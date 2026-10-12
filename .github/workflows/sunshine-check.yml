@@ -1,0 +1,21 @@
+name: Remote sunshine JavaScript audit
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit daily data with the browser calculation engine
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir "$RUNNER_TEMP/sunshine-audit"
+          gh release download comfy-sunshine-data-v1 --pattern sunshine-bundle.tar --dir "$RUNNER_TEMP/sunshine-audit"
+          tar -xf "$RUNNER_TEMP/sunshine-audit/sunshine-bundle.tar" -C "$RUNNER_TEMP/sunshine-audit"
+          rm "$RUNNER_TEMP/sunshine-audit/sunshine-bundle.tar"
+          node world/sunshine/remote-check.cjs "$RUNNER_TEMP/sunshine-audit"
+          gh release upload comfy-sunshine-data-v1 "$RUNNER_TEMP/sunshine-audit/javascript-audit.json" --clobber
