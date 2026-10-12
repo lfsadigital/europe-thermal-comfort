@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "days": 2192,
+  "cells": 85699,
+  "paired_days_min": 2192,
+  "paired_days_max": 2192,
+  "complete_cells": 85699,
+  "temperature_c_min": -77.75,
+  "temperature_c_max": 53.5,
+  "precipitation_mm_min": 0.0,
+  "precipitation_mm_max": 442.79998779296875
+}

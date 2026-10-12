@@ -1,0 +1,42 @@
+[
+  {
+    "file": "dist/climate-core.js",
+    "sha256": "d647276e329c6ae2e7184bbaf8ef0ae15f9ebf057b9cb89b6b5ad2c2b171ef9b"
+  },
+  {
+    "file": "dist/map-tiles-worker.js",
+    "sha256": "c0bc25333b1b0163933de387552540cbfb67bf558ec5f92f3fdb2f373cc226f2"
+  },
+  {
+    "file": "dist/styles.css",
+    "sha256": "5fd44fd417d405027dae0e4e523d1f2e3fa18b2d77270755e0f20b2ddaae66c4"
+  },
+  {
+    "file": "dist/lfsa-brand.css",
+    "sha256": "da5c6e3720af4906e97a5d93de291f038cd293436f48109196cbbf4b7b38d21b"
+  },
+  {
+    "file": "dist/assets/node-grid.bin",
+    "sha256": "aea5570ba747eb6625c47b56e58d16a2f25a3c197fe98d578731e2cad2403cf7"
+  },
+  {
+    "file": "dist/assets/map-lookup.gz",
+    "sha256": "f85c152353b27d0c58f5d1d8990c1661a949108ac10ea80c8e8843d9cf1727bb"
+  },
+  {
+    "file": "dist/assets/us-states.geojson.gz",
+    "sha256": "e9457a70bf4a9de497e2d0563e936d4d4e7687f0df4f9026acb2b5b996fea197"
+  },
+  {
+    "file": "dist/discovery.js",
+    "sha256": "24660ca653529c15217c138ca80731e30d7371aa639c65624cb6b283373c25bf"
+  },
+  {
+    "file": "dist/logo.svg",
+    "sha256": "de20b86f5b61fc2810fbc45a03a1253735777ab1e88d99af641ff4c85c2ce51c"
+  },
+  {
+    "file": "dist/vendor/maplibre-gl.mjs",
+    "sha256": "244d36122c1398da3a8259817cc6d71e04321afe6404f32606b4b6c6cc4f26fb"
+  }
+]

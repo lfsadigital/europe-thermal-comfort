@@ -1,0 +1,666 @@
+{
+  "source": "Copernicus ERA5 / ECMWF, Open-Meteo AWS Open Data",
+  "period": "2020\u20132025",
+  "days": 2192,
+  "nodes": 85699,
+  "native_resolution_degrees": 0.25,
+  "sampling_degrees": 0.5,
+  "timezone": "UTC",
+  "elevation_downscaling": false,
+  "daily_temperature": "Maximum of 24 hourly 2m temperatures; original stored 0.05\u00b0C precision",
+  "daily_precipitation": "Sum of 24 hourly total precipitation values (mm)",
+  "completed_tasks": 47808,
+  "required_tasks": 47808,
+  "files": [
+    "year_2020",
+    "year_2021",
+    "chunk_904",
+    "chunk_905",
+    "chunk_906",
+    "chunk_907",
+    "chunk_908",
+    "chunk_909",
+    "chunk_910",
+    "chunk_911",
+    "chunk_912",
+    "chunk_913",
+    "chunk_914",
+    "chunk_915",
+    "chunk_916",
+    "chunk_917",
+    "chunk_918",
+    "chunk_919",
+    "chunk_920",
+    "chunk_921",
+    "chunk_922",
+    "chunk_923",
+    "chunk_924",
+    "chunk_925",
+    "chunk_926",
+    "chunk_927",
+    "chunk_928",
+    "chunk_929",
+    "chunk_930",
+    "chunk_931",
+    "chunk_932",
+    "chunk_933",
+    "chunk_934",
+    "chunk_935",
+    "chunk_936",
+    "chunk_937",
+    "chunk_938",
+    "chunk_939",
+    "chunk_940",
+    "chunk_941",
+    "chunk_942",
+    "chunk_943",
+    "chunk_944",
+    "chunk_945",
+    "chunk_946",
+    "chunk_947",
+    "chunk_948",
+    "chunk_949",
+    "chunk_950",
+    "chunk_951",
+    "chunk_952",
+    "chunk_953",
+    "chunk_954",
+    "chunk_955",
+    "chunk_956",
+    "chunk_957",
+    "chunk_958",
+    "chunk_959",
+    "chunk_960",
+    "chunk_961",
+    "chunk_962",
+    "chunk_963",
+    "chunk_964",
+    "chunk_965",
+    "chunk_966",
+    "chunk_967",
+    "chunk_968",
+    "chunk_969",
+    "chunk_970",
+    "chunk_971",
+    "chunk_972",
+    "chunk_973"
+  ],
+  "objects": {
+    "data/copernicus_era5/temperature_2m/year_2020.om": {
+      "bytes": 4244065392,
+      "etag": "\"653147be70255b41fc60dbf3a6ff9a81-506\""
+    },
+    "data/copernicus_era5/precipitation/year_2020.om": {
+      "bytes": 1563252056,
+      "etag": "\"86e7dae2ecc11536fc549230ccf220e5-187\""
+    },
+    "data/copernicus_era5/temperature_2m/year_2021.om": {
+      "bytes": 4242434928,
+      "etag": "\"4bc0decb9355386d3d3d5941104fda74-506\""
+    },
+    "data/copernicus_era5/precipitation/year_2021.om": {
+      "bytes": 1552578472,
+      "etag": "\"48f557756faf25e04497bd879de8f103-186\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_904.om": {
+      "bytes": 240258072,
+      "etag": "\"da2a7dcd9a90112dee451db82d83bc51-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_904.om": {
+      "bytes": 93361184,
+      "etag": "\"c6d4b3d3b24864c1c79a8c9d99f1e14b-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_905.om": {
+      "bytes": 241247384,
+      "etag": "\"d36bd271a5e26d072e62d5cdac605a6e-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_905.om": {
+      "bytes": 94565760,
+      "etag": "\"63683daeb2b98b6484c4fbb660c6d0d9-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_906.om": {
+      "bytes": 242195208,
+      "etag": "\"f64f11a1bb6b6086cd5b8a9eaedbfd68-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_906.om": {
+      "bytes": 94150376,
+      "etag": "\"823a8cafba02845ea7fddeffbd507762-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_907.om": {
+      "bytes": 246122752,
+      "etag": "\"93f2616b4ce9a44ebfa9d35791b1f977-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_907.om": {
+      "bytes": 96372304,
+      "etag": "\"083a205fdcc8f9f69e9ad703a835bd6c-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_908.om": {
+      "bytes": 246271240,
+      "etag": "\"e13b21307eb9eb9b325a89592618a96c-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_908.om": {
+      "bytes": 96420288,
+      "etag": "\"1c526d4975c7fd26c8177bfabd8486eb-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_909.om": {
+      "bytes": 247338480,
+      "etag": "\"f2c412a4e87f40809604794fb7eda915-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_909.om": {
+      "bytes": 97812184,
+      "etag": "\"8101406d5744ced2c702dfab9e5d5f1b-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_910.om": {
+      "bytes": 246627912,
+      "etag": "\"ef8638d7d456fc7c4fc700d4d12dcea4-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_910.om": {
+      "bytes": 98384232,
+      "etag": "\"d37e3411a14b43c34e31e9f07d478693-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_911.om": {
+      "bytes": 246238176,
+      "etag": "\"a489fcf3315a26a6b5ade38d726a61bf-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_911.om": {
+      "bytes": 100547464,
+      "etag": "\"10a9e5025077ed9e7d6b3da8701d3219-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_912.om": {
+      "bytes": 245562344,
+      "etag": "\"37552aa7a50950dd4308b8e54549c10a-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_912.om": {
+      "bytes": 104141176,
+      "etag": "\"aba2e33c57a4b4955d258b6cd9835b0e-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_913.om": {
+      "bytes": 247223440,
+      "etag": "\"cbfc5404f318da26ef180595b32dcab7-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_913.om": {
+      "bytes": 105282056,
+      "etag": "\"e94d2516e1881779469e39f26d4e61c9-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_914.om": {
+      "bytes": 244767176,
+      "etag": "\"374df7e0f034359574a297a75c7b6001-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_914.om": {
+      "bytes": 104225600,
+      "etag": "\"8aa8a3e4aaedc3faee260ec4e17f982c-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_915.om": {
+      "bytes": 246168528,
+      "etag": "\"1fe6a5100c83efea52a3753328dd4e6a-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_915.om": {
+      "bytes": 104752312,
+      "etag": "\"50146cafcaa5f0baa49b08cae3eeadbe-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_916.om": {
+      "bytes": 245262024,
+      "etag": "\"5d9c0a4802fdc8bc7b96a1096c4d473b-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_916.om": {
+      "bytes": 102305552,
+      "etag": "\"606bbf4d7d0be7f615acf963445c9948-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_917.om": {
+      "bytes": 245692304,
+      "etag": "\"98553f9a6333a913a25d5ff3b6830484-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_917.om": {
+      "bytes": 102084048,
+      "etag": "\"c8e4f5cce31f91b8ba38e9686112634e-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_918.om": {
+      "bytes": 244719432,
+      "etag": "\"0a40538dc2904c693d95e87addc26555-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_918.om": {
+      "bytes": 99406968,
+      "etag": "\"00a2ffee664c28bb2bba78b61cffd322-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_919.om": {
+      "bytes": 243139024,
+      "etag": "\"c9653924637aa6758c9728f36a8ba731-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_919.om": {
+      "bytes": 96709616,
+      "etag": "\"bbd2e0924bac0f358e76d1db3a78957a-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_920.om": {
+      "bytes": 241820600,
+      "etag": "\"4270ca90da78ae3e2d539b6b7529d5ff-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_920.om": {
+      "bytes": 96919248,
+      "etag": "\"4242d76bd314e43cdfc18367da58aca1-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_921.om": {
+      "bytes": 238773280,
+      "etag": "\"f180d2191819ffffeb425fd74d8afb00-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_921.om": {
+      "bytes": 94394088,
+      "etag": "\"8bf626816567cafd09dc7883a9bc09b6-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_922.om": {
+      "bytes": 240143496,
+      "etag": "\"8fb05b5c6b06bf12b73f861f00c0722e-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_922.om": {
+      "bytes": 94295224,
+      "etag": "\"ee72c94db0f6da0ffba9c0c099802031-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_923.om": {
+      "bytes": 242763512,
+      "etag": "\"75d9ea3bded9c2d8fe8ca3487cae6efc-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_923.om": {
+      "bytes": 94423480,
+      "etag": "\"43d74d1ee15451580cc7f38cb0e52f03-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_924.om": {
+      "bytes": 245159624,
+      "etag": "\"7783a582b7ea98f9144bb5fe0076fc59-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_924.om": {
+      "bytes": 94867968,
+      "etag": "\"9cc601925592149a31857da01e46ed73-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_925.om": {
+      "bytes": 247000880,
+      "etag": "\"b2eac75736f9d2f0914f1d1ac0f143c9-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_925.om": {
+      "bytes": 98510880,
+      "etag": "\"7639d29d5ce6dda97ee54730b66dafb3-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_926.om": {
+      "bytes": 247063592,
+      "etag": "\"a905d5936fa85afa4e028e9ee6b2ecc6-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_926.om": {
+      "bytes": 97986752,
+      "etag": "\"2a883a37d3c54a4a7705ff1f66a94ccd-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_927.om": {
+      "bytes": 247124152,
+      "etag": "\"d788af684aaadac8db750d494be255d8-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_927.om": {
+      "bytes": 99006960,
+      "etag": "\"c243b7f9adb1cac019b57bd9b3e1fee3-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_928.om": {
+      "bytes": 248271560,
+      "etag": "\"68d4db97ccca30c59be9e3c491b80ec8-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_928.om": {
+      "bytes": 101013752,
+      "etag": "\"bca1fb9a6c8003794bf4630d1de28bc2-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_929.om": {
+      "bytes": 245120592,
+      "etag": "\"310972bd7ff863d674fbc16b86fd721e-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_929.om": {
+      "bytes": 101597632,
+      "etag": "\"7d793f314b3304c08c3d78f4449d1104-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_930.om": {
+      "bytes": 246613184,
+      "etag": "\"98ea98d83b94c0929cee9bb5386d50d9-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_930.om": {
+      "bytes": 103912040,
+      "etag": "\"25fe31ed5052d0ac4fda888ae294f815-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_931.om": {
+      "bytes": 245634920,
+      "etag": "\"432a5eb85985c8f1b3e68b4af872a21e-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_931.om": {
+      "bytes": 103886568,
+      "etag": "\"bb25e8236aa4d87158e1c63001229f4e-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_932.om": {
+      "bytes": 245174608,
+      "etag": "\"247432c84f66fafe24db5a71ffec588a-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_932.om": {
+      "bytes": 102123424,
+      "etag": "\"341757afbf306bb1331bfd9f050b681d-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_933.om": {
+      "bytes": 245908800,
+      "etag": "\"bca033fd1f8c3514a3fe56e8294ecbab-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_933.om": {
+      "bytes": 103790976,
+      "etag": "\"9b2dd01cddb61b789a74c363059cfe7d-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_934.om": {
+      "bytes": 244102912,
+      "etag": "\"3c629f9f16cddd31e72fcd54c917b7f1-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_934.om": {
+      "bytes": 101850464,
+      "etag": "\"7a3d509d3d270abcedb68f80f3ae9ad5-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_935.om": {
+      "bytes": 243491848,
+      "etag": "\"4a415d99f736eaed6467427848a2fca3-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_935.om": {
+      "bytes": 97113776,
+      "etag": "\"b20cfa3d592060731244f65cf8721f75-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_936.om": {
+      "bytes": 244037872,
+      "etag": "\"4d089e2e5f3374bbc606bfdb48994282-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_936.om": {
+      "bytes": 98834728,
+      "etag": "\"762856a2b9237fb95e17f28a9353453f-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_937.om": {
+      "bytes": 241935320,
+      "etag": "\"fd5617debce315fb140935c56113c7e1-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_937.om": {
+      "bytes": 96480656,
+      "etag": "\"0abfaad14cf082960152cf67a05f7adb-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_938.om": {
+      "bytes": 239719952,
+      "etag": "\"09dd5263829d264e26d7cd6467aa9984-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_938.om": {
+      "bytes": 95015008,
+      "etag": "\"dda91a397c955b76971bc5bfade68e2f-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_939.om": {
+      "bytes": 241325368,
+      "etag": "\"4eacc34f4bdd3ed85874223af3be9348-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_939.om": {
+      "bytes": 94509320,
+      "etag": "\"6e40f2e51ab9080ffdc9d2e883cd1150-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_940.om": {
+      "bytes": 240480888,
+      "etag": "\"22f7471979d71df1deec05146ec38526-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_940.om": {
+      "bytes": 93739800,
+      "etag": "\"8a1fce741e9034d2d2caba2111c0744a-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_941.om": {
+      "bytes": 242968792,
+      "etag": "\"47277adae2d2b92f23063d77fdc445f6-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_941.om": {
+      "bytes": 94052960,
+      "etag": "\"84cd9ab26045b3ccb2ed222d03c896fa-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_942.om": {
+      "bytes": 245394328,
+      "etag": "\"1a1b2322f734c5a3c8150381c8c0bd6d-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_942.om": {
+      "bytes": 95467528,
+      "etag": "\"72f6829de20eca3d7e81a48208c83fb7-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_943.om": {
+      "bytes": 247470352,
+      "etag": "\"1f49e11d0787f617cff19a33fb287702-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_943.om": {
+      "bytes": 98985064,
+      "etag": "\"c4651b05f559ff578c750d1ab64c4d1d-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_944.om": {
+      "bytes": 246509928,
+      "etag": "\"efe39c5351dcb4695dcbc558f64c6947-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_944.om": {
+      "bytes": 97873920,
+      "etag": "\"a0d97a67ee260e2fb1b98152d1c8630a-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_945.om": {
+      "bytes": 245438160,
+      "etag": "\"611334fbdec95afc5a2ce0ec07be9350-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_945.om": {
+      "bytes": 97600232,
+      "etag": "\"65041231f4327bb0a412da25dc2d18b8-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_946.om": {
+      "bytes": 246131408,
+      "etag": "\"d6397d15a018602fe720dde3ffcbb8ab-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_946.om": {
+      "bytes": 100517056,
+      "etag": "\"0b8104356a1f05cd4afb25b9e4ef8a1e-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_947.om": {
+      "bytes": 245637152,
+      "etag": "\"6c7e660a2b570f7b032bef5506634f7f-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_947.om": {
+      "bytes": 102291264,
+      "etag": "\"4f4ef0fea70db2b053055312bd1fc885-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_948.om": {
+      "bytes": 245791080,
+      "etag": "\"fae8ba094145bfe68d58ba694af74e95-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_948.om": {
+      "bytes": 103268408,
+      "etag": "\"ffb14ed2fd8d93569213651300ee6b93-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_949.om": {
+      "bytes": 244795976,
+      "etag": "\"3ed01f3501d500746232cd8f9eab0bd9-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_949.om": {
+      "bytes": 102753856,
+      "etag": "\"0515db2776d3767fd12131694895d50c-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_950.om": {
+      "bytes": 245150112,
+      "etag": "\"48ab5b2e52e642b2983ea40844c806ff-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_950.om": {
+      "bytes": 105052536,
+      "etag": "\"848b29fe6c3913aaf1049752fec14a16-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_951.om": {
+      "bytes": 243459592,
+      "etag": "\"a92a0c740ecf971755b97bde0ddc2332-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_951.om": {
+      "bytes": 100195112,
+      "etag": "\"44787c10849a84bee3df9dc25e4a7320-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_952.om": {
+      "bytes": 243376576,
+      "etag": "\"10fceefe52b9d323cc3b7e95f22b1a4e-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_952.om": {
+      "bytes": 99476288,
+      "etag": "\"cbfece46c4bd33d25a348f0d9f57ad83-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_953.om": {
+      "bytes": 242293496,
+      "etag": "\"51bcd8b5c6f85117ae9b45dd39657767-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_953.om": {
+      "bytes": 98477688,
+      "etag": "\"017d663c3f20e6dd9b534b1c9e7b9a7c-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_954.om": {
+      "bytes": 241786208,
+      "etag": "\"c78e5a9a288bad63c6e3fa5c49052aa6-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_954.om": {
+      "bytes": 97283520,
+      "etag": "\"199b27a86f4f488e16107aef80056505-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_955.om": {
+      "bytes": 239418952,
+      "etag": "\"68e30fece15970664f05014a7cc25470-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_955.om": {
+      "bytes": 94741320,
+      "etag": "\"5e0b8644ba753d92c514cb1f516171ce-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_956.om": {
+      "bytes": 238626504,
+      "etag": "\"dd793c17a0be7c881868740abb890bbf-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_956.om": {
+      "bytes": 93240208,
+      "etag": "\"c04656f2ab8197fd698cf7766ce15da9-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_957.om": {
+      "bytes": 240972096,
+      "etag": "\"88b97f238f173773be48942839607c9d-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_957.om": {
+      "bytes": 92846752,
+      "etag": "\"c501f99f05ff4f46d74f6ec8616043f2-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_958.om": {
+      "bytes": 241784344,
+      "etag": "\"d42f77984113c226e807f5ef64fabdb0-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_958.om": {
+      "bytes": 93060016,
+      "etag": "\"19f42fc64a6da9eb548342ce7f2e0e8b-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_959.om": {
+      "bytes": 244554976,
+      "etag": "\"93d20d37d6976870962afad608c2c7a0-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_959.om": {
+      "bytes": 94655144,
+      "etag": "\"f8ef897ca191f515c7c771f0061a252e-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_960.om": {
+      "bytes": 247049336,
+      "etag": "\"c886ad07e9d182bc98c8c996e03e1218-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_960.om": {
+      "bytes": 98023240,
+      "etag": "\"004c7e6643e971ca6eaba713820df30d-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_961.om": {
+      "bytes": 248534728,
+      "etag": "\"37335fa34d370f76db0df4b9d1155907-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_961.om": {
+      "bytes": 99978984,
+      "etag": "\"d448024f33109ab10b1e0e807473da1c-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_962.om": {
+      "bytes": 247872832,
+      "etag": "\"cb2366d16ad4b17baf8361cedeef1018-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_962.om": {
+      "bytes": 101027344,
+      "etag": "\"03427e67909f28a22b2d1fe8a4559c97-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_963.om": {
+      "bytes": 245919712,
+      "etag": "\"8e6c3e7a8e7d4e37aa2b02bcab5f5ddd-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_963.om": {
+      "bytes": 101108216,
+      "etag": "\"2ec65bdc695b9743a495ffa00f0e380d-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_964.om": {
+      "bytes": 244535928,
+      "etag": "\"a65d18f0a4ff0ad03c4782ab8c4e0171-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_964.om": {
+      "bytes": 102876016,
+      "etag": "\"22085e670c5b01f5501d1269174a878f-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_965.om": {
+      "bytes": 247136520,
+      "etag": "\"83e6ede627e013d02fb97758d23333ca-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_965.om": {
+      "bytes": 104062896,
+      "etag": "\"0a6a5874ace10e9e5b96f0465d4c2be3-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_966.om": {
+      "bytes": 245446728,
+      "etag": "\"460becd546baea10d808e62b1c5fe3b1-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_966.om": {
+      "bytes": 103717312,
+      "etag": "\"eaa5615ad425b1084438876d8356c147-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_967.om": {
+      "bytes": 246448912,
+      "etag": "\"23ed646c7442ffb2e5df08799e8e5e97-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_967.om": {
+      "bytes": 104493384,
+      "etag": "\"91a55304e9e65e756d28b872b1f61df0-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_968.om": {
+      "bytes": 246141128,
+      "etag": "\"6e206a4999d8f5377a9598f1671ed508-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_968.om": {
+      "bytes": 104048776,
+      "etag": "\"ac588008405b4a9b7cb46876cb34a375-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_969.om": {
+      "bytes": 244903288,
+      "etag": "\"eb86d047e7865f78b0fdcd0ede30a171-30\""
+    },
+    "data/copernicus_era5/precipitation/chunk_969.om": {
+      "bytes": 102465112,
+      "etag": "\"e088cc1326d309f4a5cc0ac066c9502b-13\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_970.om": {
+      "bytes": 242550632,
+      "etag": "\"d2c4c6f1720ee7df56228057796b4311-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_970.om": {
+      "bytes": 99233152,
+      "etag": "\"56736a3f3b87ad24af7722aec014ad92-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_971.om": {
+      "bytes": 242684272,
+      "etag": "\"94ecc686d9a1ed67e7d2be7715549e98-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_971.om": {
+      "bytes": 97260336,
+      "etag": "\"4855eb9fb9b7f25a81925ea4724b78d5-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_972.om": {
+      "bytes": 240350096,
+      "etag": "\"9f0535230a54b5ec0f5a83a511da8f0b-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_972.om": {
+      "bytes": 93387704,
+      "etag": "\"dfa70124f21024fcae3a50b4e1e89419-12\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_973.om": {
+      "bytes": 241096448,
+      "etag": "\"f79ca5673fa989d499537b82e08dfcc2-29\""
+    },
+    "data/copernicus_era5/precipitation/chunk_973.om": {
+      "bytes": 95374360,
+      "etag": "\"d3123c230ba1a0c6a3432cbd8361c84f-12\""
+    }
+  }
+}

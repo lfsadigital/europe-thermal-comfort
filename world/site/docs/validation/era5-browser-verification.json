@@ -1,0 +1,31 @@
+{
+  "result": "PASS",
+  "valueComparisons": 126,
+  "metrics": {
+    "readyMs": 2325,
+    "worldSwitchMs": 84,
+    "europeSwitchMs": 52,
+    "usaSwitchMs": 69
+  },
+  "labels": {
+    "features": 36,
+    "roads": 5267
+  },
+  "checks": [
+    "reference cities",
+    "default and custom filters",
+    "world/europe/usa values identical",
+    "wheel",
+    "drag/inertia",
+    "keyboard",
+    "pinch",
+    "zoom anchor",
+    "street-level labels and roads",
+    "US states",
+    "crosshair cursor",
+    "mobile/tablet no overflow",
+    "six PNG exports"
+  ],
+  "errors": [],
+  "badResponses": []
+}

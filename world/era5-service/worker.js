@@ -1,0 +1,1 @@
+export default {async fetch(request,env){const r=await env.ASSETS.fetch(request);const h=new Headers(r.headers);h.set('Access-Control-Allow-Origin','*');h.set('Cache-Control','public, max-age=31536000, immutable');return new Response(r.body,{status:r.status,headers:h});}}

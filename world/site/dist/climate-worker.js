@@ -1,0 +1,5 @@
+importScripts('climate-core.js?v=5');
+// Bound decoded climate memory: process one chunk at a time, retain only four.
+// The browser HTTP cache handles repeat requests; no full-period array is kept.
+let cache=new Map(),activeId;
+onmessage=async({data:{period,params,id,files,nodes}})=>{activeId=id;try{const score=new Float64Array(nodes),days=new Float64Array(nodes);score.fill(NaN);days.fill(NaN);for(let i=0;i<files.length;i++){if(activeId!==id)return;const key=files[i];let c=cache.get(key);if(!c){const r=await fetch('https://comfy-days-climate-era5.lfsalmeida92.workers.dev/era5-v1/'+key);if(!r.ok)throw Error('Climate download failed');const buffer=await new Response(r.body.pipeThrough(new DecompressionStream('gzip'))).arrayBuffer();if(activeId!==id)return;c=ClimateCore.parse(buffer);cache.set(key,c);while(cache.size>4)cache.delete(cache.keys().next().value);}for(let k=0;k<c.n;k++){const v=ClimateCore.calculate(c,k,params);score[c.start+k]=v[0];days[c.start+k]=v[1];}postMessage({id,progress:(i+1)/files.length});}if(activeId===id)postMessage({id,score,days},[score.buffer,days.buffer]);}catch(e){if(activeId===id)postMessage({id,error:e.message});}};

@@ -1,0 +1,110 @@
+[
+  {
+    "city": "Porto",
+    "source_score": 8.589130924022111,
+    "api_rounded_score": 8.591811131386862,
+    "score_difference": -0.0026802073647509417,
+    "source_days": 99.0,
+    "api_rounded_days": 99.66666666666667,
+    "days_difference": -0.6666666666666714
+  },
+  {
+    "city": "Madrid",
+    "source_score": 7.722753193746083,
+    "api_rounded_score": 7.723243613138686,
+    "score_difference": -0.0004904193926025258,
+    "source_days": 67.33333333333333,
+    "api_rounded_days": 68.33333333333333,
+    "days_difference": -1.0
+  },
+  {
+    "city": "London",
+    "source_score": 7.4854356724960915,
+    "api_rounded_score": 7.493385036496351,
+    "score_difference": -0.007949364000259251,
+    "source_days": 72.66666666666667,
+    "api_rounded_days": 74.0,
+    "days_difference": -1.3333333333333286
+  },
+  {
+    "city": "Rome",
+    "source_score": 8.29282620005364,
+    "api_rounded_score": 8.294251824817518,
+    "score_difference": -0.0014256247638790853,
+    "source_days": 67.5,
+    "api_rounded_days": 68.0,
+    "days_difference": -0.5
+  },
+  {
+    "city": "Los Angeles",
+    "source_score": 8.622616329984943,
+    "api_rounded_score": 8.619867700729927,
+    "score_difference": 0.0027486292550165103,
+    "source_days": 135.83333333333334,
+    "api_rounded_days": 136.16666666666666,
+    "days_difference": -0.3333333333333144
+  },
+  {
+    "city": "New York",
+    "source_score": 7.1446167888871,
+    "api_rounded_score": 7.147376824817518,
+    "score_difference": -0.00276003593041807,
+    "source_days": 64.5,
+    "api_rounded_days": 65.0,
+    "days_difference": -0.5
+  },
+  {
+    "city": "Miami",
+    "source_score": 8.669651009088016,
+    "api_rounded_score": 8.660675182481752,
+    "score_difference": 0.008975826606263837,
+    "source_days": 75.0,
+    "api_rounded_days": 75.16666666666667,
+    "days_difference": -0.1666666666666714
+  },
+  {
+    "city": "Chicago",
+    "source_score": 6.666628654819342,
+    "api_rounded_score": 6.66922901459854,
+    "score_difference": -0.002600359779197703,
+    "source_days": 60.333333333333336,
+    "api_rounded_days": 60.5,
+    "days_difference": -0.1666666666666643
+  },
+  {
+    "city": "Nairobi",
+    "source_score": 9.611325272678458,
+    "api_rounded_score": 9.606979927007298,
+    "score_difference": 0.004345345671159961,
+    "source_days": 159.83333333333334,
+    "api_rounded_days": 159.83333333333334,
+    "days_difference": 0.0
+  },
+  {
+    "city": "Nguruka",
+    "source_score": 8.60948905065982,
+    "api_rounded_score": 8.598266423357664,
+    "score_difference": 0.011222627302155175,
+    "source_days": 3.6666666666666665,
+    "api_rounded_days": 3.6666666666666665,
+    "days_difference": 0.0
+  },
+  {
+    "city": "Cape Town",
+    "source_score": 8.9124201779818,
+    "api_rounded_score": 8.911199817518247,
+    "score_difference": 0.0012203604635541154,
+    "source_days": 132.5,
+    "api_rounded_days": 132.66666666666666,
+    "days_difference": -0.1666666666666572
+  },
+  {
+    "city": "Marrakech",
+    "source_score": 7.782664223308981,
+    "api_rounded_score": 7.776482664233576,
+    "score_difference": 0.006181559075404408,
+    "source_days": 108.33333333333333,
+    "api_rounded_days": 109.0,
+    "days_difference": -0.6666666666666714
+  }
+]

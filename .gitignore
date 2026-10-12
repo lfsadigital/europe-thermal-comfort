@@ -10,3 +10,12 @@ site/.openai/
 site/dist/assets/*
 !site/dist/assets/proj4.js
 !site/dist/assets/proj4-license.md
+
+# Current worldwide source remains lightweight.
+world/site/dist/assets/score-*.bin
+world/site/dist/assets/days-*.bin
+world/site/dist/assets/coverage-*.bin
+world/climate-data/
+world/era5-staging/
+world/share/
+*.tmp

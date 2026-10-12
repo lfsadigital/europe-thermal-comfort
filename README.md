@@ -1,5 +1,13 @@
 # Comfy Days
 
+Live worldwide site: https://comfy.lfsadigital.com/
+
+**Current worldwide ERA5 source is in [world/](world/).** The Europe-only code below is an archived implementation, with a different source and historical scoring formula. It does not describe the live site.
+
+The live interface is hosted by Sites and climate statistics by Cloudflare. GitHub stores this public code backup; it does not host the current Comfy Days site.
+
+# Comfy Days
+
 [Open the website](https://conforto-termico-europa.lfsadigital.chatgpt.site)
 
 A real Natural Earth map of Europe with two measures based on daily maximum
