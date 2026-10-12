@@ -1,3 +1,4 @@
+if(JSON.parse(require('fs').readFileSync('dist/assets/metadata.json')).rain_threshold_mm===1){require('./verify-rain.cjs');}else{
 const fs=require('fs'),vm=require('vm'),zlib=require('zlib'),assert=require('assert');
 let source=fs.readFileSync('dist/climate-worker.js','utf8').replace('const initialized=initialize();','const initialized=Promise.resolve();');const context={self:{},Uint8ClampedArray,Int8Array,Uint16Array,Uint32Array,Int32Array,Float64Array,DataView,Map,Math,Number,Promise,console};vm.createContext(context);vm.runInContext(source,context);
 function ab(file){const b=fs.readFileSync(file);return b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength);}context.nodeData=ab('dist/assets/dynamic-nodes.bin');context.weightData=ab('dist/assets/dynamic-weights.bin');vm.runInContext('nodes=new Int32Array(nodeData);weights=new Float64Array(weightData)',context);
@@ -5,3 +6,5 @@ let maxScore=0,maxDays=0;for(const period of ['mean','2020','2021','2022','2023'
 // Raw NOAA references computed independently in Python.
 const refs=JSON.parse(fs.readFileSync('dist/assets/dynamic-reference.json'));for(const ref of refs){const b=zlib.gunzipSync(fs.readFileSync(`dist/assets/hist-${ref.period}.gz`));context.buffer=b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength);context.lower=ref.lower;context.upper=ref.upper;const r=vm.runInContext('calculate(readHistogram(buffer),lower,upper)',context);console.log('range',ref.lower,ref.upper,'score error',r.score[ref.index]-ref.score,'days error',r.days[ref.index]-ref.days);assert(Math.abs(r.score[ref.index]-ref.score)<1e-8);assert(Math.abs(r.days[ref.index]-ref.days)<1e-8);}
 console.log('Independent raw NOAA custom ranges PASS;',refs.length,'cases');console.log(JSON.stringify({maxScoreQuantizationDifference:maxScore,maxDaysQuantizationDifference:maxDays}));
+
+}
