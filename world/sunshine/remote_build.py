@@ -23,7 +23,8 @@ places=[('Porto',41.25,-8.25),('Paris',48.75,2.25),('Miami',25.75,-80.25),('Los 
 # Reject invalid reference coordinates before any bulk download.
 for city,lat,lon in places:
  assert int(grid[int(round((89.75-lat)/.5)),int(round((lon+179.75)/.5))])>=0,('Reference has no land cell',city,lat,lon)
-checkpoint=CACHE/'completed.json';done=set(json.loads(checkpoint.read_text()) if checkpoint.exists() else [])
+checkpoint=CACHE/'completed.json';checkpoint_data=json.loads(checkpoint.read_text()) if checkpoint.exists() else {};done=set(checkpoint_data.get('completed',[]))
+if done:assert all((CACHE/(name+'.npy')).exists() for name in ['temperature','rain','sunshine']), 'Incomplete remote recovery arrays'
 arrays={}
 for name in ['temperature','rain','sunshine']:
  path=CACHE/(name+'.npy');existing=path.exists();arrays[name]=np.lib.format.open_memmap(path,mode='r+' if existing else 'w+',dtype='f4',shape=(n,nd))
@@ -45,6 +46,9 @@ for variable in ['temperature_2m','precipitation','direct_radiation']:
   key=f'data/copernicus_era5/{variable}/{tag}.om';assert key in inventory
   if variable!='direct_radiation':assert inventory[key]==old[key],('Existing source changed',key)
 required=sum(inventory[f'data/copernicus_era5/{v}/{x[0]}.om']['bytes'] for v in ['temperature_2m','precipitation','direct_radiation'] for x in files)
+required_inventory={f'data/copernicus_era5/{v}/{x[0]}.om':inventory[f'data/copernicus_era5/{v}/{x[0]}.om'] for v in ['temperature_2m','precipitation','direct_radiation'] for x in files}
+source_fingerprint=hashlib.sha256(json.dumps(required_inventory,sort_keys=True).encode()).hexdigest()
+if done:assert checkpoint_data['source_fingerprint']==source_fingerprint, 'Source objects changed since the remote checkpoint'
 status(stage='import',required_source_bytes=required,completed=len(done),total=len(files)*3)
 def download(variable,tag):
  key=f'data/copernicus_era5/{variable}/{tag}.om';info=inventory[key];path=CACHE/(variable+'-working.om');fd=os.open(path,os.O_CREAT|os.O_RDWR|os.O_TRUNC,0o600);os.ftruncate(fd,info['bytes']);block=8*1024*1024
@@ -79,7 +83,7 @@ def process(variable,name,tag,begin,lo,hi):
    arrays[name][grid[row,xs],off:off+daily.shape[1]]=daily
  arrays[name].flush();path.unlink()
  with status_lock:
-  done.add(key);temporary=checkpoint.with_suffix('.tmp');temporary.write_text(json.dumps(sorted(done)));temporary.replace(checkpoint);completed+=1;status(stage='import',completed=completed,total=len(files)*3,latest=key,elapsed_seconds=round(time.time()-began))
+  done.add(key);temporary=checkpoint.with_suffix('.tmp');temporary.write_text(json.dumps({'completed':sorted(done),'source_fingerprint':source_fingerprint}));temporary.replace(checkpoint);completed+=1;status(stage='import',completed=completed,total=len(files)*3,latest=key,elapsed_seconds=round(time.time()-began))
 for tag,begin,lo,hi in files:
  variables=[('temperature_2m','temperature'),('precipitation','rain'),('direct_radiation','sunshine')]
  if tag.startswith('year_'):
