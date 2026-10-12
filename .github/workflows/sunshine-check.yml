@@ -18,4 +18,5 @@ jobs:
           tar -xf "$RUNNER_TEMP/sunshine-audit/sunshine-bundle.tar" -C "$RUNNER_TEMP/sunshine-audit"
           rm "$RUNNER_TEMP/sunshine-audit/sunshine-bundle.tar"
           node world/sunshine/remote-check.cjs "$RUNNER_TEMP/sunshine-audit"
-          gh release upload comfy-sunshine-data-v1 "$RUNNER_TEMP/sunshine-audit/javascript-audit.json" --clobber
+          node world/sunshine/delivery-check.cjs "$RUNNER_TEMP/sunshine-audit/delivery-manifest.json" "$RUNNER_TEMP/sunshine-audit/delivery-audit.json"
+          gh release upload comfy-sunshine-data-v1 "$RUNNER_TEMP/sunshine-audit/javascript-audit.json" "$RUNNER_TEMP/sunshine-audit/delivery-audit.json" --clobber

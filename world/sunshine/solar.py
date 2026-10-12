@@ -1,4 +1,5 @@
 # SPDX-License-Identifier: AGPL-3.0-only
+# Adapted from Open-Meteo solar calculations on 2026-10-12; NumPy/Float32 implementation.
 # Solar method adapted from Open-Meteo; see AGPL-3.0.txt.
 """ERA5 radiation-derived sunshine, matching Open-Meteo's published method.
 NREL SPA lookup values (delta_t=60); Float32 solar geometry; hourly preceding sums.
