@@ -3,6 +3,7 @@
 Luiz selected this rule on 2026-10-12. Status: specified, not implemented or published.
 
 - Sunshine is hours of sunshine, not daylight hours. Use explicit ERA5, UTC days, 2020–2025, and the same source coordinates and sampling policy as temperature and rain.
+- Planned enabled default: minimum 6 hours/day, no upper limit. This is a user preference, not a validated physiological comfort threshold.
 - Disabled by default. Disabled calculations and existing data-coverage rules must remain unchanged.
 - When enabled, let H be the selected minimum hours per day and S be daily sunshine hours. Additional penalty = 0.5 × max(0, H − S).
 - Apply the zero floor after adding temperature, rainfall and sunshine penalties: max(0, 10 − temperaturePenalty − rainfallPenalty − sunshinePenalty).

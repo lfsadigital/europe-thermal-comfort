@@ -9,7 +9,8 @@ for name,digest in defaults.items():
     path=ROOT/'site/dist/assets'/name
     if path.exists() and hashlib.sha256(path.read_bytes()).hexdigest()==digest:
         continue
-    with urllib.request.urlopen('https://comfy.lfsadigital.com/assets/'+name,timeout=90) as response:
+    request=urllib.request.Request('https://comfy.lfsadigital.com/assets/'+name,headers={'User-Agent':'ComfyDays-CodeRestore/1.0','Accept':'application/octet-stream'})
+    with urllib.request.urlopen(request,timeout=90) as response:
         data=response.read()
     if hashlib.sha256(data).hexdigest()!=digest:
         raise ValueError('Published data no longer matches this code version: '+name)

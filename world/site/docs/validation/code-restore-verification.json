@@ -1,0 +1,8 @@
+{
+  "result": "PASS",
+  "files": 21,
+  "total_bytes": 18144000,
+  "validation": "Downloaded from public custom-domain endpoints and checked all saved SHA-256 hashes",
+  "raw_archive_downloaded": false,
+  "duplicate_test_files_removed": true
+}

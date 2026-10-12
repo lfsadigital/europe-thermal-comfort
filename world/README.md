@@ -9,7 +9,7 @@ python3 world/restore_default_maps.py
 python3 -m http.server 8777 --directory world/site/dist
 ```
 
-Open http://localhost:8777 . The restore step downloads only the 21 default map arrays (about 22 MB), checks their saved SHA-256 hashes, and reuses valid existing files. Geographic assets and front-end source are included. Custom recalculations fetch versioned statistics from the existing Cloudflare endpoint on demand; they do not require a raw climate archive on disk. Remote service availability is a dependency.
+Open http://localhost:8777 . The restore step downloads only the 21 default map arrays (about 18 MB), checks their saved SHA-256 hashes, and reuses valid existing files. Geographic assets and front-end source are included. Custom recalculations fetch versioned statistics from the existing Cloudflare endpoint on demand; they do not require a raw climate archive on disk. Remote service availability is a dependency.
 
 ## Storage and contribution
 
