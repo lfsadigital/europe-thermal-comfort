@@ -10,11 +10,11 @@ with CachedEOBS() as remote,h5py.File(remote,'r') as f:
  for year in range(2020,2025):
   first=(date(year,1,1)-date(1950,1,1)).days;n=(date(year+1,1,1)-date(year,1,1)).days
   t=f['tx'][first:first+n,ys[0]+y,xs[0]+x].astype(float)*scale;r=np.load(f'.cache/rain-daily/{year}.npy',mmap_mode='r')[:,y,x].astype(float);assert np.isfinite(t).all() and np.isfinite(r).all() and (r>=0).all();all_t.append(t);all_r.append(r)
-  for lo,hi in [(20,25),(18,33),(18,28),(-10,5),(25,26)]:
+  for lo,hi in [(18,26),(20,25),(18,33),(18,28),(-10,5),(25,26)]:
    report['reference_cases'].append({'source':'E-OBS','period':str(year),'node':node,'lower':lo,'upper':hi,'score':float((100-np.maximum(lo-t,0)-np.maximum(t-hi,0)-(r>1)).mean()),'days':int(((t>=lo)&(t<=hi)&(r<=1)).sum())})
   print(year,'raw E-OBS custom range references',flush=True)
 t=np.concatenate(all_t);r=np.concatenate(all_r)
-for lo,hi in [(20,25),(18,33),(18,28),(-10,5),(25,26)]:
+for lo,hi in [(18,26),(20,25),(18,33),(18,28),(-10,5),(25,26)]:
  report['reference_cases'].append({'source':'E-OBS','period':'mean','node':node,'lower':lo,'upper':hi,'score':float((100-np.maximum(lo-t,0)-np.maximum(t-hi,0)-(r>1)).mean()),'days':float(((t>=lo)&(t<=hi)&(r<=1)).sum()/5)})
 # Recreate NOAA references even when joint caches were reused.
 report['reference_cases']=[r for r in report['reference_cases'] if r.get('source')=='E-OBS']
@@ -25,10 +25,10 @@ for year in range(2020,2025):
   np.testing.assert_array_equal(td.time.values.astype('datetime64[D]'),pd.time.values.astype('datetime64[D]'))
   n=len(td.time);t=td.tmax.values[:,::-1].reshape(n,-1)[:,j].astype(float);r=pd.values[:,::-1].reshape(n,-1)[:,j].astype(float)
   assert np.isfinite(t).all() and np.isfinite(r).all() and (r>=0).all();nt.append(t);nr.append(r)
-  for lo,hi in [(20,25),(18,33),(18,28),(-10,5),(25,26)]:
+  for lo,hi in [(18,26),(20,25),(18,33),(18,28),(-10,5),(25,26)]:
    report['reference_cases'].append({'source':'NOAA','period':str(year),'node':node,'lower':lo,'upper':hi,'score':float((100-np.maximum(lo-t,0)-np.maximum(t-hi,0)-(r>1)).mean()),'days':int(((t>=lo)&(t<=hi)&(r<=1)).sum())})
 t=np.concatenate(nt);r=np.concatenate(nr)
-for lo,hi in [(20,25),(18,33),(18,28),(-10,5),(25,26)]:
+for lo,hi in [(18,26),(20,25),(18,33),(18,28),(-10,5),(25,26)]:
  report['reference_cases'].append({'source':'NOAA','period':'mean','node':node,'lower':lo,'upper':hi,'score':float((100-np.maximum(lo-t,0)-np.maximum(t-hi,0)-(r>1)).mean()),'days':float(((t>=lo)&(t<=hi)&(r<=1)).sum()/5)})
 report['checks']=list(dict.fromkeys(report['checks']))
 report['checks'].append('Independent raw NOAA custom-range references, including five-year mean and 18–33 °C PASS')

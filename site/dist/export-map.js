@@ -5,7 +5,7 @@ async function exportMap(){
   const button=$('export-map'),notice=$('export-status');
   if(!state.ready||button.disabled||state.exporting)return;
   const snapshot={mode:state.mode,period:state.period,lower:state.lower,upper:state.upper,palette:[...state.meta.palette],request:state.request};
-  const custom=snapshot.lower!==20||snapshot.upper!==25;
+  const custom=snapshot.lower!==18||snapshot.upper!==26;
   // Copy the current raster before awaiting assets: later user changes cannot alter this export.
   let raster;
   if(custom){raster=document.createElement('canvas');raster.width=$('dynamic-map').width;raster.height=$('dynamic-map').height;raster.getContext('2d').drawImage($('dynamic-map'),0,0);}
@@ -18,7 +18,7 @@ async function exportMap(){
     const days=snapshot.mode==='days',mean=snapshot.period==='mean';
     ctx.font='700 86px system-ui, sans-serif';ctx.fillText(days?'Where are the comfy days?':'How comfy are your days?',80,230);
     ctx.fillStyle='#536a7a';ctx.font='30px system-ui, sans-serif';
-    ctx.fillText(`Europe · ${mean?'2020–2024 average':snapshot.period} · Highs ${snapshot.lower}–${snapshot.upper} °C · Rain ≤1 mm/day`,84,290);
+    ctx.fillText(`Europe · ${mean?(days?'2020–2024 · average days/year':'2020–2024 · average daily score'):snapshot.period} · Highs ${snapshot.lower}–${snapshot.upper} °C · Rain ≤1 mm/day`,84,290);
     ctx.drawImage(map,80,320,2240,1960);if(overlay)ctx.drawImage(overlay,80,320,2240,1960);
     ctx.textAlign='center';ctx.fillStyle='#183044';ctx.font='600 32px system-ui, sans-serif';
     ctx.fillText(days?(mean?'Comfortable days per year':`Comfortable days in ${snapshot.period}`):'Average daily comfort score',1200,2340);

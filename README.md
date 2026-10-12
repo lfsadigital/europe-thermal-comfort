@@ -4,7 +4,7 @@
 
 A real Natural Earth map of Europe with two measures based on daily maximum
 temperatures and daily rain totals from 2020–2024. Choose integer temperature limits from −30 to 50 °C.
-The default interval is 20–25 °C. Both endpoints are included.
+The default interval is 18–26 °C. Both endpoints are included.
 
 ## Run locally
 
@@ -85,7 +85,7 @@ python rebuild_site.py
 
 `rain_data.py` checks all 1,827 paired daily fields, inclusive boundaries,
 additive penalties, annualization and leap-day weighting. `verify-rain.cjs` checks
-all 12 served numeric grids and 60 raw-data custom-range references.
+all 12 served numeric grids and 72 raw-data custom-range references.
 The report is `site/dist/assets/rain-audit.json`.
 `verify_rain_ranges.py` recreates independent references even when caches are reused.
 

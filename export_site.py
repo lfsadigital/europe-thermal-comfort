@@ -30,7 +30,22 @@ lon,lat=np.meshgrid(longitude,latitude)
 points=np.stack([lat,lon],axis=-1)
 if Path('output-final/rain_site_grid.npz').exists() and '--temperature-only' not in sys.argv:
  rain=np.load('output-final/rain_site_grid.npz')
- annual_score=rain['annual_score'];annual_days=rain['annual_days'];mean_days=rain['days_per_year'];mean_score=rain['score'];valid=np.isfinite(mean_score)
+ # Compute the pre-rendered default from exact paired statistics.
+ from rain_data import grid_nodes
+ lower,upper=18,26
+ mapping=np.fromfile(OUT/'dynamic-nodes.bin',dtype='<i4').reshape(-1,4)
+ weights=np.fromfile(OUT/'dynamic-weights.bin',dtype='<f8').reshape(-1,4)
+ annual_score=[];annual_days=[];bmin=-80;bins=np.arange(-80,81)[:,None]
+ for year in range(2020,2025):
+  t=np.load(f'.cache/dynamic/{year}.npz');r=np.load(f'.cache/rain-joint/{year}.npz');counts=t['counts'];sums=t['sums'];n=366 if year in (2020,2024) else 365
+  score=100-(np.where(bins<=lower,lower*counts-sums,0).sum(axis=0)+np.where(bins>upper,sums-upper*counts,0).sum(axis=0)+r['wet'])/n
+  days=r['dry'][(bins[:,0]>lower)&(bins[:,0]<=upper)].sum(axis=0).astype(float)+r['exact'][lower-bmin]
+  complete=r['valid']==n;score[~complete]=np.nan;days[~complete]=np.nan
+  annual_score.append(grid_nodes(score,mapping,weights,lon.shape));annual_days.append(grid_nodes(days,mapping,weights,lon.shape))
+ annual_score=np.stack(annual_score);annual_days=np.stack(annual_days)
+ mean_score=(annual_score*np.array([366,365,365,365,366])[:,None,None]).sum(axis=0)/1827
+ mean_days=annual_days.sum(axis=0)/5;valid=np.isfinite(mean_score)
+ np.savez_compressed('output-final/default_site_grid.npz',score=mean_score,days_per_year=mean_days,annual_score=annual_score,annual_days=annual_days)
  rain_enabled=True
 else:
  annual_score=p['annual'].copy()
@@ -103,6 +118,7 @@ extent=[float(v) for v in ax.get_extent()]
 plt.close(fig)
 meta={'period':'2020–2024','total_days':1827,'years':5,'palette':PALETTE,'shape':list(lon.shape),'latitude':latitude.tolist(),'longitude':longitude.tolist(),'extent':extent,'projection':projection.proj4_init,'image_size':[width,height],'countries':names,'score_range':[76,98],'days_range':[0,150],'period_stats':period_stats,'coverage':float((on_land&valid).sum()/on_land.sum()),'source_names':{'1':'E-OBS · 0.1° grid','2':'NOAA CPC · original 0.5° grid'},'methodology':{'score':'100 − max(20 − Tmax, 0) − max(Tmax − 25, 0)','days':'Count of days with 20 ≤ Tmax ≤ 25 °C, divided by 5 for 2020–2024','coastal_display':'Visual extension up to 0.2°; queries use complete cells','noaa':'Interpolation of scores and counts calculated on the original 0.5° grid'}}
 if rain_enabled:
+ meta['default_range']=[18,26]
  meta['rain_threshold_mm']=1
  meta['land_cells']=int(on_land.sum())
  meta['methodology']['score']='100 − max(lower − Tmax, 0) − max(Tmax − upper, 0) − (precipitation > 1 mm)'
