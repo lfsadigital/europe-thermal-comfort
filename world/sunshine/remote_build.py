@@ -13,9 +13,16 @@ def control(name,value):
 status_lock=threading.RLock();last_status=0
 def status(**values):
  global last_status
+ values.update(at=datetime.datetime.now(datetime.timezone.utc).isoformat());print(json.dumps(values),flush=True)
+ stage=values.get('stage');completed=values.get('completed',0);total=values.get('total',0)
+ # Keep progress writes below the KV daily allowance, including retries.
+ if completed!=total:
+  if stage=='import' and completed%3:return
+  if stage=='statistics' and (completed//2048)%4:return
+  if stage=='packing' and (completed//2048)%7:return
  with status_lock:
-  time.sleep(max(0,1.05-(time.monotonic()-last_status)));last_status=time.monotonic()
-  values.update(at=datetime.datetime.now(datetime.timezone.utc).isoformat());control('status',values);print(json.dumps(values),flush=True)
+  time.sleep(max(0,1.05-(time.monotonic()-last_status)));last_status=time.monotonic();control('status',values)
+
 def put(name,data):
  p=OUT/name;p.write_bytes(data);return name
 m=json.loads((ROOT/'site/dist/assets/metadata.json').read_text());grid=np.fromfile(ROOT/'site/dist/assets/node-grid.bin',dtype='<i4').reshape(360,720);n=m['nodes'];nd=2192;dates=np.arange(np.datetime64('2020-01-01'),np.datetime64('2026-01-01'));months=dates.astype('datetime64[M]');offset=np.cumsum([0]+m['year_days']);start=datetime.datetime(2020,1,1,tzinfo=datetime.timezone.utc);epoch=datetime.datetime(1970,1,1,tzinfo=datetime.timezone.utc);end=datetime.datetime(2026,1,1,tzinfo=datetime.timezone.utc)
