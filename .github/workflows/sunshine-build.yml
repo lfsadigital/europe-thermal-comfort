@@ -1,0 +1,23 @@
+name: Remote ERA5 sunshine build
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: comfy-sunshine-data-build
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install remote scientific dependencies
+        run: |
+          python3 -m venv "$RUNNER_TEMP/comfy-venv"
+          "$RUNNER_TEMP/comfy-venv/bin/pip" install numpy requests omfiles
+      - name: Build, audit and upload without local bulk storage
+        env:
+          COMFY_SUN_BUILD_KEY: ${{ secrets.COMFY_SUN_BUILD_KEY }}
+          GH_TOKEN: ${{ github.token }}
+        run: "$RUNNER_TEMP/comfy-venv/bin/python world/sunshine/remote_build.py"

@@ -1,0 +1,151 @@
+{
+  "result": "PASS",
+  "samples": [
+    {
+      "city": "Porto",
+      "start": "2024-06-20",
+      "hourly_max_error_seconds": 0.010546874999818101,
+      "daily_max_error_seconds": 0.021069335940410383
+    },
+    {
+      "city": "Paris",
+      "start": "2024-06-20",
+      "hourly_max_error_seconds": 0.00858398437503638,
+      "daily_max_error_seconds": 0.01708251953095896
+    },
+    {
+      "city": "Miami",
+      "start": "2024-06-20",
+      "hourly_max_error_seconds": 0.00406738281253638,
+      "daily_max_error_seconds": 0.007886657716881018
+    },
+    {
+      "city": "Los Angeles",
+      "start": "2024-06-20",
+      "hourly_max_error_seconds": 0.0,
+      "daily_max_error_seconds": 0.0
+    },
+    {
+      "city": "Nairobi",
+      "start": "2024-06-20",
+      "hourly_max_error_seconds": 0.01721435546869543,
+      "daily_max_error_seconds": 0.017092285153921694
+    },
+    {
+      "city": "Nguruka",
+      "start": "2024-06-20",
+      "hourly_max_error_seconds": 0.00626953124992724,
+      "daily_max_error_seconds": 0.008671875002619345
+    },
+    {
+      "city": "Cape Town",
+      "start": "2024-06-20",
+      "hourly_max_error_seconds": 0.004589843749954525,
+      "daily_max_error_seconds": 0.004331054688009317
+    },
+    {
+      "city": "Oslo",
+      "start": "2024-06-20",
+      "hourly_max_error_seconds": 0.0044506835937454525,
+      "daily_max_error_seconds": 0.0044506835937454525
+    },
+    {
+      "city": "Buenos Aires",
+      "start": "2024-06-20",
+      "hourly_max_error_seconds": 0.007617187500045475,
+      "daily_max_error_seconds": 0.00897583007827052
+    },
+    {
+      "city": "Tokyo",
+      "start": "2024-06-20",
+      "hourly_max_error_seconds": 0.008188476562509095,
+      "daily_max_error_seconds": 0.0033203124985448085
+    },
+    {
+      "city": "Sydney",
+      "start": "2024-06-20",
+      "hourly_max_error_seconds": 0.022734375000027285,
+      "daily_max_error_seconds": 0.021759948729595635
+    },
+    {
+      "city": "Tromso",
+      "start": "2024-06-20",
+      "hourly_max_error_seconds": 0.01350585937507276,
+      "daily_max_error_seconds": 0.00681884765617724
+    },
+    {
+      "city": "Porto",
+      "start": "2024-12-20",
+      "hourly_max_error_seconds": 0.010429687499936335,
+      "daily_max_error_seconds": 0.010429687499708962
+    },
+    {
+      "city": "Paris",
+      "start": "2024-12-20",
+      "hourly_max_error_seconds": 0.02053710937479991,
+      "daily_max_error_seconds": 0.020537109376164153
+    },
+    {
+      "city": "Miami",
+      "start": "2024-12-20",
+      "hourly_max_error_seconds": 0.002734374999818101,
+      "daily_max_error_seconds": 0.004218750000291038
+    },
+    {
+      "city": "Los Angeles",
+      "start": "2024-12-20",
+      "hourly_max_error_seconds": 0.01202148437505457,
+      "daily_max_error_seconds": 0.01594726562325377
+    },
+    {
+      "city": "Nairobi",
+      "start": "2024-12-20",
+      "hourly_max_error_seconds": 0.007352905273435795,
+      "daily_max_error_seconds": 0.00678649902692996
+    },
+    {
+      "city": "Nguruka",
+      "start": "2024-12-20",
+      "hourly_max_error_seconds": 0.00604492187494543,
+      "daily_max_error_seconds": 0.0014697265651193447
+    },
+    {
+      "city": "Cape Town",
+      "start": "2024-12-20",
+      "hourly_max_error_seconds": 0.004951171874836291,
+      "daily_max_error_seconds": 0.0042480468764551915
+    },
+    {
+      "city": "Oslo",
+      "start": "2024-12-20",
+      "hourly_max_error_seconds": 0.020576171874949978,
+      "daily_max_error_seconds": 0.0377197265625
+    },
+    {
+      "city": "Buenos Aires",
+      "start": "2024-12-20",
+      "hourly_max_error_seconds": 0.00539062500001819,
+      "daily_max_error_seconds": 0.004609374998835847
+    },
+    {
+      "city": "Tokyo",
+      "start": "2024-12-20",
+      "hourly_max_error_seconds": 0.020898437500022737,
+      "daily_max_error_seconds": 0.02089843749854481
+    },
+    {
+      "city": "Sydney",
+      "start": "2024-12-20",
+      "hourly_max_error_seconds": 0.006015625000145519,
+      "daily_max_error_seconds": 0.0002734375011641532
+    },
+    {
+      "city": "Tromso",
+      "start": "2024-12-20",
+      "hourly_max_error_seconds": 0.0,
+      "daily_max_error_seconds": 0.0
+    }
+  ],
+  "hourly_days": 72,
+  "method": "Official NREL SPA lookup and backwards DNI 60\u2013180 W/m\u00b2 interpolation"
+}

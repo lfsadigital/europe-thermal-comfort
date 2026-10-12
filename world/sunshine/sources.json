@@ -1,0 +1,9 @@
+{
+  "method_source": "https://github.com/open-meteo/open-meteo/blob/735f488affdb3d8332df878ac7508d12bc51a42c/Sources/App/Helper/Solar/SunRiseSet.swift",
+  "solar_lookup_source": "https://github.com/open-meteo/open-meteo/blob/735f488affdb3d8332df878ac7508d12bc51a42c/Sources/App/Helper/Solar/SolarPositionAlgorithm.swift",
+  "data_source": "https://openmeteo.s3.amazonaws.com/data/copernicus_era5/",
+  "definition": "Preceding-hour direct normal irradiance; 60\u2013180 W/m\u00b2 interpolation around the WMO 120 W/m\u00b2 threshold; duration limited to daylight",
+  "native_grid": 0.25,
+  "sample_spacing": 0.5,
+  "indexed_day_timezone": "UTC"
+}
