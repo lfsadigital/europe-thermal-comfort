@@ -1,0 +1,17 @@
+{
+  "site": "https://comfy.lfsadigital.com/",
+  "version": 15,
+  "source_commit": "be4a87a8c180d8d85761aa6b0b2447a715093bb9",
+  "version_id": "appgprj_6acc3bb3fcd4819181f55b4757d282a8~appgver_f6a7624415188191be457ee8e1c85967",
+  "deployment_id": "appgdep_6acda07b121881919d19a94e11a897e5",
+  "deployment_status": "succeeded",
+  "published_at_utc": "2026-10-13T03:07:56.762996+00:00",
+  "github_code_commit": "8bd36ef002a6f086a8a3efb2224f1d1e0afb1a6c",
+  "public_browser_checks": 180,
+  "public_page_errors": 0,
+  "matched_live_assets": 11,
+  "climate_arrays_changed": false,
+  "city_tables_bytes": 302946,
+  "crime_geography": "country/area; local crime not yet imported",
+  "local_crime_next": "LOCAL-CRIME-NEXT.md"
+}

@@ -6,3 +6,11 @@ Prepared, not pushed or deployed. Browser verification passed 133 checks with ze
 ## 2026-10-13 — city map interaction checks
 
 User authorized publication and GitHub backup. Optional map mode, shared URL, debounced native sliders and exact values, city hover reasons, click-to-inspect and marker-inclusive PNG exports implemented. Climate raster and score/day arrays do not change. At overview zoom only larger cities appear; smaller and unknown-data cities become visible with zoom. Local marker suite passed 47 checks with no page errors. The first hover test was outside the browser viewport; bringing the map into view resolved the test without a product change. Monthly/filter suite passed 133 checks; independent missing-data and API retry checks passed. City-level crime import is proposed in docs/LOCAL-CRIME-NEXT.md, not included. The independent reviewer scored the mobile field-occlusion fix resolved (ship at that narrow scope). Publication IDs and live checks follow after verification.
+
+## 2026-10-13 — published city context and monthly charts
+
+Published Sites version 15 at https://comfy.lfsadigital.com/ . Source be4a87a8c180d8d85761aa6b0b2447a715093bb9; saved version appgprj_6acc3bb3fcd4819181f55b4757d282a8~appgver_f6a7624415188191be457ee8e1c85967; deployment appgdep_6acda07b121881919d19a94e11a897e5 succeeded at 03:07:56 UTC. Code backup pushed to GitHub and read back: 8bd36ef002a6f086a8a3efb2224f1d1e0afb1a6c.
+
+Anonymous custom-domain browser checks passed: 133 chart/filter/source comparisons, 47 marker/hover/click/tab/shared-URL/mobile/export checks, zero page errors. Separate public missing-data, API failure/retry and PNG checks passed. All 11 sampled public code/data files match the tested source by SHA-256. Curated city tables total 302,946 bytes. No global climate archive was downloaded. Crime remains country/area context with selected years; no local FBI or Eurostat import is claimed. Weather raster and original score/day data are unchanged. DNS and main GitHub Pages site were not modified.
+
+Release metadata and public evidence are under site/docs/CITY-CONTEXT-RELEASE.json and city-*-public-*.json. The temporary publication tar was removed after the saved-version deployment succeeded. Local source is retained; bulk weather data remains remote.

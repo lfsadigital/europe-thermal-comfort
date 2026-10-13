@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "url": "https://comfy.lfsadigital.com/",
+  "checks": [
+    "missing USA 2024 is unavailable, not zero; no ranked cities",
+    "monthly API failure leaves weather available and clears charts",
+    "retry succeeds",
+    "mobile charts scroll without page overflow",
+    "both 2400x1800 PNG exports succeed"
+  ]
+}
