@@ -18,3 +18,7 @@ Colorado, USA. Source: https://psl.noaa.gov/data/gridded/data.cpc.globaltemp.htm
 
 Natural Earth cartography is public domain: https://www.naturalearthdata.com/
 Proj4js license is preserved in site/dist/assets/proj4-license.md.
+
+## City context data
+
+The curated Nomads score/monthly-cost snapshot retains Nomads.com terms and attribution. The UNODC national homicide table retains its source attribution and applicable provider terms. These third-party datasets are not relicensed by the code license. Dates, exact joins, source links and limitations are documented in world/site/docs/CITY-CONTEXT-AND-MONTHLY.md. No account credentials or member data are included.

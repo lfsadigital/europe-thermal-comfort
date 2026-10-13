@@ -16,7 +16,7 @@ class GeographicMap {
     this.map.addControl(new maplibregl.AttributionControl({compact:true,customAttribution:'Climate: ERA5 / ECMWF · Export borders: Natural Earth'}),'bottom-right');
     this.ready=new Promise(resolve=>this.map.once('style.load',()=>{this.loaded=true;this.installClimate();this.installStates();resolve();}));
     this.map.on('error',event=>{if(/openfreemap|glyph|sprite|tile/i.test(event.error?.message||'')){const hint=document.getElementById('map-cartography-status');if(hint)hint.textContent='Some map labels could not load. Climate values are still available. Reload to retry.';}});
-    this.map.on('click',e=>onInspect(e.lngLat.lat,this.wrapLongitude(e.lngLat.lng)));
+    this.map.on('click',e=>{const feature=this.map.getLayer('city-filter-points')?this.map.queryRenderedFeatures(e.point,{layers:['city-filter-points']})[0]:null;const coords=feature?.geometry?.coordinates;onInspect(coords?coords[1]:e.lngLat.lat,this.wrapLongitude(coords?coords[0]:e.lngLat.lng));});
     this.map.on('movestart',()=>this.hud('Click a location to inspect'));
     this.map.on('dragstart',()=>this.map.getContainer().classList.add('is-dragging'));
     this.map.on('dragend',()=>this.map.getContainer().classList.remove('is-dragging'));

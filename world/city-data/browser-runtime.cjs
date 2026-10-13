@@ -1,0 +1,3 @@
+'use strict';
+const fs=require('node:fs');let runtime;try{runtime=require('playwright');}catch(error){const bundled=process.env.COMFY_PLAYWRIGHT_PATH||'/Users/luizfellipealmeida/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright';if(!fs.existsSync(bundled))throw new Error('Install Playwright: npm install --no-save playwright. Then run npx playwright install chromium.');runtime=require(bundled);}
+exports.launch=()=>runtime.chromium.launch({headless:true,...(process.env.COMFY_CHROME_PATH?{executablePath:process.env.COMFY_CHROME_PATH}:fs.existsSync('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome')?{executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'}:{})});

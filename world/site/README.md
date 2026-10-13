@@ -40,3 +40,7 @@ Verified release checks: all 599,893 cell/period results compared with the JavaS
 ERA5 migration: see `docs/ERA5-MIGRATION.md` for ingestion, UTC aggregation, sampling and validation. `docs/MIAMI-SOURCE-VALIDATION.md` records the measured coastal-source discrepancy reviewed before the migration. Production publication is recorded in the operations log after verified deployment.
 
 City ranking population thresholds: 1,000, 10,000, 50,000 (default), 250,000, 500,000, 1 million, 5 million, and 10 million residents. These use the GeoNames catalog population, not metropolitan-area estimates. Regions with fewer than 10 eligible cities show fewer results; empty selections show an explicit message.
+
+## City context and monthly charts
+
+Optional city ranking and map marker filters use a dated Nomads score and monthly USD estimate, plus UNODC country homicide rates with an explicit year. Monthly charts use the same ERA5 cell and UTC dates. See [methodology](docs/CITY-CONTEXT-AND-MONTHLY.md) and [design](DESIGN.md).
