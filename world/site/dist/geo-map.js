@@ -9,9 +9,9 @@ class GeographicMap {
     this.tileWorker.onmessage=({data})=>{const pending=this.tileRequests.get(data.id);if(!pending)return;this.tileRequests.delete(data.id);pending.detach();if(data.error)pending.reject(new Error(data.error));else pending.resolve({data:data.buffer});};
     this.tileWorker.onerror=()=>{for(const pending of this.tileRequests.values()){pending.detach();pending.reject(new Error('Climate tile rendering failed. Reload the page.'));}this.tileRequests.clear();};
     maplibregl.addProtocol('comfy-climate',(request,controller)=>this.requestTile(request.url,controller.signal));
-    this.map=new maplibregl.Map({container:'map',style:'assets/basemap-style.json?v=11',center:[0,20],zoom:1.5,minZoom:0,maxZoom:16,renderWorldCopies:true,dragRotate:false,pitchWithRotate:false,touchPitch:false,attributionControl:false,fadeDuration:0});
+    this.map=new maplibregl.Map({container:'map',style:'assets/basemap-style.json?v=11',center:[0,20],zoom:1.5,minZoom:0,maxZoom:16,renderWorldCopies:true,dragRotate:false,pitchWithRotate:false,touchPitch:false,attributionControl:false,fadeDuration:0,canvasContextAttributes:{preserveDrawingBuffer:true}});
     this.map.touchZoomRotate.disableRotation();
-    this.map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-left');
+    this.map.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right');
     this.map.addControl(new maplibregl.ScaleControl({maxWidth:110,unit:'metric'}),'bottom-left');
     this.map.addControl(new maplibregl.AttributionControl({compact:true,customAttribution:'Climate: ERA5 / ECMWF · Export borders: Natural Earth'}),'bottom-right');
     this.ready=new Promise(resolve=>this.map.once('style.load',()=>{this.loaded=true;this.installClimate();this.installStates();resolve();}));

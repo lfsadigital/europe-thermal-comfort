@@ -1,0 +1,12 @@
+{
+  "status": "succeeded and anonymous live checks passed",
+  "url": "https://comfy.lfsadigital.com/",
+  "version": 17,
+  "source": "58548cc15bf3b02ca3f3a6d5b0f1f1f34e200b33",
+  "versionId": "appgprj_6acc3bb3fcd4819181f55b4757d282a8~appgver_5ce238358a6081918e89f9a7e5a21685",
+  "deploymentId": "appgdep_6ace9c91e5888191842f5fff6e9c6ba4",
+  "publishedAt": "2026-10-13T21:03:32.114069+00:00",
+  "errors": 0,
+  "pngSamplePixelsPerView": 81,
+  "pngMaxDifference": 0
+}

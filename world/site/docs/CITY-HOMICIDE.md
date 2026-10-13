@@ -1,6 +1,6 @@
 # City homicide: sources and limits
 
-City filters remain optional and do not change weather scores, weather map colors or comfortable-day calculations. Local homicide and national homicide are distinct modes. Missing local data is excluded when the local filter is enabled; it never falls back to a country value. A published zero is a valid value, not missing.
+City filters remain optional and do not change weather scores, weather map colors or comfortable-day calculations. Local homicide and national homicide are distinct modes. Missing local data remains eligible as unknown when the local filter is enabled; it never falls back to a country value. A known rate above the limit excludes the city. A published zero is a valid value, not missing.
 
 Default when enabled: city/municipal area, 2024, maximum 5 per 100,000. The year is independent of the weather period. Old URLs with crime=1 and no homgeo retain country mode. New URLs write homgeo=city or homgeo=country.
 

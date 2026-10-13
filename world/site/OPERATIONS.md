@@ -24,3 +24,11 @@ User explicitly authorized publication and GitHub backup. FBI Table 8 (2020–20
 Published Sites version 16, source 36f72884c74391fefb66045e2c72de9e80696cce, deployment appgdep_6acdaab021d88191885362fc15816931, succeeded 2026-10-13T03:51:30.846286+00:00. Anonymous custom-domain city/scope/year/missing-data/tab/shared-link/mobile/PNG checks passed with zero page errors. All seven changed public code/data assets match the tested source by SHA-256. Miami 2024: 28 murders / 460,392 FBI population × 100,000 = 6.081773792767902; Amsterdam greater city 2024: published Eurostat 1.68. Both unchanged across tabs. Python HTTP asset client received 403; anonymous browser verification succeeded. Independent design verdict scored its sole documentation fix resolved.
 
 Temporary official source downloads, extraction files and the saved publication archive were removed: 45,325,456 bytes across 25 files, no application assets removed. The imported city table and source hashes/audit remain. No bulk climate download occurred. GitHub backup verification follows this release.
+
+## 2026-10-13 — map-first candidate, not published
+
+Weather and Cities controls moved onto the map. Optional missing city data stays eligible as unknown; known failures exclude. PNG uses the actual current camera and rendered city markers. Local functional/mobile/export checks passed; climate assets and formulas unchanged. Live Lab technical SEO checked separately: canonical, title, description, robots, sitemap and normal project links passed. Google index status and external backlinks unknown. This candidate has not been pushed or deployed; explicit approval is required.
+
+## 2026-10-13 — map-first published
+
+Explicitly authorized. Sites version 17, source 58548cc15bf3b02ca3f3a6d5b0f1f1f34e200b33, deployment appgdep_6ace9c91e5888191842f5fff6e9c6ba4 succeeded at 2026-10-13T21:03:32.114069+00:00. Anonymous custom-domain filters, unknown retention, markers, URL state, mobile, tab parity and both PNG checks passed with zero page errors. Each PNG matched 81 actual canvas samples with maximum difference zero. No climate data/formula changed.
