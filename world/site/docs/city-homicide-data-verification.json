@@ -1,0 +1,44 @@
+{
+  "result": "PASS",
+  "rows_checked": 37674,
+  "by_source": {
+    "Eurostat": 79,
+    "FBI": 37595
+  },
+  "known_zero_rates": 27581,
+  "coverage_by_year": {
+    "2020": {
+      "Eurostat": 18,
+      "FBI": 6130
+    },
+    "2021": {
+      "Eurostat": 17,
+      "FBI": 4879
+    },
+    "2022": {
+      "Eurostat": 17,
+      "FBI": 6265
+    },
+    "2023": {
+      "Eurostat": 16,
+      "FBI": 6562
+    },
+    "2024": {
+      "Eurostat": 11,
+      "FBI": 6900
+    },
+    "2025": {
+      "FBI": 6859
+    }
+  },
+  "compressed_bytes": 601231,
+  "sha256": "ca566731a2bfb10cccb7b253fa3cf68181df15a69e1d8d7e27c4a17668706b3d",
+  "checks": [
+    "unique city/year",
+    "all source counts, denominators and rates",
+    "catalog IDs and USA state matches",
+    "official annual completeness rules",
+    "Eurostat published rates and flags",
+    "unknown distinct from zero"
+  ]
+}

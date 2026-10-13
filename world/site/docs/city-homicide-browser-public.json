@@ -1,0 +1,43 @@
+{
+  "result": "PASS",
+  "url": "https://comfy.lfsadigital.com/",
+  "observed": [
+    {
+      "region": "world",
+      "miami": 6.081773792767902,
+      "Amsterdam": 1.68,
+      "Paris": [
+        "City / municipal area homicide unavailable for 2024"
+      ]
+    },
+    {
+      "region": "europe",
+      "miami": 6.081773792767902,
+      "Amsterdam": 1.68,
+      "Paris": [
+        "City / municipal area homicide unavailable for 2024"
+      ]
+    },
+    {
+      "region": "usa",
+      "miami": 6.081773792767902,
+      "Amsterdam": 1.68,
+      "Paris": [
+        "City / municipal area homicide unavailable for 2024"
+      ]
+    }
+  ],
+  "checks": [
+    "city default off",
+    "USA numerator/denominator",
+    "same values across tabs",
+    "local missing has no country fallback",
+    "2025 EU unknown",
+    "country mode separate",
+    "explicit URL scope and legacy links",
+    "mobile no overflow",
+    "two PNG exports",
+    "reset"
+  ],
+  "errors": []
+}

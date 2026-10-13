@@ -43,4 +43,4 @@ City ranking population thresholds: 1,000, 10,000, 50,000 (default), 250,000, 50
 
 ## City context and monthly charts
 
-Optional city ranking and map marker filters use a dated Nomads score and monthly USD estimate, plus UNODC country homicide rates with an explicit year. Monthly charts use the same ERA5 cell and UTC dates. See [methodology](docs/CITY-CONTEXT-AND-MONTHLY.md) and [design](DESIGN.md).
+Optional city ranking and map marker filters use a dated Nomads score and monthly USD estimate, plus explicit city/municipal or country homicide modes and a selected crime year. Local rates use FBI Table 8 and Eurostat; national context uses UNODC. Missing local data has no country fallback. See [city homicide coverage and matching](docs/CITY-HOMICIDE.md). Monthly charts use the same ERA5 cell and UTC dates. See [methodology](docs/CITY-CONTEXT-AND-MONTHLY.md) and [design](DESIGN.md).

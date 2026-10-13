@@ -1,0 +1,48 @@
+{
+  "result": "PASS",
+  "origin": "https://comfy.lfsadigital.com/",
+  "files": [
+    {
+      "file": "index.html",
+      "bytes": 18425,
+      "sha256": "4878b74eb9c8e5ab02eb993078b3a5c3e61e6a5a3c9096550a641eec43ec8db9",
+      "status": 200
+    },
+    {
+      "file": "map-bootstrap.js",
+      "bytes": 708,
+      "sha256": "e14bc853f6e53d0c684e06610e78bc8870e6741b550d826f995b18735d957b44",
+      "status": 200
+    },
+    {
+      "file": "city-filters.js",
+      "bytes": 10956,
+      "sha256": "6bf810d367c41bcdea3707217e8596ffaff6f8f345391f7a2fc33369b5479349",
+      "status": 200
+    },
+    {
+      "file": "city-map.js",
+      "bytes": 5650,
+      "sha256": "bf662de5d8d84d1e1578a2b03be5f28230bddc054f4392ea06a4489f61511f65",
+      "status": 200
+    },
+    {
+      "file": "discovery.js",
+      "bytes": 9494,
+      "sha256": "b535ad7bcc1e7e9d579d8658ab855004fd305740cf073827ff878b326ab96010",
+      "status": 200
+    },
+    {
+      "file": "app.js",
+      "bytes": 20787,
+      "sha256": "4b6e1e95afabe858c888381b6ed9eddc0d20f4359b0f139bfb5eca0c6dff52fd",
+      "status": 200
+    },
+    {
+      "file": "assets/homicide-city.json.gz",
+      "bytes": 601231,
+      "sha256": "ca566731a2bfb10cccb7b253fa3cf68181df15a69e1d8d7e27c4a17668706b3d",
+      "status": 200
+    }
+  ]
+}

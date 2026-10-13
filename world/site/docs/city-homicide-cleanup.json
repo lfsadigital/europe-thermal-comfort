@@ -1,0 +1,106 @@
+{
+  "removed": [
+    {
+      "file": "comfy-fbi-offenses-2025.zip",
+      "bytes": 1799756
+    },
+    {
+      "file": "comfy-fbi-offenses-2024.zip",
+      "bytes": 1796241
+    },
+    {
+      "file": "comfy-fbi-offenses-2020.zip",
+      "bytes": 4223151
+    },
+    {
+      "file": "comfy-fbi-offenses-2021.zip",
+      "bytes": 6619594
+    },
+    {
+      "file": "comfy-fbi-offenses-2023.zip",
+      "bytes": 4545258
+    },
+    {
+      "file": "comfy-fbi-offenses-2022.zip",
+      "bytes": 6608530
+    },
+    {
+      "file": "comfy-fbi-methodology-2023.pdf",
+      "bytes": 489352
+    },
+    {
+      "file": "comfy-fbi-methodology-2022.pdf",
+      "bytes": 676547
+    },
+    {
+      "file": "comfy-fbi-methodology-2020.pdf",
+      "bytes": 614636
+    },
+    {
+      "file": "comfy-fbi-methodology-2021.pdf",
+      "bytes": 289542
+    },
+    {
+      "file": "comfy-fbi-methodology-2025.pdf",
+      "bytes": 529642
+    },
+    {
+      "file": "comfy-fbi-methodology-2024.pdf",
+      "bytes": 519658
+    },
+    {
+      "file": "comfy-fbi-methodology-2020.txt",
+      "bytes": 108563
+    },
+    {
+      "file": "comfy-fbi-methodology-2021.txt",
+      "bytes": 19080
+    },
+    {
+      "file": "comfy-fbi-methodology-2023.txt",
+      "bytes": 72559
+    },
+    {
+      "file": "comfy-fbi-methodology-2022.txt",
+      "bytes": 75144
+    },
+    {
+      "file": "comfy-fbi-methodology-2025.txt",
+      "bytes": 86052
+    },
+    {
+      "file": "comfy-fbi-methodology-2024.txt",
+      "bytes": 87191
+    },
+    {
+      "file": "comfy-localcrime-eurostat.txt",
+      "bytes": 5832
+    },
+    {
+      "file": "comfy-localcrime-fbi.txt",
+      "bytes": 60799
+    },
+    {
+      "file": "comfy-fbi-main.js",
+      "bytes": 2105344
+    },
+    {
+      "file": "comfy-fbi-runtime.js",
+      "bytes": 3384
+    },
+    {
+      "file": "comfy-fbi-pages.js",
+      "bytes": 2428803
+    },
+    {
+      "file": "comfy-fbi-cius.json",
+      "bytes": 4258
+    },
+    {
+      "file": "comfy-days-city-homicide-v16.tar.gz",
+      "bytes": 11556540
+    }
+  ],
+  "bytes_removed": 45325456,
+  "application_assets_removed": false
+}

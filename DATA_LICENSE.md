@@ -22,3 +22,5 @@ Proj4js license is preserved in site/dist/assets/proj4-license.md.
 ## City context data
 
 The curated Nomads score/monthly-cost snapshot retains Nomads.com terms and attribution. The UNODC national homicide table retains its source attribution and applicable provider terms. These third-party datasets are not relicensed by the code license. Dates, exact joins, source links and limitations are documented in world/site/docs/CITY-CONTEXT-AND-MONTHLY.md. No account credentials or member data are included.
+
+Local homicide rates retain FBI and Eurostat attribution and provider terms; the code license does not relicense these tables. Source references, definitions, geography, annual reporting rules, conservative catalog joins and missing-data limits are in world/site/docs/CITY-HOMICIDE.md. FBI rates use Table 8 same-year population; Eurostat rates use published victim rates. No credentials or signed source URLs are included.
