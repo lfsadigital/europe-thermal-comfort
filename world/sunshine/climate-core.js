@@ -1,0 +1,8 @@
+(function(root){
+function parse(buffer){let o=0;function take(Type,n){let v=new Type(buffer.slice(o,o+n*Type.BYTES_PER_ELEMENT));o+=n*Type.BYTES_PER_ELEMENT;return v;}const h=take(Uint32Array,11);if(h[0]!==0x57434c4d||h[1]!==4)throw Error('Invalid climate file version');const [,,start,n,nt,nj,days,years]=h;const c={start,n,days,years,valid:take(Uint16Array,n),toff:take(Uint32Array,n+1),tb:take(Int16Array,nt),tc:take(Uint16Array,nt),ts:take(Float64Array,nt),jo:take(Uint32Array,n+1),jt:take(Int16Array,nj),jr:take(Uint16Array,nj),jc:take(Uint16Array,nj),je:take(Uint16Array,nj)};const shuffled=take(Uint8Array,nj*8),raw=new Uint8Array(nj*8);for(let byte=0;byte<8;byte++)for(let i=0;i<nj;i++)raw[i*8+byte]=shuffled[byte*nj+i];c.js=new Float64Array(raw.buffer);if(o!==buffer.byteLength||c.toff[n]!==nt||c.jo[n]!==nj)throw Error('Climate file length mismatch');return c;}
+function calculate(c,k,p){if(c.valid[k]===0)return [NaN,NaN];let score=0,comfortable=0;const b0=Math.round(p.rain0*10),b1=Math.round(p.rain1*10),b2=Math.round(p.rain2*10),dry=Math.round(p.drymax*10);for(let i=c.jo[k];i<c.jo[k+1];i++){const r=c.jr[i],b=c.jt[i],n=c.jc[i],pen=r<=b0?0:r<=b1?p.pen1:r<=b2?p.pen2:p.pen3; // Supported half-point penalties put each zero crossing on an integer temperature boundary.
+ if(pen<10&&b>p.lower-20+2*pen&&b<=p.upper+20-2*pen){const loss=b<=p.lower?p.lower*n-c.js[i]:b>p.upper?c.js[i]-p.upper*n:0;score+=(10-pen)*n-.5*loss;}
+ if(r<=dry){if(b>p.lower&&b<=p.upper)comfortable+=n;else if(b===p.lower)comfortable+=c.je[i];}}
+return [Math.min(10,Math.max(0,score/c.valid[k])),comfortable/c.valid[k]*c.days/c.years];}
+root.ClimateCore={parse,calculate};if(typeof module!=='undefined')module.exports=root.ClimateCore;
+})(globalThis);

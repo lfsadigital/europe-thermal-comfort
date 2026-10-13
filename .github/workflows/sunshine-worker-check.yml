@@ -1,0 +1,21 @@
+name: Remote six-year sunshine worker audit
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test the actual production worker on remote daily data
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir "$RUNNER_TEMP/sunshine-worker-audit"
+          gh release download comfy-sunshine-data-v1 --pattern sunshine-bundle.tar --dir "$RUNNER_TEMP/sunshine-worker-audit"
+          tar -xf "$RUNNER_TEMP/sunshine-worker-audit/sunshine-bundle.tar" -C "$RUNNER_TEMP/sunshine-worker-audit"
+          rm "$RUNNER_TEMP/sunshine-worker-audit/sunshine-bundle.tar"
+          node world/sunshine/remote-worker-check.cjs "$RUNNER_TEMP/sunshine-worker-audit"
+          gh release upload comfy-sunshine-data-v1 "$RUNNER_TEMP/sunshine-worker-audit/worker-audit.json" --clobber
