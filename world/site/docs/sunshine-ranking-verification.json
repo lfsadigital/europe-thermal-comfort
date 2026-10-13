@@ -1,0 +1,24 @@
+{
+  "result": "PASS",
+  "rankingChecks": 48,
+  "thresholds": [
+    1000,
+    10000,
+    50000,
+    250000,
+    500000,
+    1000000,
+    5000000,
+    10000000
+  ],
+  "regions": [
+    "world",
+    "europe",
+    "usa"
+  ],
+  "metrics": [
+    "score",
+    "days"
+  ],
+  "errors": []
+}

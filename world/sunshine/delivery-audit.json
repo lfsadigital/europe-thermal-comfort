@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "files": 955,
+  "bytes": 886473339,
+  "checks": [
+    "all remote assets streamed, size and upload-manifest MD5 match",
+    "CORS enabled",
+    "no-store on every response",
+    "no climate files saved locally"
+  ]
+}

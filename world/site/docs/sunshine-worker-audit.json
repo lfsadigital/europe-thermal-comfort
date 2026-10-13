@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "comparisons": 48,
+  "globalNodes": 85699,
+  "files": 252,
+  "elapsedMs": 141874,
+  "maxScoreError": 6.217248937900877e-15,
+  "maxDaysError": 0,
+  "checks": [
+    "actual production worker, all 252 daily files, custom temperature/rain/sunshine, six-year aggregation",
+    "12 independent daily reference calculations",
+    "global score/day bounds",
+    "browser fetch no-store required"
+  ]
+}

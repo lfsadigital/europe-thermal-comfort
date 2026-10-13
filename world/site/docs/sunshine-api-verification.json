@@ -1,0 +1,69 @@
+{
+  "result": "PASS",
+  "checkedDays": 26304,
+  "maximumSecondsDifference": 0.1846875000046566,
+  "cities": [
+    {
+      "city": "Porto",
+      "maximumSecondsDifference": 0.0962500000023283,
+      "meanAbsoluteSecondsDifference": 0.008526204380627777
+    },
+    {
+      "city": "Paris",
+      "maximumSecondsDifference": 0.17234374999679858,
+      "meanAbsoluteSecondsDifference": 0.008708155764189478
+    },
+    {
+      "city": "Miami",
+      "maximumSecondsDifference": 0.05281249999825377,
+      "meanAbsoluteSecondsDifference": 0.005871197777032349
+    },
+    {
+      "city": "Los Angeles",
+      "maximumSecondsDifference": 0.08499999999912689,
+      "meanAbsoluteSecondsDifference": 0.007283036030044383
+    },
+    {
+      "city": "Nairobi",
+      "maximumSecondsDifference": 0.045937499999126885,
+      "meanAbsoluteSecondsDifference": 0.006903316748285652
+    },
+    {
+      "city": "Nguruka",
+      "maximumSecondsDifference": 0.03828125000291038,
+      "meanAbsoluteSecondsDifference": 0.005345170932932749
+    },
+    {
+      "city": "Cape Town",
+      "maximumSecondsDifference": 0.1235937500023283,
+      "meanAbsoluteSecondsDifference": 0.00791924636718183
+    },
+    {
+      "city": "Oslo",
+      "maximumSecondsDifference": 0.10250000000087311,
+      "meanAbsoluteSecondsDifference": 0.009836044398515861
+    },
+    {
+      "city": "Buenos Aires",
+      "maximumSecondsDifference": 0.061406250002619345,
+      "meanAbsoluteSecondsDifference": 0.006224546084397598
+    },
+    {
+      "city": "Tokyo",
+      "maximumSecondsDifference": 0.07921874999738066,
+      "meanAbsoluteSecondsDifference": 0.006534681389713939
+    },
+    {
+      "city": "Sydney",
+      "maximumSecondsDifference": 0.06859375000203727,
+      "meanAbsoluteSecondsDifference": 0.006209108115877821
+    },
+    {
+      "city": "Tromso",
+      "maximumSecondsDifference": 0.1846875000046566,
+      "meanAbsoluteSecondsDifference": 0.011664682931218381
+    }
+  ],
+  "settings": "explicit ERA5, no elevation adjustment, nearest exact sampled cell, GMT; sunshine duration only",
+  "limitation": "Float32 algorithm and API display rounding can produce sub-second differences; not asserted bit-identical"
+}

@@ -1,0 +1,6 @@
+node_modules/
+.openai/local/
+*.tar.gz
+
+# Climate statistics are served from Cloudflare, not stored in the source checkout.
+climate-data/

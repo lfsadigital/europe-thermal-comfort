@@ -1,0 +1,1097 @@
+{
+  "result": "PASS",
+  "source": "ERA5 only; unchanged temperature/rain archive objects",
+  "source_transfer_bytes": 64741827960,
+  "dates": 2192,
+  "nodes": 85699,
+  "audits": [
+    {
+      "period": "mean",
+      "eligible_cells": 85699,
+      "minimum_paired_days": 2192,
+      "maximum_raw_default_error": 3.552713678800501e-15,
+      "sunshine_off_sha256": {
+        "score": "f2d55051c9da3d6b7d92ef2b6f5aaf211c56369eaa9ea1406071284f8e6c1bf6",
+        "days": "7fa99c2618d333be1253b8544df19acb49b95649da10779f069e00dd5a558db6"
+      }
+    },
+    {
+      "period": "2020",
+      "eligible_cells": 85699,
+      "minimum_paired_days": 366,
+      "maximum_raw_default_error": 2.6645352591003757e-15,
+      "sunshine_off_sha256": {
+        "score": "c6963adba0d33f827585e97144198885842015199d9ee3172fb4cb142eb100cd",
+        "days": "7c9d4c63e12e3e531104dc5813fb5f2ecbe4d6a838886148f5e27c6bbc06e836"
+      }
+    },
+    {
+      "period": "2021",
+      "eligible_cells": 85699,
+      "minimum_paired_days": 365,
+      "maximum_raw_default_error": 2.6645352591003757e-15,
+      "sunshine_off_sha256": {
+        "score": "85b83eb2eba04486745bf831ff88a89f339c48b2726a8eefbec5d7bd12f8d731",
+        "days": "316cd399af862491ddaf0f86fa67315e42aea7d070829ce18e001eedbd2b199c"
+      }
+    },
+    {
+      "period": "2022",
+      "eligible_cells": 85699,
+      "minimum_paired_days": 365,
+      "maximum_raw_default_error": 2.6645352591003757e-15,
+      "sunshine_off_sha256": {
+        "score": "c36a154833829df4ece46ab8062de47de98d2792e8e3f3ab95b3e95fecc65bff",
+        "days": "4826dff08f715d78200cfccfeb7d12ee9d8576196f28e522f5217523de6f5afd"
+      }
+    },
+    {
+      "period": "2023",
+      "eligible_cells": 85699,
+      "minimum_paired_days": 365,
+      "maximum_raw_default_error": 2.6645352591003757e-15,
+      "sunshine_off_sha256": {
+        "score": "8d1e847f00c90c11b2cb750cc69e9d11f0699c48c27df663a5f7d03e107a8e98",
+        "days": "4e68997a4a87f41f7dfe1f20f16a9c28f8b2c6332b6aa2b40a9bf38c6ef3d72f"
+      }
+    },
+    {
+      "period": "2024",
+      "eligible_cells": 85699,
+      "minimum_paired_days": 366,
+      "maximum_raw_default_error": 2.6645352591003757e-15,
+      "sunshine_off_sha256": {
+        "score": "dfbe72fba72d49d704b4b0e11282ba4015bb95e245ccbe77564914a4b5416a71",
+        "days": "13117f52994a0ebf80e516177c70c5d553d6e8949274224c18c4f63d667f75fd"
+      }
+    },
+    {
+      "period": "2025",
+      "eligible_cells": 85699,
+      "minimum_paired_days": 365,
+      "maximum_raw_default_error": 2.6645352591003757e-15,
+      "sunshine_off_sha256": {
+        "score": "1caa2ebe135a3527953b436a65685dcf104e5a517252e83e472559f66337fa7e",
+        "days": "376452c53f37e2090f9cdf360ca77457a9e7b40456d31d2fb19f7432b50676f0"
+      }
+    }
+  ],
+  "hourly_api_pilot": {
+    "result": "PASS",
+    "samples": [
+      {
+        "city": "Porto",
+        "start": "2024-06-20",
+        "hourly_max_error_seconds": 0.010546874999818101,
+        "daily_max_error_seconds": 0.021069335940410383
+      },
+      {
+        "city": "Paris",
+        "start": "2024-06-20",
+        "hourly_max_error_seconds": 0.00858398437503638,
+        "daily_max_error_seconds": 0.01708251953095896
+      },
+      {
+        "city": "Miami",
+        "start": "2024-06-20",
+        "hourly_max_error_seconds": 0.00406738281253638,
+        "daily_max_error_seconds": 0.007886657716881018
+      },
+      {
+        "city": "Los Angeles",
+        "start": "2024-06-20",
+        "hourly_max_error_seconds": 0.0,
+        "daily_max_error_seconds": 0.0
+      },
+      {
+        "city": "Nairobi",
+        "start": "2024-06-20",
+        "hourly_max_error_seconds": 0.01721435546869543,
+        "daily_max_error_seconds": 0.017092285153921694
+      },
+      {
+        "city": "Nguruka",
+        "start": "2024-06-20",
+        "hourly_max_error_seconds": 0.00626953124992724,
+        "daily_max_error_seconds": 0.008671875002619345
+      },
+      {
+        "city": "Cape Town",
+        "start": "2024-06-20",
+        "hourly_max_error_seconds": 0.004589843749954525,
+        "daily_max_error_seconds": 0.004331054688009317
+      },
+      {
+        "city": "Oslo",
+        "start": "2024-06-20",
+        "hourly_max_error_seconds": 0.0044506835937454525,
+        "daily_max_error_seconds": 0.0044506835937454525
+      },
+      {
+        "city": "Buenos Aires",
+        "start": "2024-06-20",
+        "hourly_max_error_seconds": 0.007617187500045475,
+        "daily_max_error_seconds": 0.00897583007827052
+      },
+      {
+        "city": "Tokyo",
+        "start": "2024-06-20",
+        "hourly_max_error_seconds": 0.008188476562509095,
+        "daily_max_error_seconds": 0.0033203124985448085
+      },
+      {
+        "city": "Sydney",
+        "start": "2024-06-20",
+        "hourly_max_error_seconds": 0.022734375000027285,
+        "daily_max_error_seconds": 0.021759948729595635
+      },
+      {
+        "city": "Tromso",
+        "start": "2024-06-20",
+        "hourly_max_error_seconds": 0.01350585937507276,
+        "daily_max_error_seconds": 0.00681884765617724
+      },
+      {
+        "city": "Porto",
+        "start": "2024-12-20",
+        "hourly_max_error_seconds": 0.010429687499936335,
+        "daily_max_error_seconds": 0.010429687499708962
+      },
+      {
+        "city": "Paris",
+        "start": "2024-12-20",
+        "hourly_max_error_seconds": 0.02053710937479991,
+        "daily_max_error_seconds": 0.020537109376164153
+      },
+      {
+        "city": "Miami",
+        "start": "2024-12-20",
+        "hourly_max_error_seconds": 0.002734374999818101,
+        "daily_max_error_seconds": 0.004218750000291038
+      },
+      {
+        "city": "Los Angeles",
+        "start": "2024-12-20",
+        "hourly_max_error_seconds": 0.01202148437505457,
+        "daily_max_error_seconds": 0.01594726562325377
+      },
+      {
+        "city": "Nairobi",
+        "start": "2024-12-20",
+        "hourly_max_error_seconds": 0.007352905273435795,
+        "daily_max_error_seconds": 0.00678649902692996
+      },
+      {
+        "city": "Nguruka",
+        "start": "2024-12-20",
+        "hourly_max_error_seconds": 0.00604492187494543,
+        "daily_max_error_seconds": 0.0014697265651193447
+      },
+      {
+        "city": "Cape Town",
+        "start": "2024-12-20",
+        "hourly_max_error_seconds": 0.004951171874836291,
+        "daily_max_error_seconds": 0.0042480468764551915
+      },
+      {
+        "city": "Oslo",
+        "start": "2024-12-20",
+        "hourly_max_error_seconds": 0.020576171874949978,
+        "daily_max_error_seconds": 0.0377197265625
+      },
+      {
+        "city": "Buenos Aires",
+        "start": "2024-12-20",
+        "hourly_max_error_seconds": 0.00539062500001819,
+        "daily_max_error_seconds": 0.004609374998835847
+      },
+      {
+        "city": "Tokyo",
+        "start": "2024-12-20",
+        "hourly_max_error_seconds": 0.020898437500022737,
+        "daily_max_error_seconds": 0.02089843749854481
+      },
+      {
+        "city": "Sydney",
+        "start": "2024-12-20",
+        "hourly_max_error_seconds": 0.006015625000145519,
+        "daily_max_error_seconds": 0.0002734375011641532
+      },
+      {
+        "city": "Tromso",
+        "start": "2024-12-20",
+        "hourly_max_error_seconds": 0.0,
+        "daily_max_error_seconds": 0.0
+      }
+    ],
+    "hourly_days": 72,
+    "method": "Official NREL SPA lookup and backwards DNI 60\u2013180 W/m\u00b2 interpolation"
+  },
+  "import_objects": {
+    "data/copernicus_era5/temperature_2m/chunk_904.om": {
+      "bytes": 240258072,
+      "etag": "\"da2a7dcd9a90112dee451db82d83bc51-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_905.om": {
+      "bytes": 241247384,
+      "etag": "\"d36bd271a5e26d072e62d5cdac605a6e-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_906.om": {
+      "bytes": 242195208,
+      "etag": "\"f64f11a1bb6b6086cd5b8a9eaedbfd68-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_907.om": {
+      "bytes": 246122752,
+      "etag": "\"93f2616b4ce9a44ebfa9d35791b1f977-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_908.om": {
+      "bytes": 246271240,
+      "etag": "\"e13b21307eb9eb9b325a89592618a96c-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_909.om": {
+      "bytes": 247338480,
+      "etag": "\"f2c412a4e87f40809604794fb7eda915-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_910.om": {
+      "bytes": 246627912,
+      "etag": "\"ef8638d7d456fc7c4fc700d4d12dcea4-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_911.om": {
+      "bytes": 246238176,
+      "etag": "\"a489fcf3315a26a6b5ade38d726a61bf-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_912.om": {
+      "bytes": 245562344,
+      "etag": "\"37552aa7a50950dd4308b8e54549c10a-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_913.om": {
+      "bytes": 247223440,
+      "etag": "\"cbfc5404f318da26ef180595b32dcab7-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_914.om": {
+      "bytes": 244767176,
+      "etag": "\"374df7e0f034359574a297a75c7b6001-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_915.om": {
+      "bytes": 246168528,
+      "etag": "\"1fe6a5100c83efea52a3753328dd4e6a-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_916.om": {
+      "bytes": 245262024,
+      "etag": "\"5d9c0a4802fdc8bc7b96a1096c4d473b-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_917.om": {
+      "bytes": 245692304,
+      "etag": "\"98553f9a6333a913a25d5ff3b6830484-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_918.om": {
+      "bytes": 244719432,
+      "etag": "\"0a40538dc2904c693d95e87addc26555-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_919.om": {
+      "bytes": 243139024,
+      "etag": "\"c9653924637aa6758c9728f36a8ba731-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_920.om": {
+      "bytes": 241820600,
+      "etag": "\"4270ca90da78ae3e2d539b6b7529d5ff-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_921.om": {
+      "bytes": 238773280,
+      "etag": "\"f180d2191819ffffeb425fd74d8afb00-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_922.om": {
+      "bytes": 240143496,
+      "etag": "\"8fb05b5c6b06bf12b73f861f00c0722e-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_923.om": {
+      "bytes": 242763512,
+      "etag": "\"75d9ea3bded9c2d8fe8ca3487cae6efc-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_924.om": {
+      "bytes": 245159624,
+      "etag": "\"7783a582b7ea98f9144bb5fe0076fc59-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_925.om": {
+      "bytes": 247000880,
+      "etag": "\"b2eac75736f9d2f0914f1d1ac0f143c9-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_926.om": {
+      "bytes": 247063592,
+      "etag": "\"a905d5936fa85afa4e028e9ee6b2ecc6-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_927.om": {
+      "bytes": 247124152,
+      "etag": "\"d788af684aaadac8db750d494be255d8-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_928.om": {
+      "bytes": 248271560,
+      "etag": "\"68d4db97ccca30c59be9e3c491b80ec8-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_929.om": {
+      "bytes": 245120592,
+      "etag": "\"310972bd7ff863d674fbc16b86fd721e-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_930.om": {
+      "bytes": 246613184,
+      "etag": "\"98ea98d83b94c0929cee9bb5386d50d9-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_931.om": {
+      "bytes": 245634920,
+      "etag": "\"432a5eb85985c8f1b3e68b4af872a21e-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_932.om": {
+      "bytes": 245174608,
+      "etag": "\"247432c84f66fafe24db5a71ffec588a-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_933.om": {
+      "bytes": 245908800,
+      "etag": "\"bca033fd1f8c3514a3fe56e8294ecbab-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_934.om": {
+      "bytes": 244102912,
+      "etag": "\"3c629f9f16cddd31e72fcd54c917b7f1-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_935.om": {
+      "bytes": 243491848,
+      "etag": "\"4a415d99f736eaed6467427848a2fca3-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_936.om": {
+      "bytes": 244037872,
+      "etag": "\"4d089e2e5f3374bbc606bfdb48994282-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_937.om": {
+      "bytes": 241935320,
+      "etag": "\"fd5617debce315fb140935c56113c7e1-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_938.om": {
+      "bytes": 239719952,
+      "etag": "\"09dd5263829d264e26d7cd6467aa9984-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_939.om": {
+      "bytes": 241325368,
+      "etag": "\"4eacc34f4bdd3ed85874223af3be9348-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_940.om": {
+      "bytes": 240480888,
+      "etag": "\"22f7471979d71df1deec05146ec38526-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_941.om": {
+      "bytes": 242968792,
+      "etag": "\"47277adae2d2b92f23063d77fdc445f6-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_942.om": {
+      "bytes": 245394328,
+      "etag": "\"1a1b2322f734c5a3c8150381c8c0bd6d-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_943.om": {
+      "bytes": 247470352,
+      "etag": "\"1f49e11d0787f617cff19a33fb287702-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_944.om": {
+      "bytes": 246509928,
+      "etag": "\"efe39c5351dcb4695dcbc558f64c6947-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_945.om": {
+      "bytes": 245438160,
+      "etag": "\"611334fbdec95afc5a2ce0ec07be9350-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_946.om": {
+      "bytes": 246131408,
+      "etag": "\"d6397d15a018602fe720dde3ffcbb8ab-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_947.om": {
+      "bytes": 245637152,
+      "etag": "\"6c7e660a2b570f7b032bef5506634f7f-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_948.om": {
+      "bytes": 245791080,
+      "etag": "\"fae8ba094145bfe68d58ba694af74e95-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_949.om": {
+      "bytes": 244795976,
+      "etag": "\"3ed01f3501d500746232cd8f9eab0bd9-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_950.om": {
+      "bytes": 245150112,
+      "etag": "\"48ab5b2e52e642b2983ea40844c806ff-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_951.om": {
+      "bytes": 243459592,
+      "etag": "\"a92a0c740ecf971755b97bde0ddc2332-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_952.om": {
+      "bytes": 243376576,
+      "etag": "\"10fceefe52b9d323cc3b7e95f22b1a4e-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_953.om": {
+      "bytes": 242293496,
+      "etag": "\"51bcd8b5c6f85117ae9b45dd39657767-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_954.om": {
+      "bytes": 241786208,
+      "etag": "\"c78e5a9a288bad63c6e3fa5c49052aa6-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_955.om": {
+      "bytes": 239418952,
+      "etag": "\"68e30fece15970664f05014a7cc25470-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_956.om": {
+      "bytes": 238626504,
+      "etag": "\"dd793c17a0be7c881868740abb890bbf-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_957.om": {
+      "bytes": 240972096,
+      "etag": "\"88b97f238f173773be48942839607c9d-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_958.om": {
+      "bytes": 241784344,
+      "etag": "\"d42f77984113c226e807f5ef64fabdb0-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_959.om": {
+      "bytes": 244554976,
+      "etag": "\"93d20d37d6976870962afad608c2c7a0-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_960.om": {
+      "bytes": 247049336,
+      "etag": "\"c886ad07e9d182bc98c8c996e03e1218-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_961.om": {
+      "bytes": 248534728,
+      "etag": "\"37335fa34d370f76db0df4b9d1155907-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_962.om": {
+      "bytes": 247872832,
+      "etag": "\"cb2366d16ad4b17baf8361cedeef1018-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_963.om": {
+      "bytes": 245919712,
+      "etag": "\"8e6c3e7a8e7d4e37aa2b02bcab5f5ddd-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_964.om": {
+      "bytes": 244535928,
+      "etag": "\"a65d18f0a4ff0ad03c4782ab8c4e0171-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_965.om": {
+      "bytes": 247136520,
+      "etag": "\"83e6ede627e013d02fb97758d23333ca-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_966.om": {
+      "bytes": 245446728,
+      "etag": "\"460becd546baea10d808e62b1c5fe3b1-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_967.om": {
+      "bytes": 246448912,
+      "etag": "\"23ed646c7442ffb2e5df08799e8e5e97-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_968.om": {
+      "bytes": 246141128,
+      "etag": "\"6e206a4999d8f5377a9598f1671ed508-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_969.om": {
+      "bytes": 244903288,
+      "etag": "\"eb86d047e7865f78b0fdcd0ede30a171-30\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_970.om": {
+      "bytes": 242550632,
+      "etag": "\"d2c4c6f1720ee7df56228057796b4311-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_971.om": {
+      "bytes": 242684272,
+      "etag": "\"94ecc686d9a1ed67e7d2be7715549e98-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_972.om": {
+      "bytes": 240350096,
+      "etag": "\"9f0535230a54b5ec0f5a83a511da8f0b-29\""
+    },
+    "data/copernicus_era5/temperature_2m/chunk_973.om": {
+      "bytes": 241096448,
+      "etag": "\"f79ca5673fa989d499537b82e08dfcc2-29\""
+    },
+    "data/copernicus_era5/temperature_2m/year_2020.om": {
+      "bytes": 4244065392,
+      "etag": "\"653147be70255b41fc60dbf3a6ff9a81-506\""
+    },
+    "data/copernicus_era5/temperature_2m/year_2021.om": {
+      "bytes": 4242434928,
+      "etag": "\"4bc0decb9355386d3d3d5941104fda74-506\""
+    },
+    "data/copernicus_era5/precipitation/chunk_904.om": {
+      "bytes": 93361184,
+      "etag": "\"c6d4b3d3b24864c1c79a8c9d99f1e14b-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_905.om": {
+      "bytes": 94565760,
+      "etag": "\"63683daeb2b98b6484c4fbb660c6d0d9-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_906.om": {
+      "bytes": 94150376,
+      "etag": "\"823a8cafba02845ea7fddeffbd507762-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_907.om": {
+      "bytes": 96372304,
+      "etag": "\"083a205fdcc8f9f69e9ad703a835bd6c-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_908.om": {
+      "bytes": 96420288,
+      "etag": "\"1c526d4975c7fd26c8177bfabd8486eb-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_909.om": {
+      "bytes": 97812184,
+      "etag": "\"8101406d5744ced2c702dfab9e5d5f1b-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_910.om": {
+      "bytes": 98384232,
+      "etag": "\"d37e3411a14b43c34e31e9f07d478693-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_911.om": {
+      "bytes": 100547464,
+      "etag": "\"10a9e5025077ed9e7d6b3da8701d3219-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_912.om": {
+      "bytes": 104141176,
+      "etag": "\"aba2e33c57a4b4955d258b6cd9835b0e-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_913.om": {
+      "bytes": 105282056,
+      "etag": "\"e94d2516e1881779469e39f26d4e61c9-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_914.om": {
+      "bytes": 104225600,
+      "etag": "\"8aa8a3e4aaedc3faee260ec4e17f982c-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_915.om": {
+      "bytes": 104752312,
+      "etag": "\"50146cafcaa5f0baa49b08cae3eeadbe-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_916.om": {
+      "bytes": 102305552,
+      "etag": "\"606bbf4d7d0be7f615acf963445c9948-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_917.om": {
+      "bytes": 102084048,
+      "etag": "\"c8e4f5cce31f91b8ba38e9686112634e-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_918.om": {
+      "bytes": 99406968,
+      "etag": "\"00a2ffee664c28bb2bba78b61cffd322-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_919.om": {
+      "bytes": 96709616,
+      "etag": "\"bbd2e0924bac0f358e76d1db3a78957a-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_920.om": {
+      "bytes": 96919248,
+      "etag": "\"4242d76bd314e43cdfc18367da58aca1-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_921.om": {
+      "bytes": 94394088,
+      "etag": "\"8bf626816567cafd09dc7883a9bc09b6-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_922.om": {
+      "bytes": 94295224,
+      "etag": "\"ee72c94db0f6da0ffba9c0c099802031-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_923.om": {
+      "bytes": 94423480,
+      "etag": "\"43d74d1ee15451580cc7f38cb0e52f03-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_924.om": {
+      "bytes": 94867968,
+      "etag": "\"9cc601925592149a31857da01e46ed73-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_925.om": {
+      "bytes": 98510880,
+      "etag": "\"7639d29d5ce6dda97ee54730b66dafb3-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_926.om": {
+      "bytes": 97986752,
+      "etag": "\"2a883a37d3c54a4a7705ff1f66a94ccd-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_927.om": {
+      "bytes": 99006960,
+      "etag": "\"c243b7f9adb1cac019b57bd9b3e1fee3-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_928.om": {
+      "bytes": 101013752,
+      "etag": "\"bca1fb9a6c8003794bf4630d1de28bc2-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_929.om": {
+      "bytes": 101597632,
+      "etag": "\"7d793f314b3304c08c3d78f4449d1104-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_930.om": {
+      "bytes": 103912040,
+      "etag": "\"25fe31ed5052d0ac4fda888ae294f815-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_931.om": {
+      "bytes": 103886568,
+      "etag": "\"bb25e8236aa4d87158e1c63001229f4e-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_932.om": {
+      "bytes": 102123424,
+      "etag": "\"341757afbf306bb1331bfd9f050b681d-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_933.om": {
+      "bytes": 103790976,
+      "etag": "\"9b2dd01cddb61b789a74c363059cfe7d-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_934.om": {
+      "bytes": 101850464,
+      "etag": "\"7a3d509d3d270abcedb68f80f3ae9ad5-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_935.om": {
+      "bytes": 97113776,
+      "etag": "\"b20cfa3d592060731244f65cf8721f75-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_936.om": {
+      "bytes": 98834728,
+      "etag": "\"762856a2b9237fb95e17f28a9353453f-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_937.om": {
+      "bytes": 96480656,
+      "etag": "\"0abfaad14cf082960152cf67a05f7adb-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_938.om": {
+      "bytes": 95015008,
+      "etag": "\"dda91a397c955b76971bc5bfade68e2f-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_939.om": {
+      "bytes": 94509320,
+      "etag": "\"6e40f2e51ab9080ffdc9d2e883cd1150-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_940.om": {
+      "bytes": 93739800,
+      "etag": "\"8a1fce741e9034d2d2caba2111c0744a-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_941.om": {
+      "bytes": 94052960,
+      "etag": "\"84cd9ab26045b3ccb2ed222d03c896fa-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_942.om": {
+      "bytes": 95467528,
+      "etag": "\"72f6829de20eca3d7e81a48208c83fb7-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_943.om": {
+      "bytes": 98985064,
+      "etag": "\"c4651b05f559ff578c750d1ab64c4d1d-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_944.om": {
+      "bytes": 97873920,
+      "etag": "\"a0d97a67ee260e2fb1b98152d1c8630a-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_945.om": {
+      "bytes": 97600232,
+      "etag": "\"65041231f4327bb0a412da25dc2d18b8-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_946.om": {
+      "bytes": 100517056,
+      "etag": "\"0b8104356a1f05cd4afb25b9e4ef8a1e-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_947.om": {
+      "bytes": 102291264,
+      "etag": "\"4f4ef0fea70db2b053055312bd1fc885-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_948.om": {
+      "bytes": 103268408,
+      "etag": "\"ffb14ed2fd8d93569213651300ee6b93-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_949.om": {
+      "bytes": 102753856,
+      "etag": "\"0515db2776d3767fd12131694895d50c-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_950.om": {
+      "bytes": 105052536,
+      "etag": "\"848b29fe6c3913aaf1049752fec14a16-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_951.om": {
+      "bytes": 100195112,
+      "etag": "\"44787c10849a84bee3df9dc25e4a7320-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_952.om": {
+      "bytes": 99476288,
+      "etag": "\"cbfece46c4bd33d25a348f0d9f57ad83-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_953.om": {
+      "bytes": 98477688,
+      "etag": "\"017d663c3f20e6dd9b534b1c9e7b9a7c-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_954.om": {
+      "bytes": 97283520,
+      "etag": "\"199b27a86f4f488e16107aef80056505-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_955.om": {
+      "bytes": 94741320,
+      "etag": "\"5e0b8644ba753d92c514cb1f516171ce-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_956.om": {
+      "bytes": 93240208,
+      "etag": "\"c04656f2ab8197fd698cf7766ce15da9-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_957.om": {
+      "bytes": 92846752,
+      "etag": "\"c501f99f05ff4f46d74f6ec8616043f2-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_958.om": {
+      "bytes": 93060016,
+      "etag": "\"19f42fc64a6da9eb548342ce7f2e0e8b-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_959.om": {
+      "bytes": 94655144,
+      "etag": "\"f8ef897ca191f515c7c771f0061a252e-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_960.om": {
+      "bytes": 98023240,
+      "etag": "\"004c7e6643e971ca6eaba713820df30d-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_961.om": {
+      "bytes": 99978984,
+      "etag": "\"d448024f33109ab10b1e0e807473da1c-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_962.om": {
+      "bytes": 101027344,
+      "etag": "\"03427e67909f28a22b2d1fe8a4559c97-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_963.om": {
+      "bytes": 101108216,
+      "etag": "\"2ec65bdc695b9743a495ffa00f0e380d-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_964.om": {
+      "bytes": 102876016,
+      "etag": "\"22085e670c5b01f5501d1269174a878f-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_965.om": {
+      "bytes": 104062896,
+      "etag": "\"0a6a5874ace10e9e5b96f0465d4c2be3-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_966.om": {
+      "bytes": 103717312,
+      "etag": "\"eaa5615ad425b1084438876d8356c147-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_967.om": {
+      "bytes": 104493384,
+      "etag": "\"91a55304e9e65e756d28b872b1f61df0-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_968.om": {
+      "bytes": 104048776,
+      "etag": "\"ac588008405b4a9b7cb46876cb34a375-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_969.om": {
+      "bytes": 102465112,
+      "etag": "\"e088cc1326d309f4a5cc0ac066c9502b-13\""
+    },
+    "data/copernicus_era5/precipitation/chunk_970.om": {
+      "bytes": 99233152,
+      "etag": "\"56736a3f3b87ad24af7722aec014ad92-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_971.om": {
+      "bytes": 97260336,
+      "etag": "\"4855eb9fb9b7f25a81925ea4724b78d5-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_972.om": {
+      "bytes": 93387704,
+      "etag": "\"dfa70124f21024fcae3a50b4e1e89419-12\""
+    },
+    "data/copernicus_era5/precipitation/chunk_973.om": {
+      "bytes": 95374360,
+      "etag": "\"d3123c230ba1a0c6a3432cbd8361c84f-12\""
+    },
+    "data/copernicus_era5/precipitation/year_2020.om": {
+      "bytes": 1563252056,
+      "etag": "\"86e7dae2ecc11536fc549230ccf220e5-187\""
+    },
+    "data/copernicus_era5/precipitation/year_2021.om": {
+      "bytes": 1552578472,
+      "etag": "\"48f557756faf25e04497bd879de8f103-186\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_904.om": {
+      "bytes": 278808184,
+      "etag": "\"51433d512d680a2c8707b05463083704-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_905.om": {
+      "bytes": 279542336,
+      "etag": "\"b4f4901d9fde52532f3ca6c731b58e79-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_906.om": {
+      "bytes": 280149200,
+      "etag": "\"d6004dccfdfea7601b5a5c41f1d741a2-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_907.om": {
+      "bytes": 283403080,
+      "etag": "\"401dd559733ab5fb5bbfd59a080f7950-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_908.om": {
+      "bytes": 281852328,
+      "etag": "\"2661c7d6c842b5f4a9d02b780383cf87-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_909.om": {
+      "bytes": 280565368,
+      "etag": "\"57c7257ebb3b928ce98abb10801f6bb5-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_910.om": {
+      "bytes": 277603392,
+      "etag": "\"e6c531819e00129584ff07c0ec232708-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_911.om": {
+      "bytes": 274392560,
+      "etag": "\"ed10d57b0029da057d423fba1889175c-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_912.om": {
+      "bytes": 272869040,
+      "etag": "\"735acc90a50ccc6826ce67c9f83a44d3-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_913.om": {
+      "bytes": 273237184,
+      "etag": "\"072f227a8c31ab65cb0fbea37c87e6c8-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_914.om": {
+      "bytes": 272377392,
+      "etag": "\"a820f95a3d81d44c7531f663792bea93-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_915.om": {
+      "bytes": 275612912,
+      "etag": "\"e0d55daac2ee5e3df225f361c9eb3a7f-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_916.om": {
+      "bytes": 277650840,
+      "etag": "\"0db0c9531f8552847597dba91c8ea672-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_917.om": {
+      "bytes": 280564768,
+      "etag": "\"bea3898324725d817f582712942e9901-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_918.om": {
+      "bytes": 280787848,
+      "etag": "\"cf50d2e0779da8c282440dd0b2a5d1a8-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_919.om": {
+      "bytes": 279149288,
+      "etag": "\"e09d10e0f8c4273b739f16b58967981e-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_920.om": {
+      "bytes": 276966416,
+      "etag": "\"fabcbf04271ec578a217c4ed12f296fe-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_921.om": {
+      "bytes": 276899920,
+      "etag": "\"6a95ea70ef892c07cb0327738a403df5-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_922.om": {
+      "bytes": 278653576,
+      "etag": "\"2cc993ca8c97916e058d58a9586acd61-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_923.om": {
+      "bytes": 281172248,
+      "etag": "\"e96b92fbefda841b60055a196818e8db-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_924.om": {
+      "bytes": 282601760,
+      "etag": "\"3d02d1f8d0bf9a1c6500a9534430be92-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_925.om": {
+      "bytes": 282749720,
+      "etag": "\"4589b4c42b377e4590c2fab054bed693-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_926.om": {
+      "bytes": 281725144,
+      "etag": "\"2c21364f61281f497a182a172f8ad847-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_927.om": {
+      "bytes": 278580008,
+      "etag": "\"c63d345f384bd6d51b28cecafeeab1c5-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_928.om": {
+      "bytes": 276504632,
+      "etag": "\"d644e7ebec6126cc8697be9864d1f30b-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_929.om": {
+      "bytes": 274441200,
+      "etag": "\"78071218cfbae700e4197f437ca5d469-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_930.om": {
+      "bytes": 273178352,
+      "etag": "\"35f2baf12416766f003ee4a8be92c773-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_931.om": {
+      "bytes": 271961320,
+      "etag": "\"f1176a98e551af21e4487d46402f16cd-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_932.om": {
+      "bytes": 275261544,
+      "etag": "\"3a0b7d9063b0c9f5cf29f8dddf11fb68-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_933.om": {
+      "bytes": 275994536,
+      "etag": "\"6ab87cd505d40362a2b5dbdf6ade8f09-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_934.om": {
+      "bytes": 278229760,
+      "etag": "\"eea5c5c9cda2ac89555f185e7dad821f-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_935.om": {
+      "bytes": 280491016,
+      "etag": "\"8f2d765a47cc98143db2b66faca2c9d4-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_936.om": {
+      "bytes": 280229824,
+      "etag": "\"52ab4e37456668e69e980cd87285e5f8-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_937.om": {
+      "bytes": 278353888,
+      "etag": "\"3d22126f9c639a51f50d2346839a2aa7-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_938.om": {
+      "bytes": 277078080,
+      "etag": "\"92725646a2d6d7e1a1c1de1bd88da164-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_939.om": {
+      "bytes": 278158648,
+      "etag": "\"22c53f859194b2eddb748be8df2f0bd7-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_940.om": {
+      "bytes": 280254344,
+      "etag": "\"2690a33def95dc32480bd4e38a729f1a-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_941.om": {
+      "bytes": 281903608,
+      "etag": "\"de9cffa3b0f60ee3acae77333923c2a4-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_942.om": {
+      "bytes": 283044536,
+      "etag": "\"0e5aacacdc8e860fe07d6352f7012eee-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_943.om": {
+      "bytes": 282546648,
+      "etag": "\"aabb99a33033c5b57771c137a511f9a5-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_944.om": {
+      "bytes": 278920280,
+      "etag": "\"15d3d3e2359d9f5b1159d0db9acf9d69-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_945.om": {
+      "bytes": 276598488,
+      "etag": "\"1130e4cff180f067dff2ee0222b1fc5f-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_946.om": {
+      "bytes": 274669984,
+      "etag": "\"96edbd890c6c9908cefb0889cfd231be-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_947.om": {
+      "bytes": 272408872,
+      "etag": "\"ffdc792e2c8e9172daaa98f23308dd3d-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_948.om": {
+      "bytes": 270800616,
+      "etag": "\"cf2eb3a5cdc91989d8d934d25d678cb5-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_949.om": {
+      "bytes": 274402008,
+      "etag": "\"5a443054afc87cca9ea3af894d50487a-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_950.om": {
+      "bytes": 276187816,
+      "etag": "\"75ef2160c2f398064939f662619cf5f7-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_951.om": {
+      "bytes": 278209528,
+      "etag": "\"1f5e787b2bf0aea932827e22f51a1dbe-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_952.om": {
+      "bytes": 280268712,
+      "etag": "\"c7d4fe7c46d7c1fd77706b5e4fd3322e-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_953.om": {
+      "bytes": 280796064,
+      "etag": "\"2277e90714cd6971c1109b5d43e43219-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_954.om": {
+      "bytes": 279707160,
+      "etag": "\"5f0064646fb859dec0c1123e7aac1785-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_955.om": {
+      "bytes": 278112424,
+      "etag": "\"c0ebdecf83b3d94f558ec09f375b3cb4-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_956.om": {
+      "bytes": 276910056,
+      "etag": "\"17bcff55d7595810efb709f17157388c-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_957.om": {
+      "bytes": 278439792,
+      "etag": "\"2edb5b15914e0b3dc24ed02ab5e4095c-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_958.om": {
+      "bytes": 280643720,
+      "etag": "\"dcaffd51856f577219220edb06d79d18-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_959.om": {
+      "bytes": 282834864,
+      "etag": "\"e99a4e6bdde20613b4f1127473a92051-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_960.om": {
+      "bytes": 282595344,
+      "etag": "\"1c064de40021fdf0dfa3f1714f91b7c2-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_961.om": {
+      "bytes": 281951912,
+      "etag": "\"3cfea9f159f92ceac36729912063f0dc-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_962.om": {
+      "bytes": 278611720,
+      "etag": "\"a3c5553120b39dcdd13310b58368fa58-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_963.om": {
+      "bytes": 275314792,
+      "etag": "\"0a8980f1c78d69ff84ce6d6e47872126-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_964.om": {
+      "bytes": 272240688,
+      "etag": "\"bd8406f6774eeea5e84ab34da015d7ae-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_965.om": {
+      "bytes": 271913432,
+      "etag": "\"c5156b6811dcc1983033707a24dec931-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_966.om": {
+      "bytes": 272376952,
+      "etag": "\"3789f9861c5d236bf7404644fdfeb3c3-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_967.om": {
+      "bytes": 275420896,
+      "etag": "\"62ad655096186f57c4a671602379f077-33\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_968.om": {
+      "bytes": 278360008,
+      "etag": "\"280c3e895d453bedaf70c683803cf3c8-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_969.om": {
+      "bytes": 279403864,
+      "etag": "\"419c0b231b8435dfa66d964f8fd4cb3a-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_970.om": {
+      "bytes": 280183696,
+      "etag": "\"309ddc3ad3c52f4edba206f2ef8e6b65-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_971.om": {
+      "bytes": 277794552,
+      "etag": "\"12d919d308aba3f181eaaf5a71a60f13-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_972.om": {
+      "bytes": 277810872,
+      "etag": "\"1001a3fdb59742246828d20846dc9601-34\""
+    },
+    "data/copernicus_era5/direct_radiation/chunk_973.om": {
+      "bytes": 276706424,
+      "etag": "\"414d2751e89bda1f2d60b4cf857a07a0-33\""
+    },
+    "data/copernicus_era5/direct_radiation/year_2020.om": {
+      "bytes": 4831848832,
+      "etag": "\"03b85cc72d2947817d85e43c4ffcde78-577\""
+    },
+    "data/copernicus_era5/direct_radiation/year_2021.om": {
+      "bytes": 4825085680,
+      "etag": "\"40015b8058f49d6c2fee719d0b127dbc-576\""
+    }
+  },
+  "local_bulk_processing": false
+}

@@ -32,3 +32,6 @@
 #map .maplibregl-ctrl button:focus-visible,#map .maplibregl-canvas:focus-visible{outline:3px solid #f5c518;outline-offset:-3px}
 #map-hud{max-width:calc(100% - 110px)}
 @media(max-width:600px){#map-hud{max-width:calc(100% - 64px);font-size:10px}}
+
+/* Optional sunshine shares the LFSA controls and detail panel. */
+.rule-grid{grid-template-columns:1fr 1.35fr 1fr}.optional-label{font-size:10px;font-weight:500;color:#50617d;margin-left:5px}.sunshine-toggle{display:flex;gap:10px;align-items:flex-start;font-size:13px;font-weight:650;margin:16px 0}.sunshine-toggle input{display:inline-block;width:18px;height:18px;max-width:18px;flex:0 0 18px;margin:2px 0 0;accent-color:#0a2463}.sunshine-rule input:disabled{background:#eef2f8;color:#50617d;cursor:not-allowed}.sunshine-card{border-top-color:#f5c518}.sunshine-card .score-value strong{font-size:30px}.sunshine-card .score-value>span{font-size:13px}#sun-summary{min-height:38px;margin-top:14px}.detail-panel .sunshine-card{grid-column:1/-1}@media(max-width:900px){.rule-grid{grid-template-columns:1fr}}
