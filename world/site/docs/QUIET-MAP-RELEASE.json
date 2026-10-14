@@ -1,0 +1,12 @@
+{
+  "url": "https://comfy.lfsadigital.com/",
+  "version": 20,
+  "source": "17988d9ce8de8a519b9b1c49db738324f79af7a2",
+  "versionId": "appgprj_6acc3bb3fcd4819181f55b4757d282a8~appgver_94bf5cce89dc8191848dd11742456319",
+  "deploymentId": "appgdep_6acfd46f8a7c81918dc5f2f0ec0433f6",
+  "status": "succeeded",
+  "publishedAt": "2026-10-14T19:14:10.987907+00:00",
+  "liveVerification": "PASS: exact mask, unchanged arrays, verified cities, immersion, Escape, 320px, PNG, invalid input guard",
+  "codeAssetsMatchedBySha256": 8,
+  "review": "three named fixes scored resolved"
+}

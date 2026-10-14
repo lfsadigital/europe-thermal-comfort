@@ -1,0 +1,14 @@
+{
+  "url": "https://comfy.lfsadigital.com/",
+  "version": 19,
+  "source": "7a7de1ebcfff3330b286b9d722ec6f75f14d968b",
+  "versionId": "appgprj_6acc3bb3fcd4819181f55b4757d282a8~appgver_0604d92315d881918c7bb639af944bed",
+  "deploymentId": "appgdep_6acfc4f2447881918d7895aa623e7533",
+  "status": "succeeded",
+  "publishedAt": "2026-10-14T18:08:11.416512+00:00",
+  "liveVerification": "PASS: three modes, population reason, unknown retention, ranking independence, empty status, URL reload, zoom, mobile, both PNGs, and logo/favicon asset hashes; zero page errors",
+  "visualReview": "sole empty-status finding scored resolved",
+  "logo": "authored native SVG; simplified SVG favicon plus32px/180px PNG",
+  "pngCanvasSamplesPerMetric": 81,
+  "pngMaxDifference": 0
+}

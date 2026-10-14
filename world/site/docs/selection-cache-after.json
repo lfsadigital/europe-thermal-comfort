@@ -1,0 +1,24 @@
+{
+  "result": "PASS",
+  "baseline": false,
+  "samples": [
+    {
+      "year": "2025",
+      "ms": 5619,
+      "requests": 3,
+      "hash": "13c0824ad04c9706e017d61740cf6f2d4300d121f7591296be8a55bdfc53e703"
+    },
+    {
+      "year": "mean",
+      "ms": 3927,
+      "requests": 0,
+      "hash": "3cb801a32a08697b4334187d65189fb565755cf93a11a5f89f6d4e3576ce61fd"
+    },
+    {
+      "year": "2025",
+      "ms": 3014,
+      "requests": 0,
+      "hash": "13c0824ad04c9706e017d61740cf6f2d4300d121f7591296be8a55bdfc53e703"
+    }
+  ]
+}

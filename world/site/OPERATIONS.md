@@ -32,3 +32,27 @@ Weather and Cities controls moved onto the map. Optional missing city data stays
 ## 2026-10-13 — map-first published
 
 Explicitly authorized. Sites version 17, source 58548cc15bf3b02ca3f3a6d5b0f1f1f34e200b33, deployment appgdep_6ace9c91e5888191842f5fff6e9c6ba4 succeeded at 2026-10-13T21:03:32.114069+00:00. Anonymous custom-domain filters, unknown retention, markers, URL state, mobile, tab parity and both PNG checks passed with zero page errors. Each PNG matched 81 actual canvas samples with maximum difference zero. No climate data/formula changed.
+
+## 2026-10-13 — browser performance candidate
+
+User explicitly authorized optimizing, comparing, testing and publishing Comfy before deciding hosting migration. Browser-only candidate eligibility reuse and bounded result cache implemented. CPU-throttled (4×) local median ranking/marker refresh: World Nomads on 1931.6 → 304.4 ms, Europe 2586.3 → 61.3 ms, USA 2016.8 → 28.9 ms. Exact arrays/rank rows/marker count fingerprint identical. Initial-ready timings 4597 versus 4211 ms are single observations, no initial-load improvement claimed. Returning to cached periods removes three prepared-map requests. Independent climate/filter, mobile/custom-temperature and map/PNG checks passed. Sunshine/cache-specific checks and publication follow. No cloud service, DNS, KV or other project changes in this optimization.
+
+## 2026-10-13 — browser optimization published
+
+Sites version 18, source f6e9f5d7f4903c20f604b5eccc03c3b690aeebc2, deployment appgdep_6acea9263a708191bfd86f6bd96c7b83 succeeded 2026-10-13T21:57:11.704063+00:00. Anonymous custom-domain map/filter/mobile/tab/PNG and period/sunshine cache checks passed with zero page errors. Each PNG matched 81 canvas samples with max difference zero. Returning to cached mean/2025 required zero prepared-map requests; values identical. Sunshine 6→7→6 and off restored exact arrays; cache budget checks passed. No hosting migration, KV operations, server calculation service or other project changes introduced. Public GitHub not pushed in this request; local backup prepared. Temporary publication archive removed after successful save/deploy.
+
+## 2026-10-14 — city map modes and logo candidate
+
+User authorized three map modes, population classification, retained optional unknowns and zoom behavior, testing/publication; added improved logo/favicon to same scope. Candidate browser checks and PNG regression passed. Default highlight, results-only keeps unknowns, ranking-only leaves climate layer unchanged. Population fails are gray; 1k+ catalog rendered by existing zoom thresholds and camera padding. Counts region-wide. Authored native SVG sun/horizon and simplified favicon with 32px/180px raster fallbacks. Reviewer empty-status fix scored resolved. No scientific dataset/formula changes and no cloud resources outside Comfy altered. Publication follows.
+
+## 2026-10-14 — city map modes and identity published
+
+Sites version 19, source 7a7de1ebcfff3330b286b9d722ec6f75f14d968b, deployment appgdep_6acfc4f2447881918d7895aa623e7533 succeeded 2026-10-14T18:08:11.416512+00:00. Anonymous custom-domain mode/population/unknown/empty/URL/zoom/320px/PNG checks passed. Full regression passed zero page errors; each score/day PNG matches 81 canvas samples exactly. Logo rendered; all four public logo/favicon files match tested local SHA-256 and return200. No dataset/formula, DNS or other-project resource changed. No public GitHub push in this request. Local publication archive removed after successful deployment and checks.
+
+## 2026-10-14 — quiet map candidate, not published
+
+User asked neutral nonmatching areas, verified city highlights, immersion, much less visible copy and removal of quick-city chips; chose adjustable score and days limits together. Candidate defaults score≥8 and days/year≥180 as map-only highlight limits. Source numerical arrays/formula/data unchanged. Unknown metadata remains ranking eligible but is not highlighted; no socioeconomic region masking inferred from city records. Local tests verify exact original-cell mask, transparency/full-color restoration, no failed or unknown highlighted points, removal of chips, PNG threshold state, immersion/Escape/height and320px overflow. Three review fixes scored resolved (mobile info/Exit overlap, neutral export legend, eyebrow removal); final DESIGN documented. No new deploy, GitHub push, Cloudflare service/DNS or other-project changes. Awaiting explicit publication approval.
+
+## 2026-10-14 — quiet map published
+
+Explicit approval for publishing and GitHub update received. Sites version20, source17988d9ce8de8a519b9b1c49db738324f79af7a2, deployment appgdep_6acfd46f8a7c81918dc5f2f0ec0433f6 succeeded 2026-10-14T19:14:10.987907+00:00. Anonymous custom-domain exact-mask/unchanged-array/verified-city/immersion/Escape/320px/PNG/invalid-input tests passed. Eight public code/style SHA-256 hashes match tested local files. No hosting/DNS/data-source or other-project changes. GitHub backup includes prior performance and logo changes as well as this refinement; no raw climate archives included. Temporary publication archive removed after successful deploy/verification.
