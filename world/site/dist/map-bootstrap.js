@@ -4,7 +4,7 @@ try {
   await import('./workspace-ui.js?v=20');
   await import('./geo-map.js?v=20');
   await import('./discovery.js?v=20');
-  await import('./city-filters.js?v=21');
+  await import('./city-filters.js?v=22');
   await import('./monthly-charts.js?v=15');
   await import('./city-map.js?v=20');
   await import('./app.js?v=21');

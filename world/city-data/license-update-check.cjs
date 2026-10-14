@@ -4,13 +4,13 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),{launch}=requir
  const p=await b.newPage({viewport:{width:1440,height:1000},acceptDownloads:true}),errors=[],requests=[];
  p.on('pageerror',e=>errors.push(e.message));p.on('request',r=>requests.push(r.url()));
  const base=process.env.COMFY_TEST_URL||'http://127.0.0.1:8777/';
- await p.goto(base+'?nomads=1&nomadmin=3&cost=1&budget=2500&colors=all');
+ await p.goto(base+'?nomads=1&nomadmin=3&cost=1&budget=2500&crime=1&homgeo=country&hommax=2&colors=all');
  await p.waitForFunction(()=>window.ComfyDays&&!ComfyDays.state.busy&&ComfyDays.cityFilters.ready);
  const arrays=()=>p.evaluate(()=>({score:Array.from(ComfyDays.state.scoreValues),days:Array.from(ComfyDays.state.dayValues)})),before=await arrays();
  assert.equal(await p.locator('#nomads-enabled,#cost-enabled').count(),0);
  assert(!new URL(p.url()).searchParams.has('nomads'));assert(!new URL(p.url()).searchParams.has('cost'));
  assert(!requests.some(u=>u.includes('nomads-cities')||u.includes('nomads.com')));
- const old=await p.request.get(base+'assets/nomads-cities.json');assert(!old.ok());
+ for(const file of ['nomads-cities.json','homicide-country.json']){const old=await p.request.get(base+'assets/'+file);if(old.ok()){assert(/text\/html/i.test(old.headers()['content-type']||''),'Retired dataset must not be served as JSON');assert((await old.text()).includes('<!DOCTYPE html>')||(await old.text()).includes('<!doctype html>'));}}assert.equal(await p.locator('#crime-geography option[value=country]').count(),0);assert(!await p.locator('#crime-enabled').isChecked());assert(!requests.some(u=>u.includes('homicide-country')));
  await p.evaluate(()=>ComfyDays.inspect(25.76,-80.19));assert(!/Nomad|monthly cost/i.test(await p.locator('#city-context-values').innerText()));
  await p.evaluate(()=>ComfyDays.ui.open('city'));await p.check('#crime-enabled');await p.selectOption('#crime-geography','city');await p.selectOption('#crime-year','2024');
  assert.deepEqual(await arrays(),before);assert(await p.evaluate(()=>ComfyDays.cityFilters.cityHomicide.get('4164138|2024').count===28));
@@ -19,6 +19,6 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),{launch}=requir
  for(const region of ['europe','usa','world']){await p.click('[data-region="'+region+'"]');assert.deepEqual(await arrays(),before);}
  for(const metric of ['score','days']){await p.click('[data-view="'+metric+'"]');const dl=p.waitForEvent('download');await p.click('#export');await(await dl).saveAs('../share/current-'+metric+'.png');const bytes=fs.readFileSync('../share/current-'+metric+'.png');assert.equal(bytes.readUInt32BE(16),2400);assert.equal(bytes.readUInt32BE(20),1800);assert(!/nomads|budget/i.test(JSON.stringify(await p.evaluate(()=>ComfyDays.lastExport))));}
  await p.setViewportSize({width:360,height:800});await p.evaluate(()=>ComfyDays.ui.open('city'));assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));assert.deepEqual(errors,[]);
- const result={result:'PASS',url:base,checks:['Nomads controls removed','no Nomads network requests','legacy flags removed','public snapshot unavailable','context removed','climate arrays unchanged under city filters and all tabs','municipal homicide retained','two PNG exports without retired filters','mobile no overflow'],errors};
+ const result={result:'PASS',url:base,checks:['Nomads controls removed','no Nomads network requests','legacy flags removed','retired Nomads and country snapshots unavailable; HTML fallback allowed','context removed','climate arrays unchanged under city filters and all tabs','municipal homicide retained; old country filter disabled rather than reinterpreted','two PNG exports without retired filters','mobile no overflow'],errors};
  fs.writeFileSync('../site/docs/license-update-browser'+(process.env.COMFY_TEST_URL?'-public':'')+'.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));
 }finally{await b.close();}})().catch(e=>{console.error(e);process.exitCode=1});

@@ -1,58 +1,15 @@
 {
-  "workbook_sha256": "126c1b5282f2872d5197bcd130c0d2d4adf3b820230651f402ec3c0918c423bb",
-  "rate_rows": 584,
-  "coverage_by_year": {
-    "2020": 131,
-    "2021": 121,
-    "2022": 115,
-    "2023": 104,
-    "2024": 94
-  },
-  "default_year": 2023,
-  "unmapped_countries": [
-    "Holy See",
-    "Iraq (Central Iraq)",
-    "United Kingdom (England and Wales)",
-    "United Kingdom (Northern Ireland)",
-    "United Kingdom (Scotland)"
-  ],
-  "selected_sheet": "data_cts_intentional_homicide",
-  "excluded_sheet": "data_cts_homicide_reg_estimates",
-  "filters": {
-    "indicator": "Victims of intentional homicide",
-    "dimension": "Total",
-    "category": "Total",
-    "sex": "Total",
-    "age": "Total",
-    "unit": "Rate per 100,000 population"
-  },
-  "sample_rows": [
-    {
-      "iso3": "BRA",
-      "country": "Brazil",
-      "year": 2023,
-      "value": 20.5753765300299,
-      "national_source": "DATASUS",
-      "place_country": "Brazil",
-      "count": 43443.0
-    },
-    {
-      "iso3": "PRT",
-      "country": "Portugal",
-      "year": 2023,
-      "value": 0.709441652163059,
-      "national_source": "SDG/GSH 2023 Revision/CTS",
-      "place_country": "Portugal",
-      "count": 74.0
-    },
-    {
-      "iso3": "USA",
-      "country": "United States of America",
-      "year": 2023,
-      "value": 5.76340794073065,
-      "national_source": "CTS/GSH 2019 Revision",
-      "place_country": "United States",
-      "count": 19796.0
-    }
+  "status": "Country dataset removed pending redistribution permission",
+  "source": "https://data.unodc.org/datareport/hom-victim",
+  "audit_keys_retired": [
+    "workbook_sha256",
+    "rate_rows",
+    "coverage_by_year",
+    "default_year",
+    "unmapped_countries",
+    "selected_sheet",
+    "excluded_sheet",
+    "filters",
+    "sample_rows"
   ]
 }

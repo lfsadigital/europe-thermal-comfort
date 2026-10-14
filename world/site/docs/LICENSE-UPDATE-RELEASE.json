@@ -1,0 +1,12 @@
+{
+  "version": 21,
+  "site": "https://comfy.lfsadigital.com/",
+  "source_commit": "6ad9e15673e58fe9df43702efa2b219bab1d4a26",
+  "github_commit": "26701a1",
+  "deployment_id": "appgdep_6acfe16a91708191984ea1870b45c5b9",
+  "status": "succeeded",
+  "completed_at": "2026-10-14T20:09:32.373361+00:00",
+  "climate_changed": false,
+  "unodc": "Removal question pending; country data unchanged",
+  "old_history": "Not rewritten"
+}

@@ -9,7 +9,7 @@ https://nomads.com/api/v3#license
 ## UNODC
 The actual data portal HTML was fetched on 14 October. Its footer links https://www.unodc.org/unodc/legal.html and https://www.un.org/en/about-us/copyright. The legal notice permits personal noncommercial copying but grants no redistribution or derivative-work right. The July 2026 homicide metadata gives a suggested citation, not a redistribution license. No dataset-specific override was found. We cannot label the current directly downloaded workbook CC BY based only on its public accessibility.
 
-Removal of country data pending user choice. Municipal FBI UCR and Eurostat data have separate reuse permissions and are unaffected.
+User authorized withdrawal: country snapshot/fetch/filter/context rows removed from the current public bundle and GitHub branch. FBI/Eurostat municipal values and coverage unchanged. Legacy country-filter URLs disable the retired filter; they never silently switch to city rates. Missing city/year rates remain Unknown and eligible.
 
 Potential replacement, not installed: https://data.worldbank.org/indicator/VC.IHR.PSRC.P5 explicitly labels the country homicide series CC BY 4.0 and cites UNODC. Import only that licensed distribution, retaining its vintage/coverage and crediting both organizations. Do not relabel the existing July 2026 workbook as World Bank data or assume identical coverage.
 
@@ -23,3 +23,5 @@ https://www.numbeo.com/common/terms_of_use.jsp permits personal website reuse wi
 Added explicit weather CC BY source/license/change attribution in folded About the data, plus GeoNames, Natural Earth, FBI, Eurostat and OSM credits. PNG footer credits the weather provider/license and identifies derived scores. Scientific core and worker SHA-256 hashes match the pre-edit manifest; climate files/cells/period/formula unchanged. Local tests passed monthly aggregation, zero-floor sunshine rules, pixel mask rendering, missing homicide data/year retention, population eligibility, Miami count/rate, and browser Nomads removal/URL cleanup/filter invariance/World-Europe-USA numeric parity/two PNGs/mobile width.
 
 GitHub removal targets the current branch. Older commits can retain the retired snapshot; history rewriting requires separate authorization. Old Sites saved versions can retain former assets too. No history rewrite or deletion of saved versions is included.
+
+Municipal 2024 coverage retained: 6,900 USA cities and 11 Eurostat areas. In 2025 the existing table has 6,859 USA cities and no Eurostat rows. Counts describe our imported catalog, not every city in those regions.

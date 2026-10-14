@@ -60,3 +60,7 @@ Explicit approval for publishing and GitHub update received. Sites version20, so
 ## 2026-10-14 — license update candidate
 
 Explicit user authorization: remove Nomads from public site/GitHub, audit UNODC, correct credits, test and publish without changing climate calculations. Nomads removed from runtime bundle; legacy flags normalized. Scientific core/worker hashes unchanged. Country-source permission requires follow-up; municipal data retained. Local browser and unit tests passed. No DNS/Cloudflare resource changes.
+
+## 2026-10-14 — country source withdrawn
+
+User chose withdrawal of UNODC country data pending permission. Removed country snapshot, fetch, selector option and context values. Retained municipal FBI/Eurostat values and no-fallback behavior. Old country-filter links disable the retired filter. Broader country coverage is lost; municipal Unknown values stay eligible. Weather data and calculations unchanged.

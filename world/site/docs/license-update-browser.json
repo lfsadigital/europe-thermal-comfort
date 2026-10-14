@@ -5,10 +5,10 @@
     "Nomads controls removed",
     "no Nomads network requests",
     "legacy flags removed",
-    "public snapshot unavailable",
+    "retired Nomads and country snapshots unavailable; HTML fallback allowed",
     "context removed",
     "climate arrays unchanged under city filters and all tabs",
-    "municipal homicide retained",
+    "municipal homicide retained; old country filter disabled rather than reinterpreted",
     "two PNG exports without retired filters",
     "mobile no overflow"
   ],
