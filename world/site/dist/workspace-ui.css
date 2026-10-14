@@ -117,3 +117,8 @@ body.map-immersed .toolbar{gap:8px;flex-wrap:wrap}
 body.map-immersed #map{margin:0;width:100%}.detail-panel{display:block}.detail-panel:not(.has-selection){display:none}
 @media(max-width:650px){.map-actions button{min-height:44px;font-size:12px}}
 .city-summary-info,body.map-immersed .city-summary-info{position:relative;inset:auto;transform:none;margin:0;flex:none}
+
+#epi-budget-fieldset[hidden],#epi-retry[hidden]{display:none!important}
+#epi-budget-fieldset>small{display:block;margin-top:8px;color:var(--muted,#50617d)}
+#epi-status{margin:10px 0 0;font-size:12px}
+#city-context-values dd>small{display:block;margin-top:6px;line-height:1.5}

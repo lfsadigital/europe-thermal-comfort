@@ -44,3 +44,5 @@ City ranking population thresholds: 1,000, 10,000, 50,000 (default), 250,000, 50
 ## City context and monthly charts
 
 Nomads score/cost data and filters were removed pending redistribution permission. Optional city ranking and map marker filters use population plus municipal homicide and a selected crime year. Local rates use FBI Table 8 and Eurostat; UNODC country data was withdrawn pending redistribution permission. Missing local data has no country fallback. See [city homicide coverage and matching](docs/CITY-HOMICIDE.md). Monthly charts use the same ERA5 cell and UTC dates. See [methodology](docs/CITY-CONTEXT-AND-MONTHLY.md) and [design](DESIGN.md).
+
+USA regional budget: optional EPI2026,1adult/nochildren,2025USD including taxes. County-based, not city-specific. Missing stays Unknown. Data adaptations are CC BY-NC-SA4.0; see docs/EPI-BUDGET.md.

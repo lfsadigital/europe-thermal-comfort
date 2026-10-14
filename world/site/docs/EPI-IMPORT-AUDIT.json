@@ -1,0 +1,153 @@
+{
+  "source": "https://www.epi.org/resources/budget/",
+  "workbook_sha256": "eda46303451a8e0d1f1a60f268d7192933cbb463a939583cff6b38242bd62dc6",
+  "geonames_sha256": "9e70c809e62b33199ebcb703ab0a27fa8a864cc06460bdfa6b60e23b88b9101b",
+  "county_rows": 3143,
+  "catalog_usa_cities": 16629,
+  "matched_cities": 16418,
+  "unknown_cities": 211,
+  "rejected": {
+    "county_not_in_epi": 188,
+    "catalog_coordinate_changed": 1,
+    "missing_county_code": 22
+  },
+  "max_component_total_difference_usd_month": 0.16666666666696983,
+  "county_rows_by_state": {
+    "AL": 67,
+    "AK": 30,
+    "AZ": 15,
+    "AR": 75,
+    "CA": 58,
+    "CO": 64,
+    "CT": 8,
+    "DE": 3,
+    "DC": 1,
+    "FL": 67,
+    "GA": 159,
+    "HI": 5,
+    "ID": 44,
+    "IL": 102,
+    "IN": 92,
+    "IA": 99,
+    "KS": 105,
+    "KY": 120,
+    "LA": 64,
+    "ME": 16,
+    "MD": 24,
+    "MA": 14,
+    "MI": 83,
+    "MN": 87,
+    "MS": 82,
+    "MO": 115,
+    "MT": 56,
+    "NE": 93,
+    "NV": 17,
+    "NH": 10,
+    "NJ": 21,
+    "NM": 33,
+    "NY": 62,
+    "NC": 100,
+    "ND": 53,
+    "OH": 88,
+    "OK": 77,
+    "OR": 36,
+    "PA": 67,
+    "RI": 5,
+    "SC": 46,
+    "SD": 66,
+    "TN": 95,
+    "TX": 254,
+    "UT": 29,
+    "VT": 14,
+    "VA": 133,
+    "WA": 39,
+    "WV": 55,
+    "WI": 72,
+    "WY": 23
+  },
+  "samples": {
+    "4164138": {
+      "city": "Miami",
+      "fips": "12086",
+      "record": [
+        "Miami-Dade County",
+        "FL",
+        5047.0,
+        60564.0,
+        1711.0,
+        395.1666666666667,
+        925.3333333333334,
+        479.3333333333333,
+        653.9166666666666,
+        0.0,
+        882.25
+      ]
+    },
+    "5128581": {
+      "city": "New York City",
+      "fips": null,
+      "record": null
+    },
+    "5391959": {
+      "city": "San Francisco",
+      "fips": "06075",
+      "record": [
+        "San Francisco County",
+        "CA",
+        6185.75,
+        74229.0,
+        2116.9166666666665,
+        477.9166666666667,
+        724.5833333333334,
+        603.1666666666666,
+        805.5833333333334,
+        0.0,
+        1457.5833333333333
+      ]
+    },
+    "5368361": {
+      "city": "Los Angeles",
+      "fips": "06037",
+      "record": [
+        "Los Angeles County",
+        "CA",
+        5527.916666666667,
+        66335.0,
+        1856.0,
+        367.3333333333333,
+        1003.5,
+        397.9166666666667,
+        690.25,
+        0.0,
+        1212.9166666666667
+      ]
+    },
+    "4180439": {
+      "city": "Atlanta",
+      "fips": "13121",
+      "record": [
+        "Fulton County",
+        "GA",
+        5407.75,
+        64893.0,
+        1658.25,
+        426.0,
+        919.3333333333334,
+        516.25,
+        647.0833333333334,
+        0.0,
+        1240.8333333333333
+      ]
+    }
+  },
+  "checks": [
+    "county tab only",
+    "1p0c only",
+    "monthly equals annual /12",
+    "published component/total difference at most $2/year; original total retained",
+    "zero childcare",
+    "unique county FIPS",
+    "exact state/code join",
+    "no nearest fallback"
+  ]
+}

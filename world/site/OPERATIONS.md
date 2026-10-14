@@ -70,3 +70,7 @@ User chose withdrawal of UNODC country data pending permission. Removed country 
 Sites version22 source0f50cf75911f2936bea82cc9c666eeb6f8e0ffc1, deployment appgdep_6acfe31719a4819182acb9a226899dae succeeded 2026-10-14T20:16:40.060037+00:00. Nomads and UNODC country snapshots and filters withdrawn with explicit user authorization. FBI/Eurostat municipal values, population and all climate calculations preserved; scientific core/worker hashes unchanged. GitHub code08d566f pushed. No DNS/Cloudflare account resource changes. Historical repository commits/Sites saved versions not removed.
 
 Anonymous custom-domain license-update browser checks passed with zero JavaScript errors: retired JSON endpoints serve no dataset; legacy flags normalized; exact weather arrays stable under city filters and region tabs; municipal Miami rate/count retained; score/day PNG2400×1800 exclude retired fields;360px no overflow. Temporary publication archives removed.
+
+## 2026-10-14 — EPI USA budget candidate
+
+Authorized free EPI integration, tests/publication and GitHub update. Exact1p0c county totals,2025USD, joined to GeoNames county FIPS.16,418cities linked;211unknown. Budget is USA-only,off by default,USD5,000 initial ceiling. Scientific core/worker hashes unchanged. Lazy178KiB data asset, no new Cloudflare services or KV. Tests/publication follow.

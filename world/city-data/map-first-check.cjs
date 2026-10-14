@@ -2,7 +2,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),zlib=require('node:zlib');
 const nodes={'crime-enabled':{checked:true},'crime-max':{value:'10'},'crime-year':{value:'2024'},'crime-geography':{value:'city'},'rank-population':{value:'50000'}};
 const sandbox={window:{},document:{getElementById:id=>nodes[id]},URLSearchParams,Map,Number,JSON};vm.createContext(sandbox);vm.runInContext(fs.readFileSync(__dirname+'/../site/dist/city-filters.js','utf8'),sandbox);
-const f=Object.create(sandbox.window.CityFilters.prototype);Object.assign(f,{ready:true,error:false,committed:null,homicide:new Map(),cityHomicide:new Map()});const city={place:[1,'Test',0,0,'State','Country',100000]};
+const f=Object.create(sandbox.window.CityFilters.prototype);Object.assign(f,{ready:true,error:false,committed:null,epi:{state:{epi:false,budget:5000},valid:()=>true,assessment:()=>({failures:[],missing:[]}),description:()=>[]},homicide:new Map(),cityHomicide:new Map()});const city={place:[1,'Test',0,0,'State','Country',100000]};
 assert(f.allows(city));assert.equal(f.assessment(city).status,'unknown');f.homicide.set('Country|2024',{value:2});assert.equal(f.crimeRecord(city.place),undefined);
 f.cityHomicide.set('1|2024',{value:0});assert(f.allows(city));assert.equal(f.assessment(city).status,'match');f.cityHomicide.set('1|2024',{value:10});assert(f.allows(city));f.cityHomicide.set('1|2024',{value:10.01});assert(!f.allows(city));
 nodes['crime-year'].value='2023';assert(f.allows(city));assert.equal(f.assessment(city).status,'unknown');nodes['crime-enabled'].checked=false;nodes['rank-population'].value='250000';assert(!f.allows(city));
