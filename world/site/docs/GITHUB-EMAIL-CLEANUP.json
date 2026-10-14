@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "remote_history_objects_checked": 329,
+  "remaining_email_matches": 0,
+  "main": "8b90dda752950a67401f4fee1b540c29d43cf143",
+  "tags": [
+    "comfy-sunshine-data-v1"
+  ],
+  "force_push_succeeded": true,
+  "remote_tag_unchanged": true,
+  "cached_old_blob_still_contains_email": true,
+  "cache_purge_requires_github_support": true,
+  "support_request_prepared": "world-comfort/security/GITHUB-CACHE-PURGE-REQUEST.md",
+  "support_request_sent": false,
+  "website_changed": false
+}

@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "base": "https://comfy.lfsadigital.com/",
+  "checks": [
+    "highlight default",
+    "empty map message visible with recovery",
+    "population failures gray with reason",
+    "only results retains unknowns",
+    "map mode never changes ranking",
+    "off removes filter markers",
+    "mode/population URL survives reload",
+    "only-results PNG",
+    "same zoom thresholds",
+    "320px no overflow"
+  ],
+  "errors": []
+}

@@ -1,0 +1,436 @@
+{
+  "date": "2026-10-14",
+  "removed_files": [
+    {
+      "path": "world-comfort/share/comfy-days-usa-days-sun6h.png",
+      "bytes": 2081468
+    },
+    {
+      "path": "world-comfort/share/comfy-days-world-score-era5.png",
+      "bytes": 1764033
+    },
+    {
+      "path": "world-comfort/share/homicide-desktop.png",
+      "bytes": 146390
+    },
+    {
+      "path": "world-comfort/share/city-extras-days.png",
+      "bytes": 2070171
+    },
+    {
+      "path": "world-comfort/share/city-map-filters-mobile.png",
+      "bytes": 54209
+    },
+    {
+      "path": "world-comfort/share/comfy-days-usa-days-2020-2025-18-26C.png",
+      "bytes": 2028064
+    },
+    {
+      "path": "world-comfort/share/comfy-days-world-days-lfsa.png",
+      "bytes": 1733388
+    },
+    {
+      "path": "world-comfort/share/comfy-days-europe-days-sun6h.png",
+      "bytes": 1757770
+    },
+    {
+      "path": "world-comfort/share/homicide-score.png",
+      "bytes": 1810621
+    },
+    {
+      "path": "world-comfort/share/comfy-public-v9-europe-score.png",
+      "bytes": 1521813
+    },
+    {
+      "path": "world-comfort/share/comfy-days-europe-score-maplibre.png",
+      "bytes": 1527832
+    },
+    {
+      "path": "world-comfort/share/comfy-days-world-days-era5.png",
+      "bytes": 1758330
+    },
+    {
+      "path": "world-comfort/share/comfy-days-usa-score-sun-off.png",
+      "bytes": 1679474
+    },
+    {
+      "path": "world-comfort/share/map-first-weather-desktop.png",
+      "bytes": 494729
+    },
+    {
+      "path": "world-comfort/share/city-extras-lines-mobile.png",
+      "bytes": 114603
+    },
+    {
+      "path": "world-comfort/share/map-modes-desktop.png",
+      "bytes": 256949
+    },
+    {
+      "path": "world-comfort/share/map-first-score.png",
+      "bytes": 1743659
+    },
+    {
+      "path": "world-comfort/share/comfy-days-europe-score-2020-2025-18-26C.png",
+      "bytes": 1521813
+    },
+    {
+      "path": "world-comfort/share/unified-europe.png",
+      "bytes": 541429
+    },
+    {
+      "path": "world-comfort/share/comfy-days-world-days-2020-2025-18-26C.png",
+      "bytes": 1733810
+    },
+    {
+      "path": "world-comfort/share/era5-mobile.png",
+      "bytes": 1362890
+    },
+    {
+      "path": "world-comfort/share/comfy-days-world-score-lfsa.png",
+      "bytes": 1685656
+    },
+    {
+      "path": "world-comfort/share/map-first-days.png",
+      "bytes": 1866394
+    },
+    {
+      "path": "world-comfort/share/comfy-days-world-public.png",
+      "bytes": 1960116
+    },
+    {
+      "path": "world-comfort/share/custom-score.png",
+      "bytes": 1319545
+    },
+    {
+      "path": "world-comfort/share/comfy-days-usa-hawaii-days-2020-2025-18-26C.png",
+      "bytes": 311247
+    },
+    {
+      "path": "world-comfort/share/comfy-days-europe-days-maplibre.png",
+      "bytes": 1775901
+    },
+    {
+      "path": "world-comfort/share/city-extras-filters-mobile.png",
+      "bytes": 97067
+    },
+    {
+      "path": "world-comfort/share/us-states-mobile.png",
+      "bytes": 1038664
+    },
+    {
+      "path": "world-comfort/share/city-extras-mobile.png",
+      "bytes": 806275
+    },
+    {
+      "path": "world-comfort/share/v5-mobile.png",
+      "bytes": 1271218
+    },
+    {
+      "path": "world-comfort/share/comfy-days-world-days-sun-off.png",
+      "bytes": 1758330
+    },
+    {
+      "path": "world-comfort/share/comfy-days-world-days-maplibre.png",
+      "bytes": 1730731
+    },
+    {
+      "path": "world-comfort/share/sunshine-rules-preview.png",
+      "bytes": 180382
+    },
+    {
+      "path": "world-comfort/share/map-only-results.png",
+      "bytes": 814908
+    },
+    {
+      "path": "world-comfort/share/comfy-days-world-score-maplibre.png",
+      "bytes": 1681698
+    },
+    {
+      "path": "world-comfort/share/comfy-days-usa-alaska-days-2020-2025-18-26C.png",
+      "bytes": 1335805
+    },
+    {
+      "path": "world-comfort/share/homicide-days.png",
+      "bytes": 2186979
+    },
+    {
+      "path": "world-comfort/share/map-first-cities-desktop.png",
+      "bytes": 500673
+    },
+    {
+      "path": "world-comfort/share/comfy-days-usa-score-sun6h.png",
+      "bytes": 1714463
+    },
+    {
+      "path": "world-comfort/share/city-extras-charts-desktop.png",
+      "bytes": 134019
+    },
+    {
+      "path": "world-comfort/share/lfsa-desktop.png",
+      "bytes": 750150
+    },
+    {
+      "path": "world-comfort/share/live-europe-tab.png",
+      "bytes": 647889
+    },
+    {
+      "path": "world-comfort/share/world-preview.png",
+      "bytes": 711178
+    },
+    {
+      "path": "world-comfort/share/comfy-days-europe-days-sun-off.png",
+      "bytes": 1748120
+    },
+    {
+      "path": "world-comfort/share/city-extras-filters-desktop.png",
+      "bytes": 92192
+    },
+    {
+      "path": "world-comfort/share/discovery-mobile.png",
+      "bytes": 1013341
+    },
+    {
+      "path": "world-comfort/share/comfy-days-usa-score-2020-2025-18-26C.png",
+      "bytes": 1575323
+    },
+    {
+      "path": "world-comfort/share/comfy-days-europe-score-sun6h.png",
+      "bytes": 1587246
+    },
+    {
+      "path": "world-comfort/share/era5-usa-map.png",
+      "bytes": 1071969
+    },
+    {
+      "path": "world-comfort/share/us-states-desktop.png",
+      "bytes": 1776173
+    },
+    {
+      "path": "world-comfort/share/city-extras-desktop.png",
+      "bytes": 1042862
+    },
+    {
+      "path": "world-comfort/share/comfy-days-usa-days-lfsa.png",
+      "bytes": 2026810
+    },
+    {
+      "path": "world-comfort/share/comfy-days-europe-days-lfsa.png",
+      "bytes": 1773868
+    },
+    {
+      "path": "world-comfort/share/map-first-weather-small-mobile.png",
+      "bytes": 65527
+    },
+    {
+      "path": "world-comfort/share/era5-discovery-mobile.png",
+      "bytes": 1103677
+    },
+    {
+      "path": "world-comfort/share/comfy-days-world-score-sun6h.png",
+      "bytes": 1775912
+    },
+    {
+      "path": "world-comfort/share/comfy-days-usa-score-maplibre.png",
+      "bytes": 1577729
+    },
+    {
+      "path": "world-comfort/share/sunshine-mobile-preview.png",
+      "bytes": 471724
+    },
+    {
+      "path": "world-comfort/share/maplibre-usa-map.png",
+      "bytes": 1014221
+    },
+    {
+      "path": "world-comfort/share/comfy-days-europe-days-era5.png",
+      "bytes": 1748120
+    },
+    {
+      "path": "world-comfort/share/comfy-days-usa-days-era5.png",
+      "bytes": 2070171
+    },
+    {
+      "path": "world-comfort/share/map-modes-mobile.png",
+      "bytes": 60469
+    },
+    {
+      "path": "world-comfort/share/mobile.png",
+      "bytes": 268410
+    },
+    {
+      "path": "world-comfort/share/city-map-days.png",
+      "bytes": 2009139
+    },
+    {
+      "path": "world-comfort/share/map-first-cities-small-mobile.png",
+      "bytes": 69136
+    },
+    {
+      "path": "world-comfort/share/comfy-days-usa-days-maplibre.png",
+      "bytes": 2026810
+    },
+    {
+      "path": "world-comfort/share/city-map-score.png",
+      "bytes": 1870321
+    },
+    {
+      "path": "world-comfort/share/us-states-zoom.png",
+      "bytes": 1026742
+    },
+    {
+      "path": "world-comfort/share/comfy-days-usa-score-lfsa.png",
+      "bytes": 1577729
+    },
+    {
+      "path": "world-comfort/share/map-first-weather-tablet.png",
+      "bytes": 169756
+    },
+    {
+      "path": "world-comfort/share/comfy-days-europe-integrated.png",
+      "bytes": 2862195
+    },
+    {
+      "path": "world-comfort/share/comfy-days-world-score-sun-off.png",
+      "bytes": 1764033
+    },
+    {
+      "path": "world-comfort/share/integrated-mobile.png",
+      "bytes": 270654
+    },
+    {
+      "path": "world-comfort/share/comfy-days-europe-days-2020-2025-18-26C.png",
+      "bytes": 1773434
+    },
+    {
+      "path": "world-comfort/share/lfsa-mobile.png",
+      "bytes": 126876
+    },
+    {
+      "path": "world-comfort/share/map-first-cities-tablet.png",
+      "bytes": 174801
+    },
+    {
+      "path": "world-comfort/share/unified-mobile.png",
+      "bytes": 360414
+    },
+    {
+      "path": "world-comfort/share/comfy-days-europe-score-sun-off.png",
+      "bytes": 1566838
+    },
+    {
+      "path": "world-comfort/share/maplibre-desktop.png",
+      "bytes": 2027861
+    },
+    {
+      "path": "world-comfort/share/comfy-days-europe-score-lfsa.png",
+      "bytes": 1525263
+    },
+    {
+      "path": "world-comfort/share/sunshine-public.png",
+      "bytes": 395049
+    },
+    {
+      "path": "world-comfort/share/city-extras-charts-mobile.png",
+      "bytes": 137652
+    },
+    {
+      "path": "world-comfort/share/custom-days.png",
+      "bytes": 1362565
+    },
+    {
+      "path": "world-comfort/share/comfy-days-usa-days-sun-off.png",
+      "bytes": 2070171
+    },
+    {
+      "path": "world-comfort/share/city-extras-score.png",
+      "bytes": 1679474
+    },
+    {
+      "path": "world-comfort/share/comfy-days-europe-score-era5.png",
+      "bytes": 1566838
+    },
+    {
+      "path": "world-comfort/share/city-map-desktop.png",
+      "bytes": 834325
+    },
+    {
+      "path": "world-comfort/share/map-first-weather-mobile.png",
+      "bytes": 89143
+    },
+    {
+      "path": "world-comfort/share/v5-desktop.png",
+      "bytes": 1954402
+    },
+    {
+      "path": "world-comfort/share/era5-discovery-desktop.png",
+      "bytes": 1985912
+    },
+    {
+      "path": "world-comfort/share/comfy-days-world-score-2020-2025-18-26C.png",
+      "bytes": 1683310
+    },
+    {
+      "path": "world-comfort/share/v5-map-zoom-desktop.png",
+      "bytes": 494284
+    },
+    {
+      "path": "world-comfort/share/city-map-panel-desktop.png",
+      "bytes": 754296
+    },
+    {
+      "path": "world-comfort/share/city-map-mobile.png",
+      "bytes": 681296
+    },
+    {
+      "path": "world-comfort/share/maplibre-mobile.png",
+      "bytes": 1252843
+    },
+    {
+      "path": "world-comfort/share/discovery-desktop.png",
+      "bytes": 1276807
+    },
+    {
+      "path": "world-comfort/share/era5-desktop.png",
+      "bytes": 2193622
+    },
+    {
+      "path": "world-comfort/share/city-map-crime-mobile.png",
+      "bytes": 53502
+    },
+    {
+      "path": "world-comfort/share/city-map-panel-mobile.png",
+      "bytes": 587522
+    },
+    {
+      "path": "world-comfort/share/comfy-days-world-days-sun6h.png",
+      "bytes": 1763124
+    },
+    {
+      "path": "world-comfort/share/map-first-cities-mobile.png",
+      "bytes": 92168
+    },
+    {
+      "path": "world-comfort/share/debug-tabs.png",
+      "bytes": 668404
+    },
+    {
+      "path": "world-comfort/share/homicide-mobile.png",
+      "bytes": 65142
+    },
+    {
+      "path": "world-comfort/share/comfy-days-usa-score-era5.png",
+      "bytes": 1679474
+    },
+    {
+      "path": "world-comfort/share/miami-audit/USW00012839.dly",
+      "bytes": 4317030
+    },
+    {
+      "path": "world-comfort/share/miami-audit/USW00012882.dly",
+      "bytes": 1138590
+    }
+  ],
+  "removed_bytes": 129825544,
+  "preserved": "All code, documentation, JSON audit records, current quiet-*.png and logo-header.png",
+  "dist_unchanged": true
+}

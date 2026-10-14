@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "url": "http://127.0.0.1:8777/",
+  "checks": [
+    "Nomads controls removed",
+    "no Nomads network requests",
+    "legacy flags removed",
+    "public snapshot unavailable",
+    "context removed",
+    "climate arrays unchanged under city filters and all tabs",
+    "municipal homicide retained",
+    "two PNG exports without retired filters",
+    "mobile no overflow"
+  ],
+  "errors": []
+}

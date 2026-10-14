@@ -1,0 +1,165 @@
+{
+  "checked_at_utc": "2026-10-13T04:01:28.037340+00:00",
+  "site": "https://comfy.lfsadigital.com/",
+  "github_commit_reviewed": "6527742a09201469fe2175269e8267625291745b",
+  "scope": "Targeted live exposure and secret-pattern review; not a full penetration test",
+  "github_tracked_files": 225,
+  "historical_blobs_checked": 306,
+  "credential_pattern_hits": [],
+  "suspicious_tracked_files": [],
+  "public_access": {
+    "result": "PASS",
+    "publicStatus": 200,
+    "errors": [],
+    "probes": [
+      {
+        "path": "/.env",
+        "status": 200,
+        "bytes": 18347,
+        "appFallback": true,
+        "sensitiveSignature": false,
+        "servedPrivateFile": false
+      },
+      {
+        "path": "/.env.production",
+        "status": 200,
+        "bytes": 18347,
+        "appFallback": true,
+        "sensitiveSignature": false,
+        "servedPrivateFile": false
+      },
+      {
+        "path": "/.git/config",
+        "status": 200,
+        "bytes": 18347,
+        "appFallback": true,
+        "sensitiveSignature": false,
+        "servedPrivateFile": false
+      },
+      {
+        "path": "/.git/HEAD",
+        "status": 200,
+        "bytes": 18347,
+        "appFallback": true,
+        "sensitiveSignature": false,
+        "servedPrivateFile": false
+      },
+      {
+        "path": "/.openai/hosting.json",
+        "status": 200,
+        "bytes": 18347,
+        "appFallback": true,
+        "sensitiveSignature": false,
+        "servedPrivateFile": false
+      },
+      {
+        "path": "/wrangler.toml",
+        "status": 200,
+        "bytes": 18347,
+        "appFallback": true,
+        "sensitiveSignature": false,
+        "servedPrivateFile": false
+      },
+      {
+        "path": "/package.json",
+        "status": 200,
+        "bytes": 18347,
+        "appFallback": true,
+        "sensitiveSignature": false,
+        "servedPrivateFile": false
+      },
+      {
+        "path": "/OPERATIONS.md",
+        "status": 200,
+        "bytes": 18347,
+        "appFallback": true,
+        "sensitiveSignature": false,
+        "servedPrivateFile": false
+      },
+      {
+        "path": "/README.md",
+        "status": 200,
+        "bytes": 18347,
+        "appFallback": true,
+        "sensitiveSignature": false,
+        "servedPrivateFile": false
+      },
+      {
+        "path": "/docs/CITY-HOMICIDE-RELEASE.json",
+        "status": 200,
+        "bytes": 18347,
+        "appFallback": true,
+        "sensitiveSignature": false,
+        "servedPrivateFile": false
+      },
+      {
+        "path": "/server.js",
+        "status": 200,
+        "bytes": 18347,
+        "appFallback": true,
+        "sensitiveSignature": false,
+        "servedPrivateFile": false
+      },
+      {
+        "path": "/credentials.json",
+        "status": 200,
+        "bytes": 18347,
+        "appFallback": true,
+        "sensitiveSignature": false,
+        "servedPrivateFile": false
+      }
+    ],
+    "ui": {
+      "title": "Comfy Days \u00b7 World, Europe & USA",
+      "weatherReady": true,
+      "cityDataReady": true,
+      "forms": 1,
+      "thirdPartyScripts": [],
+      "storageKeys": []
+    },
+    "origins": [
+      "https://comfy.lfsadigital.com",
+      "https://tiles.openfreemap.org",
+      "https://comfy-days-climate-sunshine.lfsalmeida92.workers.dev"
+    ],
+    "cookies": [
+      {
+        "name": "__Host-appgarden-visitor",
+        "domain": "comfy.lfsadigital.com",
+        "httpOnly": true,
+        "secure": true
+      },
+      {
+        "name": "cf_clearance",
+        "domain": ".lfsadigital.com",
+        "httpOnly": true,
+        "secure": true
+      },
+      {
+        "name": "__cf_bm",
+        "domain": ".comfy.lfsadigital.com",
+        "httpOnly": true,
+        "secure": true
+      }
+    ],
+    "headers": {
+      "strict-transport-security": null,
+      "content-security-policy": null,
+      "x-content-type-options": null,
+      "referrer-policy": null,
+      "x-frame-options": null,
+      "permissions-policy": null
+    }
+  },
+  "finding": {
+    "kind": "personal account email in public GitHub documentation",
+    "file": "world/OPERATIONS.md",
+    "website_exposed": false,
+    "historical_blobs": 1,
+    "status": "Current GitHub file and all published branch/tag history cleaned and read back. Old blob still accessible from GitHub cache; Support request prepared, not sent."
+  },
+  "headers": {
+    "observation": "Dedicated CSP/HSTS/nosniff/referrer/frame/permissions headers not present in inspected HTML response",
+    "exposed_credentials_detected": false
+  }
+}

@@ -1,3 +1,5 @@
+> Current update: Nomads data/filters withdrawn. Run check.cjs, map-first-check.cjs, mask-rendering-check.cjs, quiet-map-check.cjs and license-update-check.cjs for this release. Older browser scripts document superseded UI versions.
+
 # City context import and tests
 
 `import_nomads.py` and `import_homicide.py` use Python standard-library parsing and retain only curated small tables. Pass local source files as arguments; they do not fetch global climate archives. Source URLs, matching, units and coverage are in `../site/docs/CITY-CONTEXT-AND-MONTHLY.md`.

@@ -56,3 +56,7 @@ User asked neutral nonmatching areas, verified city highlights, immersion, much 
 ## 2026-10-14 — quiet map published
 
 Explicit approval for publishing and GitHub update received. Sites version20, source17988d9ce8de8a519b9b1c49db738324f79af7a2, deployment appgdep_6acfd46f8a7c81918dc5f2f0ec0433f6 succeeded 2026-10-14T19:14:10.987907+00:00. Anonymous custom-domain exact-mask/unchanged-array/verified-city/immersion/Escape/320px/PNG/invalid-input tests passed. Eight public code/style SHA-256 hashes match tested local files. No hosting/DNS/data-source or other-project changes. GitHub backup includes prior performance and logo changes as well as this refinement; no raw climate archives included. Temporary publication archive removed after successful deploy/verification.
+
+## 2026-10-14 — license update candidate
+
+Explicit user authorization: remove Nomads from public site/GitHub, audit UNODC, correct credits, test and publish without changing climate calculations. Nomads removed from runtime bundle; legacy flags normalized. Scientific core/worker hashes unchanged. Country-source permission requires follow-up; municipal data retained. Local browser and unit tests passed. No DNS/Cloudflare resource changes.

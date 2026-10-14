@@ -4,10 +4,10 @@ try {
   await import('./workspace-ui.js?v=20');
   await import('./geo-map.js?v=20');
   await import('./discovery.js?v=20');
-  await import('./city-filters.js?v=20');
+  await import('./city-filters.js?v=21');
   await import('./monthly-charts.js?v=15');
   await import('./city-map.js?v=20');
-  await import('./app.js?v=20');
+  await import('./app.js?v=21');
 } catch (error) {
   document.getElementById('status').textContent='The interactive map could not start. Enable WebGL and reload, or try another browser.';
   document.getElementById('map-hud').textContent='Map unavailable';

@@ -1,3 +1,5 @@
+> Update 2026-10-14: Nomads score/cost filters and the redistributed snapshot are removed. The description below is historical. See DATA-LICENSE-UPDATE.md for current source permissions.
+
 # City filters and monthly climate charts
 
 City context and monthly chart release. Publication identifiers and live verification are recorded in the operations log.
