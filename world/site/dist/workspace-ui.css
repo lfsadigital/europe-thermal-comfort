@@ -122,3 +122,8 @@ body.map-immersed #map{margin:0;width:100%}.detail-panel{display:block}.detail-p
 #epi-budget-fieldset>small{display:block;margin-top:8px;color:var(--muted,#50617d)}
 #epi-status{margin:10px 0 0;font-size:12px}
 #city-context-values dd>small{display:block;margin-top:6px;line-height:1.5}
+
+.location-context{margin:1rem 0;padding:.75rem 0;border-top:1px solid var(--border,#d8dfeb)}
+.location-context>summary{cursor:pointer;font-weight:600}
+.location-context>p{margin:.75rem 0 .25rem;font-variant-numeric:tabular-nums}
+.location-context>small{display:block;line-height:1.5}
