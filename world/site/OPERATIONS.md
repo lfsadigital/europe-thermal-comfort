@@ -64,3 +64,9 @@ Explicit user authorization: remove Nomads from public site/GitHub, audit UNODC,
 ## 2026-10-14 — country source withdrawn
 
 User chose withdrawal of UNODC country data pending permission. Removed country snapshot, fetch, selector option and context values. Retained municipal FBI/Eurostat values and no-fallback behavior. Old country-filter links disable the retired filter. Broader country coverage is lost; municipal Unknown values stay eligible. Weather data and calculations unchanged.
+
+## 2026-10-14 — data license update published
+
+Sites version22 source0f50cf75911f2936bea82cc9c666eeb6f8e0ffc1, deployment appgdep_6acfe31719a4819182acb9a226899dae succeeded 2026-10-14T20:16:40.060037+00:00. Nomads and UNODC country snapshots and filters withdrawn with explicit user authorization. FBI/Eurostat municipal values, population and all climate calculations preserved; scientific core/worker hashes unchanged. GitHub code08d566f pushed. No DNS/Cloudflare account resource changes. Historical repository commits/Sites saved versions not removed.
+
+Anonymous custom-domain license-update browser checks passed with zero JavaScript errors: retired JSON endpoints serve no dataset; legacy flags normalized; exact weather arrays stable under city filters and region tabs; municipal Miami rate/count retained; score/day PNG2400×1800 exclude retired fields;360px no overflow. Temporary publication archives removed.

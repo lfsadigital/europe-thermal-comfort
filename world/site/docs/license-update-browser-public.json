@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "url": "https://comfy.lfsadigital.com/",
+  "checks": [
+    "Nomads controls removed",
+    "no Nomads network requests",
+    "legacy flags removed",
+    "retired Nomads and country snapshots unavailable; HTML fallback allowed",
+    "context removed",
+    "climate arrays unchanged under city filters and all tabs",
+    "municipal homicide retained; old country filter disabled rather than reinterpreted",
+    "two PNG exports without retired filters",
+    "mobile no overflow"
+  ],
+  "errors": []
+}
