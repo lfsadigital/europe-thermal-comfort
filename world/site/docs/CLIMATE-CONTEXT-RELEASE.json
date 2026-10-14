@@ -1,0 +1,17 @@
+{
+  "version": 24,
+  "project_id": "appgprj_6acc3bb3fcd4819181f55b4757d282a8",
+  "version_id": "appgprj_6acc3bb3fcd4819181f55b4757d282a8~appgver_30d91277bb508191a5c17801d7050538",
+  "source_commit": "afaaa61f910675d1d37531f97c04c558fe8a40f0",
+  "deployment_id": "appgdep_6ad00ef6c2a08191968787e27ecb12bf",
+  "status": "succeeded",
+  "deployed_at": "2026-10-14T23:23:52.562002+00:00",
+  "url": "https://comfy.lfsadigital.com",
+  "github_code_commit": "860ccb7fa8ea12a27b715b311e6f977c674cc6fe",
+  "notes": [
+    "Original climate scoring and day counts unchanged.",
+    "Public anonymous browser loaded all 12 monthly records and GHSL density.",
+    "Monthly API latency exceeded initial 30-second test deadline; no production source change required.",
+    "Live test final result recorded in CLIMATE-CONTEXT-LIVE.json."
+  ]
+}

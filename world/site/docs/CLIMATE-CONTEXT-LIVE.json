@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "url": "https://comfy.lfsadigital.com/?view=score&colors=matches&scoremin=8&daysmin=180&region=usa&citymap=results",
+  "mapDigest": "30cdcacfcb82ac3c0479b06d392a9dd355d91c2f79d024f17a1224153e581843",
+  "charts": 6,
+  "monthlyRows": 12,
+  "density": "2,059 people / km²",
+  "realMonthlyAPI": true,
+  "regions": [
+    "world",
+    "europe",
+    "usa"
+  ],
+  "mobileOverflow": false,
+  "errors": []
+}
