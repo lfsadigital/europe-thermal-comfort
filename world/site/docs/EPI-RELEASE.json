@@ -1,0 +1,17 @@
+{
+  "version": 23,
+  "source_commit": "dd6ff5c3a1a107849f9a41c3dba4f61955dd7abf",
+  "github_code_commit": "5cbc6c4",
+  "deployment_id": "appgdep_6ad006d5b3f48191a3e128c40a0ba75e",
+  "status": "succeeded",
+  "completed_at": "2026-10-14T22:49:13.203760+00:00",
+  "url": "https://comfy.lfsadigital.com/",
+  "profile": "1 adult, no children",
+  "source_edition": 2026,
+  "price_year": 2025,
+  "geography": "county",
+  "matched_catalog_cities": 16418,
+  "unknown_catalog_cities": 211,
+  "climate_changed": false,
+  "public_verification": "PASS: anonymous custom domain, USA-only filter, regional source value, unknown retained, real hover, unchanged climate arrays, PNGs, URL, mobile, source failure/retry"
+}

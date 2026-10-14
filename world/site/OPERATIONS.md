@@ -74,3 +74,7 @@ Anonymous custom-domain license-update browser checks passed with zero JavaScrip
 ## 2026-10-14 — EPI USA budget candidate
 
 Authorized free EPI integration, tests/publication and GitHub update. Exact1p0c county totals,2025USD, joined to GeoNames county FIPS.16,418cities linked;211unknown. Budget is USA-only,off by default,USD5,000 initial ceiling. Scientific core/worker hashes unchanged. Lazy178KiB data asset, no new Cloudflare services or KV. Tests/publication follow.
+
+## 2026-10-14 — EPI budget published
+
+Sites version23 source dd6ff5c3a1a107849f9a41c3dba4f61955dd7abf, deployment appgdep_6ad006d5b3f48191a3e128c40a0ba75e succeeded2026-10-14T22:49:13.203760+00:00. GitHub code5cbc6c4 pushed. Anonymous custom-domain EPI browser checks passed: lazy USA-only data, county/profile/year context, Miami source5047USD/month, unknown cities retained, original score/day arrays exact across regions, known failures excluded, true city hover, two PNGs, reload/mobile/invalid/reset, simulated source outage and retry. Scientific core/worker hashes unchanged. Temporary source workbook, GeoNames input and deployment archive removed. No new Cloudflare resources/KV or DNS changes.
