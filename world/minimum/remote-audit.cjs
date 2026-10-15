@@ -16,7 +16,7 @@ function finish(label,sums,calendar,years){const score=new Float64Array(n),days=
  for(const name of m.sunshine.daily_files[year]){const raw=z.gunzipSync(await get(m.sunshine.data_url+name)),minRaw=z.gunzipSync(await get(base+name.replace('sun-daily-','minimum-'))),c=Sun.parse(ab(raw)),minimum=Low.parseMinimum(ab(minRaw));
   for(let k=0;k<c.n;k++){const j=c.start+k,v=Low.calculate(c,minimum,k,params),u=Low.calculate(c,minimum,k,off);sums.score[j]=v.scoreSum;sums.days[j]=v.comfortable;sums.count[j]=v.count;sums.invalid[j]=!v.eligible;total.score[j]+=v.scoreSum;total.days[j]+=v.comfortable;total.count[j]+=v.count;if(!v.eligible)total.invalid[j]=1;
    // Exact one-cell correspondence to pre-existing off-state map.
-   if(u.eligible&&u.count){const cell=nodeToGrid[j];assert(cell>=0);if(Number.isFinite(baselineScore[cell])){maxOffScoreError=Math.max(maxOffScoreError,Math.abs(u.scoreSum/u.count-baselineScore[cell]));maxOffDaysError=Math.max(maxOffDaysError,Math.abs(u.comfortable/u.count*c.days-baselineDays[cell]));}}
+   const cell=nodeToGrid[j];assert(cell>=0);assert.equal(Number.isFinite(baselineScore[cell]),Boolean(u.eligible&&u.count),'Default-off coverage at '+year+'/'+j);if(u.eligible&&u.count){maxOffScoreError=Math.max(maxOffScoreError,Math.abs(u.scoreSum/u.count-baselineScore[cell]));maxOffDaysError=Math.max(maxOffDaysError,Math.abs(u.comfortable/u.count*c.days-baselineDays[cell]));}
    assert(v.count<=u.count);assert(v.comfortable<=u.comfortable);assert(v.scoreSum>=0&&v.scoreSum<=v.count*10+1e-7);inspected++;
   }
  }
