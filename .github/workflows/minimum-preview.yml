@@ -1,0 +1,22 @@
+name: Remote ERA5 daily minima preview
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: comfy-minimum-preview
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install scientific dependencies remotely
+        run: |
+          python3 -m venv "$RUNNER_TEMP/comfy-min-venv"
+          "$RUNNER_TEMP/comfy-min-venv/bin/pip" install numpy requests omfiles
+      - name: Process and validate daily minima without local bulk storage
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: "$RUNNER_TEMP/comfy-min-venv/bin/python world/minimum/remote_build.py"

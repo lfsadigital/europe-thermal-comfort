@@ -1,22 +1,22 @@
-name: Remote sunshine JavaScript audit
+name: Remote ERA5 daily minima preview
 on:
   workflow_dispatch:
 permissions:
   contents: write
+concurrency:
+  group: comfy-minimum-preview
+  cancel-in-progress: false
 jobs:
-  audit:
+  build:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 240
     steps:
       - uses: actions/checkout@v4
-      - name: Audit daily data with the browser calculation engine
+      - name: Install scientific dependencies remotely
+        run: |
+          python3 -m venv "$RUNNER_TEMP/comfy-min-venv"
+          "$RUNNER_TEMP/comfy-min-venv/bin/pip" install numpy requests omfiles
+      - name: Process and validate daily minima without local bulk storage
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          mkdir "$RUNNER_TEMP/sunshine-audit"
-          gh release download comfy-sunshine-data-v1 --pattern sunshine-bundle.tar --dir "$RUNNER_TEMP/sunshine-audit"
-          tar -xf "$RUNNER_TEMP/sunshine-audit/sunshine-bundle.tar" -C "$RUNNER_TEMP/sunshine-audit"
-          rm "$RUNNER_TEMP/sunshine-audit/sunshine-bundle.tar"
-          node world/sunshine/remote-check.cjs "$RUNNER_TEMP/sunshine-audit"
-          node world/sunshine/delivery-check.cjs "$RUNNER_TEMP/sunshine-audit/delivery-manifest.json" "$RUNNER_TEMP/sunshine-audit/delivery-audit.json"
-          gh release upload comfy-sunshine-data-v1 "$RUNNER_TEMP/sunshine-audit/javascript-audit.json" "$RUNNER_TEMP/sunshine-audit/delivery-audit.json" --clobber
+        run: "$RUNNER_TEMP/comfy-min-venv/bin/python world/minimum/remote_build.py"
