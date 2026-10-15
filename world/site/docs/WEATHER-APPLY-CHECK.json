@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "width": 1920,
+      "height": 930,
+      "immersive": true,
+      "visible": true,
+      "hit": true,
+      "rect": {
+        "x": 30,
+        "y": 761.5,
+        "width": 326,
+        "height": 44,
+        "top": 761.5,
+        "right": 356,
+        "bottom": 805.5,
+        "left": 30
+      },
+      "clicked": true
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "immersive": false,
+      "visible": true,
+      "hit": true,
+      "rect": {
+        "x": 134,
+        "y": 603.328125,
+        "width": 326,
+        "height": 44,
+        "top": 603.328125,
+        "right": 460,
+        "bottom": 647.328125,
+        "left": 134
+      },
+      "clicked": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "immersive": true,
+      "visible": true,
+      "hit": true,
+      "rect": {
+        "x": 28,
+        "y": 684,
+        "width": 326,
+        "height": 44,
+        "top": 684,
+        "right": 354,
+        "bottom": 728,
+        "left": 28
+      },
+      "clicked": true
+    }
+  ]
+}

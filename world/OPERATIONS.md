@@ -1,3 +1,5 @@
+> Current frontend releases and live checks are recorded in [site/OPERATIONS.md](site/OPERATIONS.md). Current rules: [COMFORT-RULES.md](site/docs/COMFORT-RULES.md).
+
 # Comfy Days: hosting, DNS and billing access
 
 Last checked: 2026-10-12. This is local operational documentation, not a public deployment.

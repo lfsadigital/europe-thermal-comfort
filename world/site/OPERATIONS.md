@@ -82,3 +82,27 @@ Sites version23 source dd6ff5c3a1a107849f9a41c3dba4f61955dd7abf, deployment appg
 ## 2026-10-14 — climate and urban context published
 
 Explicit authorization received for comfy.lfsadigital.com publication and GitHub update. Sites v24 source afaaa61f910675d1d37531f97c04c558fe8a40f0; deployment appgdep_6ad00ef6c2a08191968787e27ecb12bf succeeded 2026-10-14T23:23:52.562002+00:00. GitHub code commit 860ccb7. Humidity, daily lows and warm-night proxy appear in monthly charts/table; GHSL urban-centre density is in a folded location detail. Informational only; scoring, qualifying days, ranking and filters unchanged. Anonymous live checks passed with real monthly API: six charts,12months,eight table columns,series/heatmaps,Miami density2059people/km²,World/Europe/USA exact map arrays and parameters equal predeploy baseline,390px no overflow,zero JS errors. Initial30-second external-API test timed out; correct90-second test passed without production changes. Test fixture freezes prechange monthly core independently of repository HEAD. No DNS or Cloudflare service/KV changes. Temporary publication archive removed.
+
+## 2026-10-14 — floating controls and optional daily lows
+
+Luiz authorized publication after correcting the preview's full-width Highlights bar and oversized help spacing. Highlights now uses content width on desktop and a constrained responsive width on mobile. Field help lives at the fieldset header; inherited disclosure padding is reset. Keyboard/tap disclosure and reduced-transparency fallback remain. Desktop/mobile screenshot and actual-width/disclosure/overflow checks passed.
+
+Optional daily minima remain off by default (initial 12–22°C). Temperature uses 0.5 times the greater high/low deviation, never their sum. Both active ranges must pass for a comfortable day. All 514,194 cell/year audits passed. Default-off maps restore exactly; global tab equality and PNG checks passed. Data import and 315 MB derived minimum archive remain remote. Existing sunshine Worker gained only an allowlisted minimum-v1 route to immutable release assets, with edge cache, public CORS and browser no-store; existing static sunshine assets retained. No KV, new Worker, DNS or other-project changes. Browser verified the production-ready endpoint before Site publication. See docs/DAILY-LOW-PREVIEW.md and audit JSON evidence.
+
+Published Sites v25, source 7ee3d6e7a103972865047676b2f079fcde020bff; deployment appgdep_6ad0239a410c819192ca19b6f7db7398 succeeded at 2026-10-15T00:51:54.996307+00:00 (October 14 in São Paulo). Anonymous https://comfy.lfsadigital.com checks passed for content-sized Highlights, help disclosure, mobile overflow, World/Europe/USA values, default-off exact restoration, PNG export and zero page errors. Temporary publication archive removed after successful save and live checks. No GitHub main push in this publication turn.
+
+## 2026-10-14 — Apply obstruction and revised defaults
+
+Reproduced Luiz's immersive-map obstruction. The weather form's scroll area and footer could exceed the sheet, and mobile navigation wrapped over Apply. The sheet now budgets its complete height, keeps Apply outside the scrolling fields, and reserves the measured navigation height. Mobile map actions stay in one horizontally scrollable row. Actual hit tests and clicks passed at 1920×930 immersive, 1440×1000 normal and 390×844 immersive; see docs/WEATHER-APPLY-CHECK.json.
+
+New fresh-link defaults: highlight score ≥7 and days/year ≥120; high 18–28°C; optional low 14–28°C, still off; rain ≤4 mm. Sunshine remains optional, off, with 6 h initial minimum. Explicit URL selections remain respected. Weather Reset uses the new weather defaults. Formula and source are unchanged.
+
+GitHub Actions run 38666386588 generated four standard combinations (high only, high+low, each with/without 6h sunshine) for every year and the full period remotely. Passed 2,056,776 cell/year/mode checks, including score bounds and comfortable-day subset checks. Compact maps are served through the existing Comfy data endpoint; no bulk Mac files, KV, new Worker or other-project changes. Browser fresh-default, all-four-mode, Reset and PNG checks passed; see docs/REQUESTED-DEFAULTS-CHECK.json. Publication result follows.
+
+Published v26: source 21431679fb0275a5481db4d86c0e1c704e1fa529; deployment appgdep_6ad02ed083488191b837b32ba94afeae succeeded 2026-10-15T01:39:44.767652+00:00 (October 14 São Paulo). Live anonymous fresh-default/all-mode/Reset/PNG checks and actual Apply clicks in all three sizes passed. No page errors. Explicit older URLs retain their selections; root URL uses revised defaults. Temporary publication archive removed.
+
+## 2026-10-14 — daily-low default enabled
+
+Luiz explicitly authorized publication. Fresh visits and Weather Reset now enable daily lows at 14–28°C, while sunshine remains off. Explicit lows=0 is preserved in share URLs so users can still disable and reload. Existing precomputed low maps are reused; source and formulas are unchanged. The daily-low monthly chart shows its selected band; sunshine has no band while disabled. Local default/reset/chart/PNG checks passed. Live publication verification follows.
+
+Published v27: source 53b536eddf21e04382027f81cc5174365c3b5ee4; deployment appgdep_6ad0399e913881918a3bfc64a1dcbcf2 succeeded 2026-10-15T02:25:51.686504+00:00 (October 14 São Paulo). Anonymous custom-domain fresh default, four standard combinations, Reset, daily-low chart band, sunshine band absent while off, PNG and zero page errors passed. Temporary publication archive removed.

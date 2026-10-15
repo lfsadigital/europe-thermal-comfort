@@ -1,0 +1,13 @@
+# Map readout and homicide clarification — local preview
+
+2026-10-14. Not published or pushed. Requested: compact movable selected-location panel; always-visible smooth highlight controls; investigate homicide; clarify daily high vs low. User withdrew the request to add optional humidity/minimum/density weather rules.
+
+Changes: reduced three large metric cards to a compact three-column readout; dedicated pointer/touch/arrow-key move handle with map-bound clamping; independent close control. Highlight checkbox plus score/day numeric fields and synchronized sliders stay visible on the map. Weather/City sheets open below the persistent highlight bar, on desktop and mobile. Existing climate thresholds, formulas, data arrays, map camera and PNG calculation stay unchanged. Daily-high range labels now say From/To under Daily high temperature. Monthly chart titles explicitly say monthly average for high and low.
+
+Homicide: tested municipal data at 2024 with USA region and population>=50,000. At existing climate highlights score>=8,days>=180, increasing homicide ceiling5->100 increases regional known matches40->44; at the tested camera visible points19->20. Without climate highlight thresholds, known matches443->696,visible points135->274. Map filters correctly intersect climate, population and optional municipal criteria; missing city data remains ranking eligible but unhighlighted. These counts are not total dataset coverage and visible counts depend on camera/zoom. Coverage dataset: 2024 FBI6900,Eurostat11;2025 FBI6859,Eurostat0. No geographic/year fallback. Do not restrict to Europe where coverage is much smaller.
+
+Homicide slider max now matches numeric max300; previously slider max30 visually clamped a numeric100 although the applied filter itself used100. Source coverage is visible within homicide controls; information disclosure states points vs raster, missing data and other intersecting filters.
+
+Tests: `node city-data/map-readout-check.cjs` passed homicide5/100, slider synchronization, compact height261.625px, pointer and keyboard drag, always-visible highlights, slider7.2, filter sheets below highlights,390px no document overflow, zero JS errors. Screenshot readout-desktop.png/readout-mobile.png. Fixture monthly response is real Miami 2020–2025 saved in /private/tmp by preceding validation; no API calls needed for this UI test. Monthly old-value/regression and density checks passed. Climate core/worker unchanged; git diff --check clean.
+
+Impeccable detector ran with degraded parser support. Existing LFSA fonts and compact-size tokens retained; detector font/size advisories do not override established brand. Visual desktop/mobile pass exposed global header padding inherited by nested header; corrected locally.
