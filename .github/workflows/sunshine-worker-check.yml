@@ -21,4 +21,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           MINIMUM_RELEASE: ${{ inputs.tag }}
-        run: node world/minimum/remote-audit.cjs "$MINIMUM_RELEASE"
+        run: node world/minimum/new-defaults.cjs "$MINIMUM_RELEASE"
