@@ -1,21 +1,24 @@
-name: Remote six-year sunshine worker audit
+name: Daily minima preview audit and fast presets
 on:
   workflow_dispatch:
+    inputs:
+      tag:
+        description: Daily minimum preview release tag
+        required: true
+        type: string
 permissions:
   contents: write
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
-      - name: Test the actual production worker on remote daily data
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Audit all cells and build small default maps remotely
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          mkdir "$RUNNER_TEMP/sunshine-worker-audit"
-          gh release download comfy-sunshine-data-v1 --pattern sunshine-bundle.tar --dir "$RUNNER_TEMP/sunshine-worker-audit"
-          tar -xf "$RUNNER_TEMP/sunshine-worker-audit/sunshine-bundle.tar" -C "$RUNNER_TEMP/sunshine-worker-audit"
-          rm "$RUNNER_TEMP/sunshine-worker-audit/sunshine-bundle.tar"
-          node world/sunshine/remote-worker-check.cjs "$RUNNER_TEMP/sunshine-worker-audit"
-          gh release upload comfy-sunshine-data-v1 "$RUNNER_TEMP/sunshine-worker-audit/worker-audit.json" --clobber
+          MINIMUM_RELEASE: ${{ inputs.tag }}
+        run: node world/minimum/remote-audit.cjs "$MINIMUM_RELEASE"
