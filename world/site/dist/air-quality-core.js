@@ -26,6 +26,13 @@
   const finite=values.filter(valid),count=finite.length,sorted=finite.slice().sort((a,b)=>a-b),mid=Math.floor(count/2);
   return {count,expected,eligible,mean:count?finite.reduce((a,b)=>a+b,0)/count:null,median:count?(count%2?sorted[mid]:(sorted[mid-1]+sorted[mid])/2):null,bands:bands.map((_,i)=>finite.reduce((n,v)=>n+(category(v)===i),0))};
  }
+ function fromRange(data,period){
+  const years=yearsFor(period),h=data?.hourly;
+  if(!years.length||!Array.isArray(h?.time)||!Array.isArray(h.us_aqi)||!Array.isArray(h.pm2_5))throw Error('Invalid air quality history');
+  const length=(Date.UTC(years.at(-1)+1,0,1)-Date.UTC(years[0],0,1))/3600000;
+  if([h.time,h.us_aqi,h.pm2_5].some(a=>a.length!==length))throw Error('Incomplete air quality history');
+  let offset=0;return years.map(year=>{const n=(Date.UTC(year+1,0,1)-Date.UTC(year,0,1))/3600000,record={...data,hourly:{time:h.time.slice(offset,offset+n),us_aqi:h.us_aqi.slice(offset,offset+n),pm2_5:h.pm2_5.slice(offset,offset+n)}};offset+=n;return validate(record,year);});
+ }
  function aggregate(records,period){
   const years=yearsFor(period);
   if(!years.length||records.length!==years.length)throw Error('Unexpected air quality period');
@@ -43,6 +50,6 @@
   const expected=months.reduce((n,m)=>n+m.aqi.expected,0);
   return {period,years,months,aqi:stats(records.flatMap(r=>r.hourly.us_aqi),expected,months.every(m=>m.aqi.eligible)),pm:stats(records.flatMap(r=>r.hourly.pm2_5),expected,months.every(m=>m.pm.eligible)),cells:records.map((r,i)=>({year:years[i],latitude:r.latitude,longitude:r.longitude}))};
  }
- const api={bands,valid,category,yearsFor,validate,aggregate};
+ const api={bands,valid,category,yearsFor,validate,fromRange,aggregate};
  if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.AirQualityCore=api;
 })(typeof window==='undefined'?globalThis:window);

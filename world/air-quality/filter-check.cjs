@@ -1,6 +1,6 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const elements=new Map(),element=id=>{if(!elements.has(id))elements.set(id,{hidden:true,textContent:'',checked:id==='rank-spread'});return elements.get(id);};
-const sandbox={window:{},document:{getElementById:element},setTimeout:()=>1,clearTimeout(){},AbortController,DOMException,URL,location:{href:'https://local/'}};
+const sandbox={AirQualityCore:require('../site/dist/air-quality-core.js'),window:{},document:{getElementById:element},setTimeout:()=>1,clearTimeout(){},AbortController,DOMException,URL,location:{href:'https://local/'}};
 vm.runInNewContext(fs.readFileSync(__dirname+'/../site/dist/air-quality-filter.js','utf8'),sandbox);const Filter=sandbox.window.AirQualityFilter;
 const owner={enabled:true,maximum:100,appliedPeriod:'2025'},filter=new Filter(owner),entry=(id,lat=id,index=id)=>({place:[id,'City',lat,0],index});
 const record=(median,eligible=true)=>({aqi:{median,eligible}});
@@ -22,6 +22,14 @@ filter.load=async()=>{throw Error('Complete fixture should need no fetch');};fil
  const timedKey=timeout.key(1,0);await assert.rejects(timeout.run({lat:1,lon:0,period:'2025',key:timedKey,generation:timeout.generation}),e=>e.name==='AbortError');assert(timeout.failures.has(timedKey));timeout.status();assert.match(element('aq-map-status').textContent,/failed/);assert.equal(element('aq-filter-retry').hidden,false);timeout.retry();assert(!timeout.failures.size);
  // An obsolete generation is intentional cancellation and must not be failure.
  timeout.generation++;await assert.rejects(timeout.run({lat:2,lon:0,period:'2025',key:timeout.key(2,0),generation:timeout.generation-1}),e=>e.name==='AbortError');assert(!timeout.failures.size);
+ // Quota pacing accounts for multi-year requests and honors Retry-After.
+ let clock=100000;sandbox.Date=class extends Date{static now(){return clock;}};sandbox.setTimeout=(callback,ms)=>{if(ms!==145000){clock+=ms;queueMicrotask(callback);}return 1;};
+ const paced=new Filter(owner),paceController=new AbortController();await paced.waitForQuota(paceController,1);assert.equal(paced.nextSourceAt,104500);await paced.waitForQuota(paceController,3);assert.equal(clock,104500);assert.equal(paced.nextSourceAt-clock,13500);
+ const fixture=require('./fixture.cjs');let attempts=0;const retry=new Filter(owner);retry.minimumInterval=0;const started=clock;sandbox.fetch=async()=>++attempts===1?new Response('',{status:429,headers:{'Retry-After':new Date(started+20000).toUTCString()}}):Response.json(fixture(2025));
+ await retry.run({lat:1,lon:0,period:'2025',key:retry.key(1,0),generation:retry.generation});assert.equal(attempts,2);assert(clock-started>=20000,'HTTP-date Retry-After must be honored');assert(!retry.failures.size);assert(retry.cache.get(retry.key(1,0)).aqi.eligible);
+ // Even the final exhausted 429 controls when a different queued city may run.
+ const exhausted=new Filter(owner);exhausted.minimumInterval=0;let exhaustedCalls=0,last429=0;sandbox.fetch=async()=>{exhaustedCalls++;last429=clock;return new Response('',{status:429,headers:{'Retry-After':'20'}});};await assert.rejects(exhausted.run({lat:3,lon:0,period:'2025',key:exhausted.key(3,0),generation:0}));assert.equal(exhaustedCalls,3);const final429=last429;assert.equal(exhausted.nextSourceAt-final429,20000);
+ sandbox.fetch=async()=>{assert(clock-final429>=20000,'Next queued source request must honor exhausted-job cooldown');return Response.json(fixture(2025));};await exhausted.run({lat:4,lon:0,period:'2025',key:exhausted.key(4,0),generation:0});assert(exhausted.cache.has(exhausted.key(4,0)));
  owner.enabled=false;assert.equal(filter.filterCandidates(rows,'off'),rows);filter.status();assert.equal(element('aq-map-status').hidden,true);
- console.log('PASS: inclusive historical median threshold, zero, missing/invalid exclusion, sorted Top 10 prefix, bounded provisional scans, duplicate-cell representatives, timeout/provisional/retry, intentional cancellation and default-off restoration.');
+ console.log('PASS: inclusive historical median threshold, zero, missing/invalid exclusion, sorted Top 10 prefix, bounded provisional scans, duplicate-cell representatives, timeout/provisional/retry, intentional cancellation, multi-year quota pacing/Retry-After and default-off restoration.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

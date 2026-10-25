@@ -29,7 +29,7 @@ jobs:
       - name: Deterministic data and regression checks
         run: |
           node world/air-quality/check.cjs
-          node world/air-quality/service-check.mjs
+          node world/air-quality/range-check.cjs
           node world/air-quality/filter-check.cjs
           node world/query-service/check.mjs
       - name: Install isolated browser test dependency
@@ -38,8 +38,6 @@ jobs:
         run: NODE_PATH="$RUNNER_TEMP/comfy-ui/node_modules" CHROMIUM_PATH=/usr/bin/google-chrome node world/air-quality/browser-check.mjs
       - name: Build current Worker and assets
         run: COMFY_ESBUILD_PATH="$RUNNER_TEMP/comfy-ui/node_modules/esbuild" node world/query-service/build-site.mjs "$RUNNER_TEMP/comfy-build"
-      - name: Check two real historical model locations
-        run: node world/air-quality/live-check.cjs
 
       - name: Verify published filter with real data and browser
         run: NODE_PATH="$RUNNER_TEMP/comfy-ui/node_modules" CHROMIUM_PATH=/usr/bin/google-chrome node world/air-quality/published-check.mjs

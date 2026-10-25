@@ -3,7 +3,7 @@
 // walks climate-sorted candidates in order, so ten confirmed matches are the
 // true Top 10; a bounded incomplete scan is explicitly labelled as such.
 class AirQualityFilter {
- constructor(owner){this.owner=owner;this.cache=new Map();this.failures=new Set();this.pending=new Map();this.revision=0;this.generation=0;this.limit=40;this.busy=false;this.scan=null;this.pool=[];this.checked=0;this.complete=false;this.passed=0;this.queue=[];this.workers=0;this.controllers=new Set();}
+ constructor(owner){this.owner=owner;this.cache=new Map();this.failures=new Set();this.pending=new Map();this.revision=0;this.generation=0;this.limit=40;this.busy=false;this.scan=null;this.pool=[];this.checked=0;this.complete=false;this.passed=0;this.queue=[];this.workers=0;this.controllers=new Set();this.minimumInterval=4500;this.nextSourceAt=0;}
  get signature(){return [this.owner.enabled,this.owner.appliedPeriod,this.owner.maximum,this.revision].join('|');}
  key(lat,lon,period=this.owner.appliedPeriod){return [Number(lat.toFixed(4)),Number(lon.toFixed(4)),period].join('|');}
  summary(e){return this.cache.get(this.key(e.place[2],e.place[3]));}
@@ -14,7 +14,7 @@ class AirQualityFilter {
   const box=document.getElementById('aq-map-status'),retry=document.getElementById('aq-filter-retry'),more=document.getElementById('aq-filter-more');
   box.hidden=!this.owner.enabled;retry.hidden=!this.owner.enabled||!this.failures.size;more.hidden=!this.owner.enabled||this.busy||this.complete||this.passed>=10;
   if(!this.owner.enabled)return;
-  box.textContent=this.busy?`Checking city AQI · ${this.checked} checked · ${this.passed} ranking matches so far. Only verified city points are shown.`:this.failures.size?`Some city AQI checks failed. Results are provisional; retry to complete the ranking. Only verified matches are shown.`:!this.complete&&this.passed<10?`${this.checked} leading candidates checked · ${this.passed} verified matches. Check more cities to continue.`:`AQI filter · median ≤${this.owner.maximum} · ${this.owner.appliedPeriod==='mean'?'2023–2025':this.owner.appliedPeriod}. Only verified city points are shown; climate shading is hidden.`;
+  box.textContent=Date.now()<this.quotaUntil?'The source asked us to wait. Checks will resume automatically; only verified city points are shown.':this.busy?`Checking city AQI · ${this.checked} checked · ${this.passed} ranking matches so far. Only verified city points are shown.`:this.failures.size?`Some city AQI checks failed. Results are provisional; retry to complete the ranking. Only verified matches are shown.`:!this.complete&&this.passed<10?`${this.checked} leading candidates checked · ${this.passed} verified matches. Check more cities to continue.`:`AQI filter · median ≤${this.owner.maximum} · ${this.owner.appliedPeriod==='mean'?'2023–2025':this.owner.appliedPeriod}. Only verified city points are shown; climate shading is hidden.`;
  }
  async load(lat,lon,period=this.owner.appliedPeriod){
   const key=this.key(lat,lon,period),cached=this.cache.get(key);if(cached)return cached;
@@ -25,24 +25,33 @@ class AirQualityFilter {
   try{return await promise;}finally{if(this.pending.get(key)===promise)this.pending.delete(key);}
  }
  pump(){while(this.workers<2&&this.queue.length){const job=this.queue.shift();this.workers++;this.run(job).then(job.resolve,job.reject).finally(()=>{this.workers--;this.pump();});}}
+ async waitForQuota(controller,cost){
+  while(Date.now()<this.nextSourceAt){await new Promise((resolve,reject)=>{const signal=controller.signal;if(signal.aborted){reject(new DOMException('Cancelled','AbortError'));return;}const stop=()=>{clearTimeout(timer);reject(new DOMException('Cancelled','AbortError'));},timer=setTimeout(()=>{signal.removeEventListener('abort',stop);resolve();},this.nextSourceAt-Date.now());signal.addEventListener('abort',stop,{once:true});});}
+  if(controller.signal.aborted)throw new DOMException('Cancelled','AbortError');
+  this.nextSourceAt=Date.now()+this.minimumInterval*cost;
+ }
  async run(job){
   const {lat,lon,period,key,generation}=job,controller=new AbortController();this.controllers.add(controller);
   try{
-   for(let attempt=0;attempt<5;attempt++){
+   const years=AirQualityCore.yearsFor(period),url=new URL('https://air-quality-api.open-meteo.com/v1/air-quality');
+   for(const [k,v]of Object.entries({latitude:lat.toFixed(4),longitude:lon.toFixed(4),start_date:years[0]+'-01-01',end_date:years.at(-1)+'-12-31',hourly:'us_aqi,pm2_5',domains:'cams_global',timezone:'UTC'}))url.searchParams.set(k,v);
+   for(let attempt=0;attempt<3;attempt++){
     if(generation!==this.generation)throw new DOMException('Cancelled','AbortError');
-    const url=new URL('api/air-quality/v1',location.href);for(const [k,v]of Object.entries({lat:lat.toFixed(4),lon:lon.toFixed(4),period}))url.searchParams.set(k,v);
-    const timeout=setTimeout(()=>controller.abort(),145000);let response;
-    try{response=await fetch(url,{signal:controller.signal,cache:'no-store'});}finally{clearTimeout(timeout);}
-    if(response.status===503&&attempt<4){await new Promise(resolve=>setTimeout(resolve,1000*(attempt+1)));continue;}
-    if(!response.ok)throw Error('AQI summary HTTP '+response.status);
-    const s=await response.json();
-    if(s.version!==1||s.period!==period||!s.aqi||typeof s.aqi.eligible!=='boolean'||!Array.isArray(s.months)||s.months.length!==12||s.latitude!==Number(lat.toFixed(4))||s.longitude!==Number(lon.toFixed(4))||s.aqi.eligible&&(!Number.isFinite(s.aqi.median)||s.aqi.count<=0||s.aqi.count>s.aqi.expected))throw Error('Invalid AQI summary');
-    if(generation!==this.generation)throw new DOMException('Cancelled','AbortError');
-    this.cache.set(key,s);while(this.cache.size>2000)this.cache.delete(this.cache.keys().next().value);this.failures.delete(key);this.revision++;this.notify();return s;
+    await this.waitForQuota(controller,years.length);
+    const timeout=setTimeout(()=>controller.abort(),145000);
+    try{
+     const response=await fetch(url,{signal:controller.signal,cache:'no-store'});
+     if(response.status===429){const header=response.headers.get('Retry-After'),seconds=Number(header),retry=Number.isFinite(seconds)&&seconds>0?seconds:Math.ceil((Date.parse(header)-Date.now())/1000);this.nextSourceAt=Math.max(this.nextSourceAt,Date.now()+(Number.isFinite(retry)&&retry>0?retry:60)*1000);this.quotaUntil=this.nextSourceAt;this.status();if(attempt<2)continue;}
+     if(!response.ok)throw Error('AQI source HTTP '+response.status);
+     const records=AirQualityCore.fromRange(await response.json(),period),s=AirQualityCore.aggregate(records,period);
+     if(generation!==this.generation)throw new DOMException('Cancelled','AbortError');
+     this.cache.set(key,s);while(this.cache.size>2000)this.cache.delete(this.cache.keys().next().value);this.failures.delete(key);this.revision++;this.notify();return s;
+    }finally{clearTimeout(timeout);}
    }
   }catch(error){if(generation===this.generation){this.failures.add(key);this.revision++;this.notify();}throw error;}
   finally{this.controllers.delete(controller);}
  }
+
  filterCandidates(rows,context){
   if(!this.owner.enabled)return rows;
   if(this.context!==context){this.context=context;this.generation++;for(const c of this.controllers)c.abort();this.controllers.clear();for(const job of this.queue)job.reject(new DOMException('Cancelled','AbortError'));this.queue=[];this.pending.clear();this.scan=null;this.visibleKey=null;this.visibleScan=null;this.busy=false;this.limit=40;this.failures.clear();}

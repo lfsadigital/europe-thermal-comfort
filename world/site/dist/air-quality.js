@@ -3,7 +3,7 @@ class AirQuality {
  constructor(){
   this.root=document.getElementById('air-quality');this.toggle=document.getElementById('aq-enabled');this.period=document.getElementById('aq-period');this.content=document.getElementById('aq-content');this.status=document.getElementById('aq-status');this.results=document.getElementById('aq-results');this.retry=document.getElementById('aq-retry');
   this.id=0;this.cache=new Map();this.filter=new AirQualityFilter(this);this.maximumInput=document.getElementById('aq-max');this.location=null;this.key='';
-  const q=new URLSearchParams(location.search);this.toggle.checked=q.get('aqi')==='1';this.period.value=AirQualityCore.yearsFor(q.get('aqiyear')).length?q.get('aqiyear'):'mean';
+  const q=new URLSearchParams(location.search);this.toggle.checked=q.get('aqi')==='1';this.period.value=AirQualityCore.yearsFor(q.get('aqiyear')).length?q.get('aqiyear'):'2025';
   this.enabled=this.toggle.checked;this.appliedPeriod=this.period.value;this.maximum=[50,100,150,200,300,500].includes(Number(q.get('aqmax')))?Number(q.get('aqmax')):100;this.maximumInput.value=String(this.maximum);
   const draft=()=>{this.period.disabled=this.maximumInput.disabled=!this.toggle.checked;window.ComfyDays?.ui.refresh();};
   this.toggle.addEventListener('change',draft);this.period.addEventListener('change',draft);this.maximumInput.addEventListener('change',draft);this.period.disabled=this.maximumInput.disabled=!this.toggle.checked;
@@ -12,8 +12,8 @@ class AirQuality {
  }
  get pending(){return this.toggle.checked!==this.enabled||this.toggle.checked&&this.period.value!==this.appliedPeriod||this.toggle.checked&&Number(this.maximumInput.value)!==this.maximum;}
  apply(){if(!this.pending)return;this.enabled=this.toggle.checked;this.appliedPeriod=this.period.value;this.maximum=Number(this.maximumInput.value);this.filter.reset();this.syncFilter();this.saveURL();this.refresh();}
- reset(){this.toggle.checked=false;this.period.value='mean';this.period.disabled=true;this.enabled=false;this.appliedPeriod='mean';this.maximum=100;this.maximumInput.value='100';this.maximumInput.disabled=true;this.filter.reset();this.syncFilter();this.saveURL();this.refresh();}
- appendURL(q){if(this.enabled){q.set('aqi','1');q.set('aqmax',this.maximum);if(this.appliedPeriod!=='mean')q.set('aqiyear',this.appliedPeriod);}}
+ reset(){this.toggle.checked=false;this.period.value='2025';this.period.disabled=true;this.enabled=false;this.appliedPeriod='2025';this.maximum=100;this.maximumInput.value='100';this.maximumInput.disabled=true;this.filter.reset();this.syncFilter();this.saveURL();this.refresh();}
+ appendURL(q){if(this.enabled){q.set('aqi','1');q.set('aqmax',this.maximum);if(this.appliedPeriod!=='2025')q.set('aqiyear',this.appliedPeriod);}}
  saveURL(){const q=new URLSearchParams(location.search);q.delete('aqi');q.delete('aqiyear');q.delete('aqmax');this.appendURL(q);history.replaceState(null,'','?'+q);}
  select(lat,lon){const key=JSON.stringify([lat,lon]);this.location={lat,lon};document.getElementById('aq-place').textContent=`Selected point · ${lat.toFixed(2)}°, ${lon.toFixed(2)}°`;if(this.key===key)return;this.key=key;this.refresh();}
  clear(){this.location=null;this.key='';document.getElementById('aq-place').textContent='Select a city or click the map.';this.refresh();}
