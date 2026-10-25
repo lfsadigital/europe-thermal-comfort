@@ -2,7 +2,7 @@
 
 One public site, one climate source, one calculation engine.
 
-Static HTML/CSS/JavaScript interface with same-origin Cloudflare Worker routes for climate, monthly history and air quality. The published runtime is backed up from current Sites source; see [query service](../query-service/README.md). Build from the repository root with `npm ci && npm run build`.
+Static HTML/CSS/JavaScript interface with same-origin Cloudflare Worker routes for climate and monthly history; visitor-direct public API queries for air quality. The published runtime is backed up from current Sites source; see [query service](../query-service/README.md). Build from the repository root with `npm ci && npm run build`.
 
 Current live defaults: daily minimum **≥14°C**, daily maximum **≤30°C**, rain **≤4 mm/day**, sunshine **off** (6h when enabled), AQI **off**. These temperature controls predate the AQI filter. Highlights: score **≥7** and days/year **≥120**. Temperature loss uses the larger high/low deviation, not their sum. [Full rules, examples, annualization and implementation notes](docs/COMFORT-RULES.md).
 
@@ -50,4 +50,4 @@ USA regional budget: optional EPI2026,1adult/nochildren,2025USD including taxes.
 
 ## Optional historical air quality
 
-Weather includes an off-by-default, inclusive historical median US AQI limit (100 initially) and an independent 2023–2025 period. Enabling it filters city points and Top 10, hides the continuous climate raster, and excludes unverified or insufficient AQI. Climate scores, days and arrays stay unchanged; disabling restores the original map/ranking. Checks load progressively with explicit provisional, continue and retry states. See [source, methods and verification](docs/AIR-QUALITY.md).
+Weather includes an off-by-default, inclusive historical median US AQI limit (100 initially) and an independent period (2025 initially; 2023–2025 also available). Enabling it filters city points and Top 10, hides the continuous climate raster, and excludes unverified or insufficient AQI. Climate scores, days and arrays stay unchanged; disabling restores the original map/ranking. Checks load progressively with explicit provisional, continue and retry states. See [source, methods and verification](docs/AIR-QUALITY.md).

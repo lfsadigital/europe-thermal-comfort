@@ -1,0 +1,40 @@
+{
+  "version": 35,
+  "source": "7ea8fb2718037cab8b39d9dfbd8bf1e891ff44e0",
+  "deployment": "appgdep_6ade89cead248191949c1ddeaa8339f1",
+  "status": "succeeded",
+  "url": "https://comfy-days-world.lfsadigital.chatgpt.site",
+  "custom_domain": "https://comfy.lfsadigital.com",
+  "published_at_utc": "2026-10-25T22:59:40.424581+00:00",
+  "live_ci": "https://github.com/lfsadigital/europe-thermal-comfort/actions/runs/40242719997",
+  "live_verified_at_utc": "2026-10-25T23:01:24Z",
+  "synthetic_live_data": false,
+  "live_checks": [
+    "real public CAMS combined history",
+    "Lisbon mean2023\u201325 median47 qualifies at100",
+    "New Delhi2025 median169 excluded at100",
+    "public Chrome10verified Europe cities allAQI<=100",
+    "onlyqualifiedmapfeatures",
+    "rasterhidden/restored",
+    "exactConfi10arrayidentity",
+    "zeropageerrors"
+  ],
+  "filter": {
+    "statistic": "median hourly US AQI",
+    "inclusive_maximum_default": 100,
+    "period_default": "2025",
+    "other_periods": [
+      "2023",
+      "2024",
+      "mean2023\u20132025"
+    ],
+    "unknown_policy": "excluded",
+    "ranking": "progressive sorted candidate checks; explicit provisional/continue/retry",
+    "map": "verifiedcitypoints;continuousclimaterasterhiddenwhileactive"
+  },
+  "source_delivery": "visitor-direct public API, bounded2jobs and year-weighted4500ms pacing;429Retry-Afterrespected",
+  "superseded_candidate": {
+    "version": 34,
+    "reason": "shared-origin source429, not counted as live success"
+  }
+}
