@@ -1,6 +1,6 @@
 const assert=require('node:assert/strict'),http=require('node:http'),fs=require('node:fs'),path=require('node:path'),zlib=require('node:zlib');
 const {chromium}=require('playwright'),fixture=require('./fixture.cjs');
-const root=path.resolve(__dirname,'../site/dist'),meta=JSON.parse(fs.readFileSync(root+'/assets/metadata.json'));
+const root=process.env.COMFY_SITE_ROOT||path.resolve(__dirname,'../site/dist'),meta=JSON.parse(fs.readFileSync(root+'/assets/metadata.json'));
 const types={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.woff2':'font/woff2','.png':'image/png'};
 const server=http.createServer((req,res)=>{const p=path.resolve(root,'.'+new URL(req.url,'http://localhost').pathname.replace(/\/$/,'/index.html'));if(!p.startsWith(root+'/')){res.writeHead(403);return res.end();}try{const b=fs.readFileSync(p);res.setHeader('Content-Type',types[path.extname(p)]||'application/octet-stream');res.end(b);}catch{res.writeHead(404);res.end();}});
 (async()=>{

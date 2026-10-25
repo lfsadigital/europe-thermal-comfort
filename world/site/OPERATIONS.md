@@ -106,3 +106,8 @@ Published v26: source 21431679fb0275a5481db4d86c0e1c704e1fa529; deployment appgd
 Luiz explicitly authorized publication. Fresh visits and Weather Reset now enable daily lows at 14–28°C, while sunshine remains off. Explicit lows=0 is preserved in share URLs so users can still disable and reload. Existing precomputed low maps are reused; source and formulas are unchanged. The daily-low monthly chart shows its selected band; sunshine has no band while disabled. Local default/reset/chart/PNG checks passed. Live publication verification follows.
 
 Published v27: source 53b536eddf21e04382027f81cc5174365c3b5ee4; deployment appgdep_6ad0399e913881918a3bfc64a1dcbcf2 succeeded 2026-10-15T02:25:51.686504+00:00 (October 14 São Paulo). Anonymous custom-domain fresh default, four standard combinations, Reset, daily-low chart band, sunshine band absent while off, PNG and zero page errors passed. Temporary publication archive removed.
+
+
+## 2026-10-25 — optional AQI published
+
+Explicit publication authorized by Luiz. Sites v32 source d669a1ca91d7c448818c349b41009fe8d06e31ed, deployment appgdep_6ade77880b0c8191891c625cd96b1c45, succeeded 2026-10-25T21:41:48.257948+00:00. Returned URL: https://comfy-days-world.lfsadigital.chatgpt.site. Feature was ported onto live v31 source 2be68ec9a477e052566959c8dbf09cdb25cd07da to preserve newer temperature controls, climate/monthly query backend and cross-request fixes absent from this older GitHub checkout. Existing four-width browser integration passed against the current source, with identical climate arrays/parameters/rankings under AQI changes; current query-service tests and locked build passed. Native deployment success verifies publication; no live browser session is claimed. See AIR-QUALITY-RELEASE.json.
