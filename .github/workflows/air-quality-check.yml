@@ -1,0 +1,28 @@
+name: Optional air quality checks
+on:
+  pull_request:
+    paths:
+      - 'world/air-quality/**'
+      - 'world/site/dist/air-quality*'
+      - 'world/site/dist/app.js'
+      - 'world/site/dist/map-bootstrap.js'
+      - 'world/site/dist/index.html'
+      - '.github/workflows/air-quality-check.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Deterministic data and regression checks
+        run: node world/air-quality/check.cjs
+      - name: Check two real historical model locations
+        run: node world/air-quality/live-check.cjs

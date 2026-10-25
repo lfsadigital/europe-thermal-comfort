@@ -9,7 +9,9 @@ try {
   await import('./urban-density.js?v=24');
   await import('./monthly-charts.js?v=26');
   await import('./city-map.js?v=23');
-  await import('./app.js?v=29');
+  await import('./air-quality-core.js?v=1');
+  await import('./air-quality.js?v=1');
+  await import('./app.js?v=30');
 } catch (error) {
   document.getElementById('status').textContent='The interactive map could not start. Enable WebGL and reload, or try another browser.';
   document.getElementById('map-hud').textContent='Map unavailable';
