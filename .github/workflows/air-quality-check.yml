@@ -24,5 +24,9 @@ jobs:
           node-version: '22'
       - name: Deterministic data and regression checks
         run: node world/air-quality/check.cjs
+      - name: Install isolated browser test dependency
+        run: npm install --prefix "$RUNNER_TEMP/comfy-ui" --no-save --package-lock=false playwright@1.58.2
+      - name: Responsive UI and interaction regression with synthetic fixtures
+        run: NODE_PATH="$RUNNER_TEMP/comfy-ui/node_modules" CHROMIUM_PATH=/usr/bin/google-chrome node world/air-quality/browser-check.cjs
       - name: Check two real historical model locations
         run: node world/air-quality/live-check.cjs

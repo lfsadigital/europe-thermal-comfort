@@ -19,3 +19,6 @@ world/climate-data/
 world/era5-staging/
 world/share/
 *.tmp
+
+# Local design-review screenshots (test fixtures, not site assets).
+.impeccable/review/

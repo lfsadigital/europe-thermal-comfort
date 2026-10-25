@@ -46,7 +46,7 @@ class AirQuality {
   table.append(el('caption',`${summary.period==='mean'?'2023–2025 pooled months':summary.period} · available hourly model values`));
   for(const label of ['Month','Median US AQI','Good hours · %','PM2.5 · µg/m³','AQI hours','PM2.5 hours']){const cell=el('th',label);cell.scope='col';header.append(cell);}head.append(header);table.append(head);const body=el('tbody');
   months.forEach((m,i)=>{const row=el('tr'),month=el('th',['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][i]);month.scope='row';row.append(month);for(const value of [m.aqi.eligible?fmt(m.aqi.median):'Not available',m.aqi.eligible?pct(m.aqi.bands[0],m.aqi.count):'Not available',m.pm.eligible?fmt(m.pm.mean):'Not available',`${fmt(m.aqi.count)} / ${fmt(m.aqi.expected)}`,`${fmt(m.pm.count)} / ${fmt(m.pm.expected)}`])row.append(el('td',value));body.append(row);});table.append(body);scroll.tabIndex=0;scroll.setAttribute('role','region');scroll.setAttribute('aria-label','Scrollable monthly air quality table');scroll.append(table);disclosure.append(caption,scroll);this.results.append(disclosure);
-  const cells=[...new Set(summary.cells.map(c=>`${c.latitude.toFixed(2)}°, ${c.longitude.toFixed(2)}°`))];this.results.append(el('p',`Returned CAMS model cell${cells.length>1?'s':''}: ${cells.join('; ')}. UTC hours · ${summary.years.join(', ')}.`,'aq-note'));this.results.hidden=false;
+  const cells=[...new Set(summary.cells.map(c=>`${c.latitude.toFixed(2)}°, ${c.longitude.toFixed(2)}°`))];this.results.append(el('p',`Provider-returned coordinates: ${cells.join('; ')}. UTC hours · ${summary.years.join(', ')}.`,'aq-note'));this.results.hidden=false;
  }
 }
 window.AirQuality=AirQuality;
