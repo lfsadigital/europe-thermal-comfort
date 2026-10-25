@@ -2,42 +2,42 @@
 class AirQuality {
  constructor(){
   this.root=document.getElementById('air-quality');this.toggle=document.getElementById('aq-enabled');this.period=document.getElementById('aq-period');this.content=document.getElementById('aq-content');this.status=document.getElementById('aq-status');this.results=document.getElementById('aq-results');this.retry=document.getElementById('aq-retry');
-  this.id=0;this.cache=new Map();this.location=null;this.key='';
+  this.id=0;this.cache=new Map();this.filter=new AirQualityFilter(this);this.maximumInput=document.getElementById('aq-max');this.location=null;this.key='';
   const q=new URLSearchParams(location.search);this.toggle.checked=q.get('aqi')==='1';this.period.value=AirQualityCore.yearsFor(q.get('aqiyear')).length?q.get('aqiyear'):'mean';
-  this.toggle.addEventListener('change',()=>{this.saveURL();this.refresh();});this.period.addEventListener('change',()=>{this.saveURL();this.refresh();});this.retry.addEventListener('click',()=>this.refresh());this.refresh();
+  this.enabled=this.toggle.checked;this.appliedPeriod=this.period.value;this.maximum=[50,100,150,200,300,500].includes(Number(q.get('aqmax')))?Number(q.get('aqmax')):100;this.maximumInput.value=String(this.maximum);
+  const draft=()=>{this.period.disabled=this.maximumInput.disabled=!this.toggle.checked;window.ComfyDays?.ui.refresh();};
+  this.toggle.addEventListener('change',draft);this.period.addEventListener('change',draft);this.maximumInput.addEventListener('change',draft);this.period.disabled=this.maximumInput.disabled=!this.toggle.checked;
+  document.getElementById('aq-settings').onclick=()=>{window.ComfyDays?.ui.open('weather');this.toggle.focus({preventScroll:true});};
+  this.retry.addEventListener('click',()=>{this.filter.retry();this.refresh();});document.getElementById('aq-filter-retry').onclick=()=>this.filter.retry();document.getElementById('aq-filter-more').onclick=()=>this.filter.more();document.getElementById('aq-view-more').onclick=()=>this.filter.moreVisible();this.refresh();
  }
- appendURL(q){if(this.toggle.checked){q.set('aqi','1');if(this.period.value!=='mean')q.set('aqiyear',this.period.value);}}
- saveURL(){const q=new URLSearchParams(location.search);q.delete('aqi');q.delete('aqiyear');this.appendURL(q);history.replaceState(null,'','?'+q);}
+ get pending(){return this.toggle.checked!==this.enabled||this.toggle.checked&&this.period.value!==this.appliedPeriod||this.toggle.checked&&Number(this.maximumInput.value)!==this.maximum;}
+ apply(){if(!this.pending)return;this.enabled=this.toggle.checked;this.appliedPeriod=this.period.value;this.maximum=Number(this.maximumInput.value);this.filter.reset();this.syncFilter();this.saveURL();this.refresh();}
+ reset(){this.toggle.checked=false;this.period.value='mean';this.period.disabled=true;this.enabled=false;this.appliedPeriod='mean';this.maximum=100;this.maximumInput.value='100';this.maximumInput.disabled=true;this.filter.reset();this.syncFilter();this.saveURL();this.refresh();}
+ appendURL(q){if(this.enabled){q.set('aqi','1');q.set('aqmax',this.maximum);if(this.appliedPeriod!=='mean')q.set('aqiyear',this.appliedPeriod);}}
+ saveURL(){const q=new URLSearchParams(location.search);q.delete('aqi');q.delete('aqiyear');q.delete('aqmax');this.appendURL(q);history.replaceState(null,'','?'+q);}
  select(lat,lon){const key=JSON.stringify([lat,lon]);this.location={lat,lon};document.getElementById('aq-place').textContent=`Selected point · ${lat.toFixed(2)}°, ${lon.toFixed(2)}°`;if(this.key===key)return;this.key=key;this.refresh();}
  clear(){this.location=null;this.key='';document.getElementById('aq-place').textContent='Select a city or click the map.';this.refresh();}
  message(text){this.status.textContent=text;}
  async refresh(){
-  const id=++this.id;this.controller?.abort();this.controller=new AbortController();const controller=this.controller;this.results.hidden=true;this.results.replaceChildren();this.retry.hidden=true;this.root.setAttribute('aria-busy','false');this.content.hidden=!this.toggle.checked;
-  if(!this.toggle.checked)return;
+  const id=++this.id;this.controller?.abort();this.controller=new AbortController();const controller=this.controller;this.results.hidden=true;this.results.replaceChildren();this.retry.hidden=true;this.root.setAttribute('aria-busy','false');this.content.hidden=!this.enabled;
+  if(!this.enabled)return;
   if(!this.location){this.message('Select a city or click the map to explore its air quality history.');return;}
-  const {lat,lon}=this.location,period=this.period.value,key=JSON.stringify([lat,lon,period]),cached=this.cache.get(key);
+  const {lat,lon}=this.location,period=this.appliedPeriod,key=JSON.stringify([lat,lon,period]),cached=this.cache.get(key);
   if(cached){this.cache.delete(key);this.cache.set(key,cached);this.render(cached);return;}
-  const years=AirQualityCore.yearsFor(period),records=[];this.root.setAttribute('aria-busy','true');
-  try{
-   for(const year of years){
-    this.message(`Loading air quality · ${year} (${records.length+1} of ${years.length})…`);
-    const url=new URL('https://air-quality-api.open-meteo.com/v1/air-quality');
-    for(const [k,v]of Object.entries({latitude:lat,longitude:lon,start_date:`${year}-01-01`,end_date:`${year}-12-31`,hourly:'us_aqi,pm2_5',domains:'cams_global',timezone:'UTC'}))url.searchParams.set(k,v);
-    let timedOut=false;const timeout=setTimeout(()=>{timedOut=true;controller.abort();},45000);
-    try{const response=await fetch(url,{signal:controller.signal,cache:'no-store'});if(!response.ok)throw Error('Air quality request failed');const record=await response.json();if(id!==this.id)return;records.push(AirQualityCore.validate(record,year));}
-    finally{clearTimeout(timeout);if(timedOut)throw Error('Air quality request timed out');}
-   }
-   if(id!==this.id)return;
-   const summary=AirQualityCore.aggregate(records,period);this.cache.set(key,summary);while(this.cache.size>12)this.cache.delete(this.cache.keys().next().value);this.render(summary);
-  }catch(error){if(id!==this.id)return;this.message('Air quality could not load. Check your connection and try again.');this.retry.hidden=false;}
+  this.root.setAttribute('aria-busy','true');this.message('Loading historical air quality…');
+  try{const summary=await this.filter.load(lat,lon,period);if(id!==this.id)return;this.cache.set(key,summary);while(this.cache.size>12)this.cache.delete(this.cache.keys().next().value);this.render(summary);}
+  catch(error){if(id!==this.id)return;this.message('Air quality could not load. Check your connection and try again.');this.retry.hidden=false;}
   finally{if(id===this.id)this.root.setAttribute('aria-busy','false');}
  }
+ syncFilter(){window.ComfyDays?.navigation.setAQIActive(this.enabled);window.ComfyDays?.discovery?.rankCache.clear();this.filter.notify();}
+ description(){return `Median US AQI ≤${this.maximum} · ${this.appliedPeriod==='mean'?'2023–2025':this.appliedPeriod} · verified city points`;}
+
  render(summary){
   const {aqi,pm,months}=summary,fmt=n=>n.toLocaleString('en',{maximumFractionDigits:1}),pct=(n,d)=>d?fmt(n/d*100)+'%':'—';
   this.message(`${summary.period==='mean'?'2023–2025':summary.period} · ${fmt(aqi.count)} / ${fmt(aqi.expected)} hourly AQI values (${pct(aqi.count,aqi.expected)})${aqi.eligible?'':'. Insufficient coverage: at least 90% is required in every month of each year.'}`);
   const el=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;};
   const stats=el('dl',undefined,'aq-stats');
-  for(const [label,value]of [['Median hourly US AQI',aqi.eligible&&aqi.median!==null?fmt(aqi.median):'Not available'],['Mean PM2.5 · µg/m³',pm.eligible&&pm.mean!==null?fmt(pm.mean):'Not available']]){const row=el('div');row.append(el('dt',label),el('dd',value));stats.append(row);}this.results.append(stats);
+  for(const [label,value]of [['Median hourly US AQI',aqi.eligible&&aqi.median!==null?fmt(aqi.median):'Not available'],['Mean PM2.5 · µg/m³',pm.eligible&&pm.mean!==null?fmt(pm.mean):'Not available']]){const row=el('div');row.append(el('dt',label),el('dd',value));stats.append(row);}this.results.append(stats);this.results.append(el('p',aqi.eligible?(aqi.median<=this.maximum?'Within your AQI limit':'Outside your AQI limit'):'AQI filter: insufficient historical coverage','aq-note'));
   this.results.append(el('p',`PM2.5 coverage: ${fmt(pm.count)} / ${fmt(pm.expected)} hours (${pct(pm.count,pm.expected)}).`,'aq-note'));
   const heading=el('h3','Time in each AQI category');this.results.append(heading,el('p','Share of available hourly values. Lower AQI means less air pollution.','aq-note'));
   const list=el('ul',undefined,'aq-distribution');

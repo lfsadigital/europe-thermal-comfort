@@ -2,9 +2,9 @@
 
 One public site, one climate source, one calculation engine.
 
-Buildless static HTML, CSS, JavaScript, Web Worker. No API keys or server are needed at runtime. Serve `dist/` over HTTP; open index.html through a local server, not file://.
+Static HTML/CSS/JavaScript interface with same-origin Cloudflare Worker routes for climate, monthly history and air quality. The published runtime is backed up from current Sites source; see [query service](../query-service/README.md). Build from the repository root with `npm ci && npm run build`.
 
-Current defaults: daily high **18–28°C**, daily low **enabled at 14–28°C**, rain **≤4 mm/day**, sunshine **off** (6h when enabled). Highlights: score **≥7** and days/year **≥120**. Temperature loss uses the larger high/low deviation, not their sum. [Full rules, examples, annualization and implementation notes](docs/COMFORT-RULES.md).
+Current live defaults: daily minimum **≥14°C**, daily maximum **≤30°C**, rain **≤4 mm/day**, sunshine **off** (6h when enabled), AQI **off**. These temperature controls predate the AQI filter. Highlights: score **≥7** and days/year **≥120**. Temperature loss uses the larger high/low deviation, not their sum. [Full rules, examples, annualization and implementation notes](docs/COMFORT-RULES.md).
 
 2020–2025 contains 2,192 daily records. A point must have valid paired temperature and precipitation on at least 90% of the days in every month (all 72 months for the six-year view). Score sums divide by the number of available paired records. Comfortable days are estimated as qualifying records / available paired records × calendar days / years: 2,192/6 for the six-year view, or 365/366 for a selected year. With complete records this equals actual counts / years. Missing observations are never imputed or interpreted as dry. Coverage is displayed for each inspected point.
 
@@ -47,6 +47,7 @@ Nomads score/cost data and filters were removed pending redistribution permissio
 
 USA regional budget: optional EPI2026,1adult/nochildren,2025USD including taxes. County-based, not city-specific. Missing stays Unknown. Data adaptations are CC BY-NC-SA4.0; see docs/EPI-BUDGET.md.
 
+
 ## Optional historical air quality
 
-Off by default, selected-point air quality uses Open-Meteo/CAMS global hourly history for complete years 2023–2025, independently of the weather period. It shows median hourly US AQI, mean PM2.5, six labeled/ranged category shares, and monthly availability. Each metric requires 90% coverage in every selected year-month. It does not affect climate calculations, rankings, map colors, or PNG content. See [source, terms, methods, design match, and verification limits](docs/AIR-QUALITY.md). The free API's non-commercial service terms apply; no new subscription is configured.
+Weather includes an off-by-default, inclusive historical median US AQI limit (100 initially) and an independent 2023–2025 period. Enabling it filters city points and Top 10, hides the continuous climate raster, and excludes unverified or insufficient AQI. Climate scores, days and arrays stay unchanged; disabling restores the original map/ranking. Checks load progressively with explicit provisional, continue and retry states. See [source, methods and verification](docs/AIR-QUALITY.md).

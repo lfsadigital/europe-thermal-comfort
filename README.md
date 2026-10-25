@@ -4,7 +4,7 @@ Live worldwide site: https://comfy.lfsadigital.com/
 
 **Current worldwide ERA5 source is in [world/](world/).** The Europe-only code below is an archived implementation, with a different source and historical scoring formula. It does not describe the live site.
 
-Current defaults: high **18–28°C**, low **14–28°C enabled**, rain **≤4 mm/day**, sunshine **off**. Highlights: **≥7 points and ≥120 days/year**. [Rules and examples](world/site/docs/COMFORT-RULES.md).
+Current live defaults: minimum **≥14°C**, maximum **≤30°C**, rain **≤4 mm/day**, sunshine **off**, AQI **off**. Highlights: **≥7 points and ≥120 days/year**. [Rules and examples](world/site/docs/COMFORT-RULES.md).
 
 The live interface is hosted by Sites and climate statistics by Cloudflare. GitHub stores this public code backup; it does not host the current Comfy Days site.
 

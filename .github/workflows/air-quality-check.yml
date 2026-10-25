@@ -3,6 +3,10 @@ on:
   pull_request:
     paths:
       - 'world/air-quality/**'
+      - 'world/query-service/**'
+      - 'world/site/dist/discovery.js'
+      - 'world/site/dist/city-map.js'
+      - 'world/site/dist/geo-map.js'
       - 'world/site/dist/air-quality*'
       - 'world/site/dist/app.js'
       - 'world/site/dist/map-bootstrap.js'
@@ -23,10 +27,16 @@ jobs:
         with:
           node-version: '22'
       - name: Deterministic data and regression checks
-        run: node world/air-quality/check.cjs
+        run: |
+          node world/air-quality/check.cjs
+          node world/air-quality/service-check.mjs
+          node world/air-quality/filter-check.cjs
+          node world/query-service/check.mjs
       - name: Install isolated browser test dependency
-        run: npm install --prefix "$RUNNER_TEMP/comfy-ui" --no-save --package-lock=false playwright@1.58.2
+        run: npm install --prefix "$RUNNER_TEMP/comfy-ui" --no-save --package-lock=false playwright@1.58.2 esbuild@0.28.2
       - name: Responsive UI and interaction regression with synthetic fixtures
-        run: NODE_PATH="$RUNNER_TEMP/comfy-ui/node_modules" CHROMIUM_PATH=/usr/bin/google-chrome node world/air-quality/browser-check.cjs
+        run: NODE_PATH="$RUNNER_TEMP/comfy-ui/node_modules" CHROMIUM_PATH=/usr/bin/google-chrome node world/air-quality/browser-check.mjs
+      - name: Build current Worker and assets
+        run: COMFY_ESBUILD_PATH="$RUNNER_TEMP/comfy-ui/node_modules/esbuild" node world/query-service/build-site.mjs "$RUNNER_TEMP/comfy-build"
       - name: Check two real historical model locations
         run: node world/air-quality/live-check.cjs

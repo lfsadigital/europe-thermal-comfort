@@ -22,3 +22,7 @@ world/share/
 
 # Local design-review screenshots (test fixtures, not site assets).
 .impeccable/review/
+
+# Current Worker runtime build and dependencies.
+/dist/
+/node_modules/

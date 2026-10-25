@@ -14,6 +14,6 @@ r=fixture(2025);r.hourly.pm2_5.fill(null);s=core.aggregate([r],'2025');assert(!s
 r=fixture(2025);r.hourly.us_aqi=r.hourly.us_aqi.map((_,i)=>[0,75,125,175,250,700][i%6]);s=core.aggregate([r],'2025');assert.equal(s.aqi.median,150);assert.deepEqual(s.aqi.bands,[1460,1460,1460,1460,1460,1460]);assert.equal(s.aqi.bands.reduce((a,b)=>a+b),s.aqi.count);
 for(const mutate of [r=>r.hourly.time.reverse(),r=>r.hourly.time.pop(),r=>r.hourly.us_aqi.pop(),r=>r.hourly.us_aqi[0]=-1,r=>r.hourly.pm2_5[0]='8',r=>r.hourly_units.us_aqi='EAQI',r=>r.utc_offset_seconds=3600,r=>r.latitude=null]){const r=fixture();mutate(r);assert.throws(()=>core.aggregate([r],'2025'));}
 assert.throws(()=>core.aggregate([fixture(2024)],'2025'));assert.throws(()=>core.aggregate([fixture(2025)],'mean'));assert.deepEqual(core.yearsFor('2020'),[]);
-// Exact scientific engines stay unchanged. Air quality has no weather parameters.
-for(const file of ['climate-core.js','climate-worker.js','daily-temperature-core.js','sunshine-core.js','monthly-core.js','discovery.js','city-filters.js','city-map.js'])assert.equal(fs.readFileSync(__dirname+'/../site/dist/'+file,'utf8'),cp.execFileSync('git',['show','origin/main:world/site/dist/'+file],{encoding:'utf8'}));
-console.log('PASS: AQI boundaries, continuous values, missingness, units, UTC axes, leap years, monthly coverage, distributions, independent PM2.5 and unchanged climate/ranking engines.');
+// Exact scientific pure engines stay unchanged. AQI gates city eligibility separately.
+for(const file of ['climate-core.js','daily-temperature-core.js','sunshine-core.js','monthly-core.js'])assert.equal(fs.readFileSync(__dirname+'/../site/dist/'+file,'utf8'),cp.execFileSync('git',['show','origin/main:world/site/dist/'+file],{encoding:'utf8'}));
+console.log('PASS: AQI boundaries, continuous values, missingness, units, UTC axes, leap years, monthly coverage, distributions, independent PM2.5 and unchanged scientific climate engines.');
