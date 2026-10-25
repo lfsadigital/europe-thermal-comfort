@@ -40,3 +40,6 @@ jobs:
         run: COMFY_ESBUILD_PATH="$RUNNER_TEMP/comfy-ui/node_modules/esbuild" node world/query-service/build-site.mjs "$RUNNER_TEMP/comfy-build"
       - name: Check two real historical model locations
         run: node world/air-quality/live-check.cjs
+
+      - name: Verify published filter with real data and browser
+        run: NODE_PATH="$RUNNER_TEMP/comfy-ui/node_modules" CHROMIUM_PATH=/usr/bin/google-chrome node world/air-quality/published-check.mjs
