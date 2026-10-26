@@ -92,7 +92,7 @@ if not restored:
  print(json.dumps({'stage':'checkpoint_saved','tag':tag,'bytes':sum(f['bytes'] for f in files.values())}),flush=True)
 # Complete any interrupted per-file upload from the durable checkpoint bundle.
 missing=[name for name in files if name not in assets]
-for offset in range(0,len(missing),20):gh('release','upload',tag,*[str(OUT[x]) for x in missing[offset:offset+20]],'--clobber')
+for offset in range(0,len(missing),20):gh('release','upload',tag,*[str(OUT/x) for x in missing[offset:offset+20]],'--clobber')
 # Source checks are independent of ingestion and may retry without rebuilding.
 def api_get(q):
  for attempt in range(4):
