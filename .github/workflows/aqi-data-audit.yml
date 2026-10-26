@@ -1,0 +1,17 @@
+name: AQI daily grid source audit
+on:
+  pull_request:
+    paths:
+      - 'world/air-quality/data-audit.py'
+      - '.github/workflows/aqi-data-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect public CAMS archive inventory without bulk downloads
+        run: python3 world/air-quality/data-audit.py
