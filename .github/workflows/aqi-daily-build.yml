@@ -10,7 +10,7 @@ permissions:
   contents: write
 concurrency:
   group: comfy-aqi-daily-global-build
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   build:
     runs-on: ubuntu-latest

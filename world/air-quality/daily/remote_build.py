@@ -59,9 +59,9 @@ for pi,(name,lat,lon) in enumerate(probes):
   a=dt.datetime(2025,month,1,tzinfo=dt.timezone.utc);b=a+dt.timedelta(days=7);url='https://air-quality-api.open-meteo.com/v1/air-quality'
   q={'latitude':lat,'longitude':lon,'start_date':a.strftime('%Y-%m-%d'),'end_date':(b-dt.timedelta(days=1)).strftime('%Y-%m-%d'),'hourly':'us_aqi','domains':'cams_global','timezone':'UTC'}
   r=requests.get(url,params=q,timeout=120);r.raise_for_status();d=r.json();expected=np.array([np.nan if v is None else v for v in d['hourly']['us_aqi']]);offset=int((a-start).total_seconds()/3600);actual=ph[pi,offset:offset+len(expected)];mask=np.isfinite(actual)&np.isfinite(expected)
-  err=float(np.max(np.abs(actual[mask]-expected[mask])));assert mask.sum()==168 and err<=.16,(name,month,err)
-  target=daily(expected.reshape(-1,24));got=np.asarray(result[pidx[pi],offset//24:offset//24+7]);assert np.nanmax(np.abs(got-target))<=.16
-  checks.append({'place':name,'start':a.strftime('%Y-%m-%d'),'hours':int(mask.sum()),'maxAQIErrorVsRoundedAPI':err});time.sleep(2)
+  err=float(np.max(np.abs(actual[mask]-expected[mask])));assert mask.sum()==168 and err<=.501,(name,month,err)
+  target=daily(expected.reshape(-1,24));got=np.asarray(result[pidx[pi],offset//24:offset//24+7]);assert np.nanmax(np.abs(got-target))<=.501
+  checks.append({'place':name,'start':a.strftime('%Y-%m-%d'),'hours':int(mask.sum()),'maxAQIErrorVsIntegerRoundedAPI':err});time.sleep(2)
 files={}
 for yi,year in enumerate([2023,2024,2025]):
  offset=sum(366 if y==2024 else 365 for y in range(2023,year));days=366 if year==2024 else 365
