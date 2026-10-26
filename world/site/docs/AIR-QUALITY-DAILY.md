@@ -48,3 +48,7 @@ Weather uses the existing checkbox, select, draft/Apply/Reset, focus and summary
 - `node world/air-quality/daily-browser-check.mjs`: actual query engine/browser with synthetic daily archives at 1440/768/390/320px, draft/apply/reset/URL, changed continuous field, ranking, missing-source fallback, restored off values, shared period, cancellation, PNG, 44px controls and no overflow/page errors.
 
 Fixture screenshots are synthetic-source QA and cannot establish real global data coverage. Native deployment and actual real-source verification are recorded separately after successful ingestion; this source document alone is not a publication receipt.
+
+## Validated global archive
+
+[Run 40391731987](https://github.com/lfsadigital/europe-thermal-comfort/actions/runs/40391731987) passed all six real January/July comparisons for Lisbon, New Delhi and Sydney. Dataset `cams-global-max3h-425950138cae91b1` covers all 85,699 climate nodes across 1,096 calendar dates, with 93,921,747 / 93,926,104 valid daily AQI values (99.99536%). [Data release and full source audit](https://github.com/lfsadigital/europe-thermal-comfort/releases/tag/comfy-aqi-daily-max3h-v1). The initially completed import lost its final validation to an API timeout; the replacement saved a durable checkpoint and successfully resumed it, including retries for another transient source timeout. These data checks establish archive readiness; real deployed-site checks are recorded separately.
