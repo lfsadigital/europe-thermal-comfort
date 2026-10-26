@@ -1,0 +1,16 @@
+name: Validate hourly AQI reconstruction against provider
+on:
+  pull_request:
+    paths:
+      - 'world/air-quality/daily/pilot.py'
+      - '.github/workflows/aqi-daily-pilot.yml'
+permissions:
+  contents: read
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -m pip install numpy requests omfiles
+      - run: python3 world/air-quality/daily/pilot.py
