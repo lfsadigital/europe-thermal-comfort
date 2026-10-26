@@ -1,0 +1,25 @@
+name: Build global daily AQI archive
+on:
+  pull_request:
+    paths:
+      - 'world/air-quality/daily/provider.py'
+      - 'world/air-quality/daily/remote_build.py'
+      - '.github/workflows/aqi-daily-build.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: comfy-aqi-daily-global-build
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install remote scientific dependencies
+        run: python3 -m pip install numpy requests omfiles
+      - name: Build and validate daily AQI without local bulk data
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 world/air-quality/daily/remote_build.py
