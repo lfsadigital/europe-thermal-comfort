@@ -30,14 +30,14 @@ class AirQuality {
   finally{if(id===this.id)this.root.setAttribute('aria-busy','false');}
  }
  syncFilter(){window.ComfyDays?.navigation.setAQIActive(this.enabled);window.ComfyDays?.discovery?.rankCache.clear();this.filter.notify();}
- description(){return `Median US AQI ≤${this.maximum} · ${this.appliedPeriod==='mean'?'2023–2025':this.appliedPeriod} · verified city points`;}
+ description(){return `Median US AQI ≤${this.maximum} · ${this.appliedPeriod==='mean'?'2023–2025':this.appliedPeriod} · city filter · unknown AQI kept`;}
 
  render(summary){
   const {aqi,pm,months}=summary,fmt=n=>n.toLocaleString('en',{maximumFractionDigits:1}),pct=(n,d)=>d?fmt(n/d*100)+'%':'—';
   this.message(`${summary.period==='mean'?'2023–2025':summary.period} · ${fmt(aqi.count)} / ${fmt(aqi.expected)} hourly AQI values (${pct(aqi.count,aqi.expected)})${aqi.eligible?'':'. Insufficient coverage: at least 90% is required in every month of each year.'}`);
   const el=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;};
   const stats=el('dl',undefined,'aq-stats');
-  for(const [label,value]of [['Median hourly US AQI',aqi.eligible&&aqi.median!==null?fmt(aqi.median):'Not available'],['Mean PM2.5 · µg/m³',pm.eligible&&pm.mean!==null?fmt(pm.mean):'Not available']]){const row=el('div');row.append(el('dt',label),el('dd',value));stats.append(row);}this.results.append(stats);this.results.append(el('p',aqi.eligible?(aqi.median<=this.maximum?'Within your AQI limit':'Outside your AQI limit'):'AQI filter: insufficient historical coverage','aq-note'));
+  for(const [label,value]of [['Median hourly US AQI',aqi.eligible&&aqi.median!==null?fmt(aqi.median):'Not available'],['Mean PM2.5 · µg/m³',pm.eligible&&pm.mean!==null?fmt(pm.mean):'Not available']]){const row=el('div');row.append(el('dt',label),el('dd',value));stats.append(row);}this.results.append(stats);this.results.append(el('p',aqi.eligible?(aqi.median<=this.maximum?'Within your AQI limit':'Outside your AQI limit'):'AQI unknown · insufficient historical coverage · kept in results','aq-note'));
   this.results.append(el('p',`PM2.5 coverage: ${fmt(pm.count)} / ${fmt(pm.expected)} hours (${pct(pm.count,pm.expected)}).`,'aq-note'));
   const heading=el('h3','Time in each AQI category');this.results.append(heading,el('p','Share of available hourly values. Lower AQI means less air pollution.','aq-note'));
   const list=el('ul',undefined,'aq-distribution');

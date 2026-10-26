@@ -1,20 +1,20 @@
 'use strict';
-// Progressive verification keeps unverified places out of results. Ranking
-// walks climate-sorted candidates in order, so ten confirmed matches are the
-// true Top 10; a bounded incomplete scan is explicitly labelled as such.
+// Missing, pending, and failed AQI stay unknown and never exclude a city.
+// Only a valid historical median above the chosen limit excludes it.
 class AirQualityFilter {
  constructor(owner){this.owner=owner;this.cache=new Map();this.failures=new Set();this.pending=new Map();this.revision=0;this.generation=0;this.limit=40;this.busy=false;this.scan=null;this.pool=[];this.checked=0;this.complete=false;this.passed=0;this.queue=[];this.workers=0;this.controllers=new Set();this.minimumInterval=4500;this.nextSourceAt=0;}
  get signature(){return [this.owner.enabled,this.owner.appliedPeriod,this.owner.maximum,this.revision].join('|');}
  key(lat,lon,period=this.owner.appliedPeriod){return [Number(lat.toFixed(4)),Number(lon.toFixed(4)),period].join('|');}
  summary(e){return this.cache.get(this.key(e.place[2],e.place[3]));}
- allows(e){if(!this.owner.enabled)return true;const s=this.summary(e);return !!s?.aqi?.eligible&&Number.isFinite(s.aqi.median)&&s.aqi.median<=this.owner.maximum;}
+ assessment(e){const a=this.summary(e)?.aqi;return !a?.eligible||!Number.isFinite(a.median)?'unknown':a.median<=this.owner.maximum?'pass':'fail';}
+ allows(e){return !this.owner.enabled||this.assessment(e)!=='fail';}
  reset(){this.generation++;for(const c of this.controllers)c.abort();this.controllers.clear();for(const job of this.queue)job.reject(new DOMException('Cancelled','AbortError'));this.queue=[];this.pending.clear();this.failures.clear();this.limit=40;this.pool=[];this.scan=null;this.visibleKey=null;this.visibleScan=null;this.busy=false;this.checked=0;this.complete=false;this.passed=0;this.revision++;this.notify();}
  notify(){clearTimeout(this.timer);this.timer=setTimeout(()=>{window.ComfyDays?.discovery?.renderRanking();window.ComfyDays?.cityMap?.refresh();window.ComfyDays?.ui?.refresh();this.status();},50);}
  status(){
   const box=document.getElementById('aq-map-status'),retry=document.getElementById('aq-filter-retry'),more=document.getElementById('aq-filter-more');
   box.hidden=!this.owner.enabled;retry.hidden=!this.owner.enabled||!this.failures.size;more.hidden=!this.owner.enabled||this.busy||this.complete||this.passed>=10;
   if(!this.owner.enabled)return;
-  box.textContent=Date.now()<this.quotaUntil?'The source asked us to wait. Checks will resume automatically; only verified city points are shown.':this.busy?`Checking city AQI · ${this.checked} checked · ${this.passed} ranking matches so far. Only verified city points are shown.`:this.failures.size?`Some city AQI checks failed. Results are provisional; retry to complete the ranking. Only verified matches are shown.`:!this.complete&&this.passed<10?`${this.checked} leading candidates checked · ${this.passed} verified matches. Check more cities to continue.`:`AQI filter · median ≤${this.owner.maximum} · ${this.owner.appliedPeriod==='mean'?'2023–2025':this.owner.appliedPeriod}. Only verified city points are shown; climate shading is hidden.`;
+  box.textContent=Date.now()<this.quotaUntil?'The source asked us to wait. Checks will resume automatically; cities with unknown AQI stay in results.':this.busy?`Checking city AQI · ${this.checked} checked · ${this.passed} retained ranking candidates so far. Unknown AQI stays in results.`:this.failures.size?`Some city AQI checks failed. These cities stay in results as unknown; retry to check them.`:!this.complete&&this.passed<10?`${this.checked} leading candidates checked · ${this.passed} retained candidates. Check more cities to continue.`:`AQI filter · median ≤${this.owner.maximum} · ${this.owner.appliedPeriod==='mean'?'2023–2025':this.owner.appliedPeriod}. Unknown AQI stays in results; climate shading is hidden.`;
  }
  async load(lat,lon,period=this.owner.appliedPeriod){
   const key=this.key(lat,lon,period),cached=this.cache.get(key);if(cached)return cached;
