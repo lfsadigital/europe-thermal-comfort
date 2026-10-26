@@ -1,0 +1,169 @@
+{
+  "version": 37,
+  "status": "succeeded",
+  "source": "58031c366f219f082e0057a8958630af8fe00e7e",
+  "deployment": "appgdep_6adfb2df7d488191bcd5f34dc4e7ba0d",
+  "url": "https://comfy.lfsadigital.com",
+  "native_url": "https://comfy-days-world.lfsadigital.chatgpt.site",
+  "published_at_utc": "2026-10-26T20:07:10.083358+00:00",
+  "dataset": "cams-global-max3h-425950138cae91b1",
+  "data_run": "https://github.com/lfsadigital/europe-thermal-comfort/actions/runs/40391731987",
+  "live_run": "https://github.com/lfsadigital/europe-thermal-comfort/actions/runs/40393231689",
+  "live_verified_at_utc": "2026-10-26T20:12:42Z",
+  "synthetic_live_data": false,
+  "live_result": {
+    "result": "PASS",
+    "synthetic": false,
+    "origin": "https://comfy.lfsadigital.com",
+    "dataset": "cams-global-max3h-425950138cae91b1",
+    "real": [
+      {
+        "name": "Lisbon",
+        "lat": 38.75,
+        "lon": -9.25,
+        "cell": 73781,
+        "node": 31581,
+        "withAQI": {
+          "score": 9.63243330900783,
+          "days": 249.66666666666666,
+          "count": 1096,
+          "aqCount": 1096
+        },
+        "withoutAQI": {
+          "score": 9.643713234333323,
+          "days": 257.3333333333333,
+          "count": 1096,
+          "aqCount": 0
+        }
+      },
+      {
+        "name": "New Delhi",
+        "lat": 28.75,
+        "lon": 77.25,
+        "cell": 88354,
+        "node": 37800,
+        "withAQI": {
+          "score": 6.394363491524068,
+          "days": 0.3333333333333333,
+          "count": 1096,
+          "aqCount": 1096
+        },
+        "withoutAQI": {
+          "score": 8.063043862741262,
+          "days": 62,
+          "count": 1096,
+          "aqCount": 0
+        }
+      },
+      {
+        "name": "Sydney",
+        "lat": -33.75,
+        "lon": 151.25,
+        "cell": 178502,
+        "node": 60368,
+        "withAQI": {
+          "score": 9.658931911656843,
+          "days": 243,
+          "count": 1096,
+          "aqCount": 1096
+        },
+        "withoutAQI": {
+          "score": 9.664156795346631,
+          "days": 247.33333333333334,
+          "count": 1096,
+          "aqCount": 0
+        }
+      }
+    ],
+    "browser": {
+      "period": "recent",
+      "enabled": true,
+      "cells": 85699,
+      "withAQI": 85699,
+      "raster": "visible",
+      "points": [
+        {
+          "name": "Lisbon",
+          "score": 9.63243330900783,
+          "days": 249.66666666666666,
+          "aqiDays": 1096
+        },
+        {
+          "name": "New Delhi",
+          "score": 6.394363491524068,
+          "days": 0.3333333333333333,
+          "aqiDays": 1096
+        },
+        {
+          "name": "Sydney",
+          "score": 9.658931911656843,
+          "days": 243,
+          "aqiDays": 1096
+        }
+      ],
+      "ranking": [
+        {
+          "name": "Chincha Alta",
+          "score": 9.993786480076798,
+          "days": 362.3333333333333
+        },
+        {
+          "name": "Tacna",
+          "score": 9.993417390139241,
+          "days": 360
+        },
+        {
+          "name": "Chimbote",
+          "score": 9.989312966154149,
+          "days": 361
+        },
+        {
+          "name": "Lima",
+          "score": 9.988629238874276,
+          "days": 361.3333333333333
+        },
+        {
+          "name": "Ilo",
+          "score": 9.988272564384092,
+          "days": 356.3333333333333
+        },
+        {
+          "name": "Santa Cruz de Tenerife",
+          "score": 9.956367407815783,
+          "days": 336.3333333333333
+        },
+        {
+          "name": "Pisco",
+          "score": 9.947224456465351,
+          "days": 335
+        },
+        {
+          "name": "Ica",
+          "score": 9.940579519407205,
+          "days": 316.6666666666667
+        },
+        {
+          "name": "Talara",
+          "score": 9.938191247021194,
+          "days": 326.6666666666667
+        },
+        {
+          "name": "Funchal",
+          "score": 9.928765425825159,
+          "days": 332.6666666666667
+        }
+      ],
+      "rankMatches": true
+    },
+    "checks": [
+      "real global daily archive + independent ERA5 formula",
+      "exact real API/point/browser agreement",
+      "actual AQI penalty and fewer comfy days",
+      "global coverage over 95% of valid weather cells",
+      "continuous raster always visible",
+      "Top 10 uses integrated comfort values",
+      "off restores weather-only values",
+      "zero page errors"
+    ]
+  }
+}
