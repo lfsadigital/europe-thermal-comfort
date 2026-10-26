@@ -2,9 +2,9 @@
 
 One public site, one climate source, one calculation engine.
 
-Buildless static HTML, CSS, JavaScript, Web Worker. No API keys or server are needed at runtime. Serve `dist/` over HTTP; open index.html through a local server, not file://.
+Static HTML/CSS/JavaScript interface with same-origin Cloudflare Worker routes for climate and monthly history; visitor-direct public API queries for air quality. The published runtime is backed up from current Sites source; see [query service](../query-service/README.md). Build from the repository root with `npm ci && npm run build`.
 
-Current defaults: daily high **18–28°C**, daily low **enabled at 14–28°C**, rain **≤4 mm/day**, sunshine **off** (6h when enabled). Highlights: score **≥7** and days/year **≥120**. Temperature loss uses the larger high/low deviation, not their sum. [Full rules, examples, annualization and implementation notes](docs/COMFORT-RULES.md).
+Current live defaults: daily minimum **≥14°C**, daily maximum **≤30°C**, rain **≤4 mm/day**, sunshine **off** (6h when enabled), AQI **off**. These temperature controls predate the AQI filter. Highlights: score **≥7** and days/year **≥120**. Temperature loss uses the larger high/low deviation, not their sum. [Full rules, examples, annualization and implementation notes](docs/COMFORT-RULES.md).
 
 2020–2025 contains 2,192 daily records. A point must have valid paired temperature and precipitation on at least 90% of the days in every month (all 72 months for the six-year view). Score sums divide by the number of available paired records. Comfortable days are estimated as qualifying records / available paired records × calendar days / years: 2,192/6 for the six-year view, or 365/366 for a selected year. With complete records this equals actual counts / years. Missing observations are never imputed or interpreted as dry. Coverage is displayed for each inspected point.
 
@@ -46,3 +46,8 @@ City ranking population thresholds: 1,000, 10,000, 50,000 (default), 250,000, 50
 Nomads score/cost data and filters were removed pending redistribution permission. Optional city ranking and map marker filters use population plus municipal homicide and a selected crime year. Local rates use FBI Table 8 and Eurostat; UNODC country data was withdrawn pending redistribution permission. Missing local data has no country fallback. See [city homicide coverage and matching](docs/CITY-HOMICIDE.md). Monthly charts use the same ERA5 cell and UTC dates. See [methodology](docs/CITY-CONTEXT-AND-MONTHLY.md) and [design](DESIGN.md).
 
 USA regional budget: optional EPI2026,1adult/nochildren,2025USD including taxes. County-based, not city-specific. Missing stays Unknown. Data adaptations are CC BY-NC-SA4.0; see docs/EPI-BUDGET.md.
+
+
+## Optional historical air quality
+
+Weather includes off-by-default daily AQI in Confi10, Comfy Days, continuous map colors and ranking. Daily AQI is the maximum complete 3-hour mean, requiring 22 valid hourly slots per UTC date. Default inclusive limit 100; penalty 1 point per 50 above it. Missing AQI preserves weather-only values without exclusion. All metrics share 2023–2025 or an individual year in that range. See [daily method and verification](docs/AIR-QUALITY-DAILY.md).

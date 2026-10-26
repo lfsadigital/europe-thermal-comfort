@@ -4,7 +4,7 @@ Live worldwide site: https://comfy.lfsadigital.com/
 
 **Current worldwide ERA5 source is in [world/](world/).** The Europe-only code below is an archived implementation, with a different source and historical scoring formula. It does not describe the live site.
 
-Current defaults: high **18–28°C**, low **14–28°C enabled**, rain **≤4 mm/day**, sunshine **off**. Highlights: **≥7 points and ≥120 days/year**. [Rules and examples](world/site/docs/COMFORT-RULES.md).
+Current live defaults: minimum **≥14°C**, maximum **≤30°C**, rain **≤4 mm/day**, sunshine **off**, AQI **off**. Highlights: **≥7 points and ≥120 days/year**. [Rules and examples](world/site/docs/COMFORT-RULES.md).
 
 The live interface is hosted by Sites and climate statistics by Cloudflare. GitHub stores this public code backup; it does not host the current Comfy Days site.
 
@@ -106,3 +106,5 @@ Contributions: [CONTRIBUTING.md](CONTRIBUTING.md). Code: MIT.
 **Climate data are not MIT-licensed.** E-OBS is restricted to non-commercial
 research and education. See [DATA_LICENSE.md](DATA_LICENSE.md) for attribution
 and source policies.
+
+Optional daily AQI comfort integration: [method, data and verification](world/site/docs/AIR-QUALITY-DAILY.md). Includes Confi10, comfortable days and map colors, with a shared 2023–2025 period and no missing-AQI penalty. Source processing and live publication evidence are recorded separately.
