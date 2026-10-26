@@ -1,0 +1,16 @@
+{
+  "version": 32,
+  "source": "d669a1ca91d7c448818c349b41009fe8d06e31ed",
+  "deployment": "appgdep_6ade77880b0c8191891c625cd96b1c45",
+  "status": "succeeded",
+  "url": "https://comfy-days-world.lfsadigital.chatgpt.site",
+  "published_at_utc": "2026-10-25T21:41:48.257948+00:00",
+  "preserved_base_source": "2be68ec9a477e052566959c8dbf09cdb25cd07da",
+  "tests": [
+    "four-width Chromium integration against current production source",
+    "unchanged climate parameters, arrays and ranking under AQI changes",
+    "query-service canonicalization/cache-isolation/concurrency regression",
+    "six real CAMS global source probes in GitHub CI"
+  ],
+  "live_browser_verification": false
+}

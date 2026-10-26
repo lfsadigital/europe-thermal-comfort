@@ -1,0 +1,14 @@
+{
+  "version": 33,
+  "source": "e04fbb01c934d99c56ce8684f7b33bd48960c0e4",
+  "deployment": "appgdep_6ade7da6a41881919b4629c5c0504be1",
+  "status": "succeeded",
+  "url": "https://comfy-days-world.lfsadigital.chatgpt.site",
+  "custom_domain": "https://comfy.lfsadigital.com",
+  "published_at_utc": "2026-10-25T22:07:49.429936+00:00",
+  "scope": "AQI history control in Weather beside Sunshine; draft/apply/reset; independent AQI period; identical climate array objects on AQI-only Apply",
+  "threshold_exclusion_filter": false,
+  "threshold_exclusion_clarification": "pending user response",
+  "browser_tests": "passed 1440/768/390/320px, keyboard, reset, URL, errors/races/retry, exact initial array identity; synthetic source fixtures",
+  "review": "single semantic-parameter comparison finding resolved"
+}

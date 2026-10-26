@@ -1,0 +1,22 @@
+/* Optional daily comfort rule; the existing climate palette shows its result. */
+.air-quality{--aq-muted:#50617d;--aq-surface:#f5f7fb;padding:24px;border-top:1px solid var(--line);color:var(--ink);background:#fff;min-width:0}
+.aq-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.aq-heading h2{margin:0;font-size:22px}.aq-heading h2 span{font:400 13px Inter,system-ui,sans-serif;color:var(--aq-muted);margin-left:8px}
+.aq-toggle{display:flex;align-items:center;gap:10px;min-height:44px;font-size:14px;cursor:pointer}.aq-toggle input{width:20px;height:20px;accent-color:var(--ink)}
+.air-quality p{font-size:14px;line-height:1.6;max-width:72ch;margin:8px 0 16px}.air-quality .aq-note{font-size:13px;color:var(--aq-muted)}
+.aq-period{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:14px;margin:16px 0}.aq-period select{min-height:44px;font-size:16px}
+.air-quality button{min-height:44px}.air-quality :is(button,input,select,summary):focus-visible,.aq-table-scroll:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.aq-stats{display:flex;gap:24px 48px;flex-wrap:wrap;margin:24px 0 8px}.aq-stats dt{font-size:14px;color:var(--aq-muted)}.aq-stats dd{margin:4px 0 0;font-size:22px;font-weight:650;font-variant-numeric:tabular-nums}
+.air-quality h3{font-size:16px;margin:24px 0 4px}.aq-distribution{padding:0;margin:16px 0 24px;list-style:none;max-width:760px}
+.aq-distribution li{display:grid;grid-template-columns:minmax(0,1fr) 88px 100px;gap:8px 16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px;align-items:baseline}
+.aq-band{min-width:0;overflow-wrap:anywhere}.aq-band::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--aq-band-color);margin-right:8px}
+.aq-range{color:var(--aq-muted)}.aq-distribution strong{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}.aq-track{grid-column:1/-1;height:4px;background:#e9eef8;display:block;overflow:hidden}.aq-track>span{display:block;height:100%;background:var(--ink)}
+.air-quality details{margin-top:16px;max-width:100%}.air-quality summary{min-height:44px;padding:10px 0;cursor:pointer;font-size:14px;font-weight:600}.air-quality details p{margin-top:12px}
+.aq-table-scroll{max-width:100%;overflow:auto;margin:12px 0}.air-quality table{border-collapse:collapse;min-width:650px;width:100%;font-size:14px;font-variant-numeric:tabular-nums}.air-quality caption{text-align:left;color:var(--aq-muted);padding-bottom:12px}.air-quality :is(th,td){padding:12px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}.air-quality :is(th,td):first-child{text-align:left}.air-quality thead{background:var(--aq-surface)}
+.air-quality a{text-underline-offset:3px}.air-quality a:hover{text-decoration-thickness:2px}.air-quality ::selection{color:#061640;background:#f5c518}
+.air-quality [hidden]{display:none!important}
+@media(max-width:650px){.air-quality{padding:20px 16px}.aq-heading{gap:8px}.aq-heading h2{font-size:20px}.aq-toggle{width:100%}.aq-distribution li{grid-template-columns:minmax(0,1fr) auto;gap:8px 12px}.aq-band{grid-column:1/-1}.aq-range{grid-column:1}.aq-stats{gap:16px 24px}.aq-stats dd{font-size:20px}}
+
+.air-quality-rule .aq-period{display:grid;gap:8px;margin:12px 0 0;font-size:14px}.air-quality-rule .aq-period select{width:100%;min-height:44px;font-size:16px}.air-quality-rule .aq-weather-toggle{min-height:44px;font-size:14px}.air-quality-rule #aq-weather-summary{display:block;font-size:13px;line-height:1.5;margin:12px 0 0;color:#50617d}
+
+.air-quality-rule #aq-period-note{display:block;margin:12px 0 0;font-size:13px;line-height:1.5;color:var(--muted,#50617d)}

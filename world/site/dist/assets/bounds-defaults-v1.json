@@ -1,0 +1,53 @@
+{
+  "revision": "era5-2020-2025-bounds-v1",
+  "nodes": 85699,
+  "period": "mean",
+  "modes": {
+    "standard": {
+      "params": {
+        "lower": 14,
+        "upper": 30,
+        "rain0": 4,
+        "rain1": 10,
+        "rain2": 20,
+        "pen1": 0.5,
+        "pen2": 1,
+        "pen3": 1.5,
+        "drymax": 4,
+        "lowenabled": true,
+        "lowmin": 14,
+        "lowmax": 30,
+        "sunenabled": false,
+        "sunmin": 6
+      },
+      "file": "assets/bounds-v1/standard-170d92f29753c3b2.bin.gz",
+      "sha256": "170d92f29753c3b2eb9ab83e1ac4f74a26c96f44d624f88360e8849f899469a9",
+      "bytes": 1130304
+    },
+    "sun6": {
+      "params": {
+        "lower": 14,
+        "upper": 30,
+        "rain0": 4,
+        "rain1": 10,
+        "rain2": 20,
+        "pen1": 0.5,
+        "pen2": 1,
+        "pen3": 1.5,
+        "drymax": 4,
+        "lowenabled": true,
+        "lowmin": 14,
+        "lowmax": 30,
+        "sunenabled": true,
+        "sunmin": 6
+      },
+      "file": "assets/bounds-v1/sun6-1c1373b059c21aae.bin.gz",
+      "sha256": "1c1373b059c21aae7ccf3457b389b34f4b1f5925325481a041167a545dcedc2e",
+      "bytes": 1198054
+    }
+  },
+  "build": {
+    "milliseconds": 66377.467046,
+    "downloadedBytes": 1106328666
+  }
+}

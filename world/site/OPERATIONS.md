@@ -106,3 +106,23 @@ Published v26: source 21431679fb0275a5481db4d86c0e1c704e1fa529; deployment appgd
 Luiz explicitly authorized publication. Fresh visits and Weather Reset now enable daily lows at 14–28°C, while sunshine remains off. Explicit lows=0 is preserved in share URLs so users can still disable and reload. Existing precomputed low maps are reused; source and formulas are unchanged. The daily-low monthly chart shows its selected band; sunshine has no band while disabled. Local default/reset/chart/PNG checks passed. Live publication verification follows.
 
 Published v27: source 53b536eddf21e04382027f81cc5174365c3b5ee4; deployment appgdep_6ad0399e913881918a3bfc64a1dcbcf2 succeeded 2026-10-15T02:25:51.686504+00:00 (October 14 São Paulo). Anonymous custom-domain fresh default, four standard combinations, Reset, daily-low chart band, sunshine band absent while off, PNG and zero page errors passed. Temporary publication archive removed.
+
+
+## 2026-10-25 — optional AQI published
+
+Explicit publication authorized by Luiz. Sites v32 source d669a1ca91d7c448818c349b41009fe8d06e31ed, deployment appgdep_6ade77880b0c8191891c625cd96b1c45, succeeded 2026-10-25T21:41:48.257948+00:00. Returned URL: https://comfy-days-world.lfsadigital.chatgpt.site. Feature was ported onto live v31 source 2be68ec9a477e052566959c8dbf09cdb25cd07da to preserve newer temperature controls, climate/monthly query backend and cross-request fixes absent from this older GitHub checkout. Existing four-width browser integration passed against the current source, with identical climate arrays/parameters/rankings under AQI changes; current query-service tests and locked build passed. Native deployment success verifies publication; no live browser session is claimed. See AIR-QUALITY-RELEASE.json.
+
+
+## 2026-10-25 — actual AQI map/Top10 filter published and verified
+
+User explicitly confirmed filtering map and Top10 while preserving Confi10. Published Sitesv35, source7ea8fb2718037cab8b39d9dfbd8bf1e891ff44e0, deploymentappgdep_6ade89cead248191949c1ddeaa8339f1, succeeded2026-10-25T22:59:40Z. Native URL https://comfy-days-world.lfsadigital.chatgpt.site; existing custom domain https://comfy.lfsadigital.com retained. Weather now applies inclusive median US AQI maximum100initially and defaultfull2025;2023/2024/pooled2023–25 available. Unknown/failed coverage excluded, progressive verification and provisional/continue/retry states, qualified citypoints on neutral map, exact original Confi10 arrays and days retained.
+
+Live v34 shared-origin proxy failed upstream429; fixed by restoring original climate/monthlybackend and using visitor-direct public API with2jobs, year-weighted4500ms source pacing and Retry-After honored even on exhausted retries. No paid service or proxy/IP rotation. Four-width fixturebrowserchecks and threshold/coverage/duplicate-cell/timeout/rate-limit/calendar regressions passed. Independent review scored listedmaterialfixesresolved. Real public Chrome/direct-source CI40242719997passed: Lisbon47(mean2023–25) passes100,NewDelhi169(2025) fails100, EuropeTop10allwithin100, onlyqualifiedfeatures, rasterrestored and exactscore/dayarrayidentities retained on disable, zeropageerrors. See AIR-QUALITY-FILTER-RELEASE.json.
+
+## 2026-10-26 · Unknown AQI retained
+
+User requested no penalty for missing optional data. Retain unknown AQI in map/Top 10, label ranking rows, draw hollow map/export points, and exclude only known above-limit medians. Threshold, quota, cancellation, retry and four-width browser fixture checks passed; climate array identities remain unchanged.
+
+## 2026-10-26 · Daily AQI comfort candidate
+
+The user approved maximum 3-hour mean per UTC day (22 valid hourly slots), inclusive limit100, 1 point per50 excess, no penalty/exclusion for missing AQI, shared2023–25 periods. Implemented shared scoring, days, continuous colors, ranking, Weather controls and archive-integrity delivery. Local formula/archive/service/four-width browser/PNG checks passed;10000 off-state comparisons exactly matchv36. The real hourly three-city pilot passed. Initial global import completed all1096days but its final API handshake timed out; the replacement remote pipeline adds durable data checkpoints, bounded source retries and faster whole-chunk decoding. No daily-AQI publication or full global success is claimed yet. See AIR-QUALITY-DAILY.md and AQI-DAILY-QA.json.
