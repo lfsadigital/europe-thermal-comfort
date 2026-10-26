@@ -1,3 +1,4 @@
+import {createAQIDailyService} from './aqi-archive.mjs';
 import {createService} from './service.mjs';
 import {createMonthlyService} from './monthly-service.mjs';
 // Only plain metadata crosses requests; cache handles and background I/O belong
@@ -5,7 +6,8 @@ import {createMonthlyService} from './monthly-service.mjs';
 const climateJobs=new Map(),monthlyJobs=new Map();
 export default {async fetch(request,env,ctx){
  const pathname=new URL(request.url).pathname;
+ if(pathname==='/api/aqi/daily/v1'){const archiveCache=await caches.open('comfy-aqi-archives-v1');return createAQIDailyService({archiveCache}).fetch(request);}
  if(pathname==='/api/monthly/v1'){const cache=await caches.open('comfy-days-results-v1');return createMonthlyService({cache,activeJobs:monthlyJobs}).fetch(request,ctx);}
- if(pathname==='/api/climate/v1'){const cache=await caches.open('comfy-days-results-v1');return createService({cache,activeJobs:climateJobs,maxConcurrent:2,background:true}).fetch(request,ctx);}
+ if(pathname==='/api/climate/v1'){const cache=await caches.open('comfy-days-results-v1');return createService({cache,archiveCache:await caches.open('comfy-aqi-archives-v1'),activeJobs:climateJobs,maxConcurrent:2,background:true}).fetch(request,ctx);}
  return env.ASSETS.fetch(request);
 }};

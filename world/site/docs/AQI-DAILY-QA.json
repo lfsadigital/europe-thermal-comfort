@@ -1,0 +1,30 @@
+{
+  "scope": "Optional daily AQI candidate; publication and global archive verification recorded separately",
+  "date": "2026-10-26",
+  "daily_rule": {"window_hours": 3, "aggregation": "maximum complete within-day window mean", "minimum_valid_utc_hours": 22, "default_inclusive_limit": 100, "penalty_per_excess_50": 1, "missing_policy": "weather-only score and day eligibility retained"},
+  "local_results": {
+    "daily_formula": "passed",
+    "disabled_parity_cases_against_published_v36": 10000,
+    "archive_integrity_cache_and_calendar": "passed",
+    "existing_query_service_regressions": "passed",
+    "browser_pipeline": "actual query engine and UI with synthetic daily archives",
+    "viewports": [1440, 768, 390, 320],
+    "browser_results": "passed including Apply/Reset/URL, common period, cancellation, missing/outage fallback, raster visible, integrated ranking, no-node selection clearing, PNG, 44px controls and no overflow/page errors"
+  },
+  "real_hourly_pilot": {
+    "run": "https://github.com/lfsadigital/europe-thermal-comfort/actions/runs/40381873835",
+    "passed": true,
+    "places": ["Lisbon", "New Delhi", "Sydney"],
+    "hours_each": 168,
+    "maximum_error_against_integer_rounded_api": 0.5,
+    "accepted_rounding_error": 0.501
+  },
+  "design_review": {
+    "skill": "Impeccable 4.7.1 with Apple Design utility/interaction guidance",
+    "finish_reviewer_disposition": "ship",
+    "scope": "listed draft-period and monthly-coverage copy fixes resolved; no live-data certification",
+    "documenter": "existing LFSA DESIGN.md preserved; no new tokens or PRODUCT.md",
+    "detector": "one lexical scan, inherited whole-page findings and seven AQI typography advisories; not a clean-page certification"
+  },
+  "global_archive": "still processing; no production success claimed in this receipt"
+}

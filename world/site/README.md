@@ -50,4 +50,4 @@ USA regional budget: optional EPI2026,1adult/nochildren,2025USD including taxes.
 
 ## Optional historical air quality
 
-Weather includes an off-by-default, inclusive historical median US AQI limit (100 initially) and an independent period (2025 initially; 2023–2025 also available). Enabling it filters city points and Top 10, hides the continuous climate raster, and retains unverified or insufficient AQI as unknown, using outlined map points. Climate scores, days and arrays stay unchanged; disabling restores the original map/ranking. Checks load progressively with explicit provisional, continue and retry states. See [source, methods and verification](docs/AIR-QUALITY.md).
+Weather includes off-by-default daily AQI in Confi10, Comfy Days, continuous map colors and ranking. Daily AQI is the maximum complete 3-hour mean, requiring 22 valid hourly slots per UTC date. Default inclusive limit 100; penalty 1 point per 50 above it. Missing AQI preserves weather-only values without exclusion. All metrics share 2023–2025 or an individual year in that range. See [daily method and verification](docs/AIR-QUALITY-DAILY.md).

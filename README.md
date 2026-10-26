@@ -106,3 +106,5 @@ Contributions: [CONTRIBUTING.md](CONTRIBUTING.md). Code: MIT.
 **Climate data are not MIT-licensed.** E-OBS is restricted to non-commercial
 research and education. See [DATA_LICENSE.md](DATA_LICENSE.md) for attribution
 and source policies.
+
+Optional daily AQI comfort integration: [method, data and verification](world/site/docs/AIR-QUALITY-DAILY.md). Includes Confi10, comfortable days and map colors, with a shared 2023–2025 period and no missing-AQI penalty. Source processing and live publication evidence are recorded separately.

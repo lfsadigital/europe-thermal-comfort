@@ -1,4 +1,4 @@
-/* Optional location context; the climate map retains its own data palette. */
+/* Optional daily comfort rule; the existing climate palette shows its result. */
 .air-quality{--aq-muted:#50617d;--aq-surface:#f5f7fb;padding:24px;border-top:1px solid var(--line);color:var(--ink);background:#fff;min-width:0}
 .aq-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .aq-heading h2{margin:0;font-size:22px}.aq-heading h2 span{font:400 13px Inter,system-ui,sans-serif;color:var(--aq-muted);margin-left:8px}
@@ -19,4 +19,4 @@
 
 .air-quality-rule .aq-period{display:grid;gap:8px;margin:12px 0 0;font-size:14px}.air-quality-rule .aq-period select{width:100%;min-height:44px;font-size:16px}.air-quality-rule .aq-weather-toggle{min-height:44px;font-size:14px}.air-quality-rule #aq-weather-summary{display:block;font-size:13px;line-height:1.5;margin:12px 0 0;color:#50617d}
 
-.aq-map-context{padding:0 24px}.aq-map-context p{font-size:14px;line-height:1.5;color:#50617d;margin:0 0 12px}.aq-map-context button{min-height:44px;font-size:14px;margin:0 8px 12px 0}.aq-map-context:has(p[hidden]){display:none}@media(max-width:650px){.aq-map-context{padding:0 16px}}
+.air-quality-rule #aq-period-note{display:block;margin:12px 0 0;font-size:13px;line-height:1.5;color:var(--muted,#50617d)}

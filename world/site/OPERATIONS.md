@@ -122,3 +122,7 @@ Live v34 shared-origin proxy failed upstream429; fixed by restoring original cli
 ## 2026-10-26 · Unknown AQI retained
 
 User requested no penalty for missing optional data. Retain unknown AQI in map/Top 10, label ranking rows, draw hollow map/export points, and exclude only known above-limit medians. Threshold, quota, cancellation, retry and four-width browser fixture checks passed; climate array identities remain unchanged.
+
+## 2026-10-26 · Daily AQI comfort candidate
+
+The user approved maximum 3-hour mean per UTC day (22 valid hourly slots), inclusive limit100, 1 point per50 excess, no penalty/exclusion for missing AQI, shared2023–25 periods. Implemented shared scoring, days, continuous colors, ranking, Weather controls and archive-integrity delivery. Local formula/archive/service/four-width browser/PNG checks passed;10000 off-state comparisons exactly matchv36. The real hourly three-city pilot passed. Initial global import completed all1096days but its final API handshake timed out; the replacement remote pipeline adds durable data checkpoints, bounded source retries and faster whole-chunk decoding. No daily-AQI publication or full global success is claimed yet. See AIR-QUALITY-DAILY.md and AQI-DAILY-QA.json.

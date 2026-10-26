@@ -23,6 +23,6 @@ const missing=await calculatePart({...spec,period:'2025'},async year=>{const pai
 console.log('PASS: in-flight sharing, cache hits, uncached failures and per-month missing-data exclusion.');
 // Sites denies the default cache. Initialize a single named cache and shared service set.
 const worker=(await import('./worker.mjs')).default;let opens=0;
-globalThis.caches={get default(){throw Error('Default cache is forbidden on Sites');},async open(name){assert.equal(name,'comfy-days-results-v1');opens++;return cache;}};
-const invalid=new Request('https://comfy.test/api/climate/v1?part=999');const invalidResponses=await Promise.all([worker.fetch(invalid,{},ctx),worker.fetch(invalid,{},ctx)]);assert.deepEqual(invalidResponses.map(r=>r.status),[400,400]);assert.equal(opens,2);
+globalThis.caches={get default(){throw Error('Default cache is forbidden on Sites');},async open(name){assert(['comfy-days-results-v1','comfy-aqi-archives-v1'].includes(name));opens++;return cache;}};
+const invalid=new Request('https://comfy.test/api/climate/v1?part=999');const invalidResponses=await Promise.all([worker.fetch(invalid,{},ctx),worker.fetch(invalid,{},ctx)]);assert.deepEqual(invalidResponses.map(r=>r.status),[400,400]);assert.equal(opens,4);
 console.log('PASS: Sites named-cache isolation and request-local cache handles under concurrent requests.');

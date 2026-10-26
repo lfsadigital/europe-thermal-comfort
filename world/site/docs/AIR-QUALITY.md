@@ -1,3 +1,5 @@
+> Historical implementation record. The median-based city filter below is superseded by the optional daily comfort rule in [AIR-QUALITY-DAILY.md](AIR-QUALITY-DAILY.md).
+
 # Optional historical air quality
 
 The optional Weather air-quality filter limits city points and Top 10 results by historical median US AQI. It starts off on a clean URL. Visitors choose a maximum of 50, 100 (default), 150, 200, 300, or 500 and either 2023, 2024, 2025 (default), or pooled 2023–2025, independently of the weather period. The limit is inclusive: median 100 passes maximum 100. All regions use the same US AQI scale and CAMS global source. Climate scores, comfortable-day counts, source arrays, and climate-rule values remain unchanged.
