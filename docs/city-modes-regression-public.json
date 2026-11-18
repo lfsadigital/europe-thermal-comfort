@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "base": "https://comfy.lfsadigital.com/",
+  "checks": [
+    "weather and city controls stay on map",
+    "apply button visible",
+    "pending weather not used before apply",
+    "no page jump while filtering",
+    "unknown retained in ranking and outlined",
+    "known failures gray and excluded",
+    "list-only versus map/list",
+    "population and filters persist in URL",
+    "PNG exact viewport and applied settings in both views",
+    "mobile and keyboard close",
+    "same climate values across tabs"
+  ],
+  "counts": {
+    "matched": 612,
+    "excluded": 125795,
+    "unknown": 10466
+  },
+  "errors": []
+}

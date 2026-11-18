@@ -1,0 +1,11 @@
+{
+  "url": "https://comfy.lfsadigital.com/",
+  "version": 18,
+  "source": "f6e9f5d7f4903c20f604b5eccc03c3b690aeebc2",
+  "versionId": "appgprj_6acc3bb3fcd4819181f55b4757d282a8~appgver_47e9d998c7148191a4c022ed8028b91f",
+  "deploymentId": "appgdep_6acea9263a708191bfd86f6bd96c7b83",
+  "status": "succeeded",
+  "publishedAt": "2026-10-13T21:57:11.704063+00:00",
+  "liveVerification": "PASS: filters, regions, mobile, both PNGs, period/sunshine cache and memory budget; zero page errors",
+  "githubPublicBackup": "unchanged; this request authorized publishing, not a new public GitHub push"
+}

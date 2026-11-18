@@ -1,0 +1,17 @@
+{
+  "scope": "Map/filter workspace refinement; not full-page audit",
+  "disposition": "ship",
+  "reviewer": "map_first_finish_review",
+  "viewports": [
+    1440,
+    768,
+    390,
+    320
+  ],
+  "material_fixes": [],
+  "limitations": [
+    "Ranking/loading appearance supported by source and functional report, not visual capture",
+    "No PRODUCT or approved comp; narrow incumbent refinement"
+  ],
+  "publication": "not published"
+}

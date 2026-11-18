@@ -1,0 +1,14 @@
+import {cp,mkdir,writeFile} from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {createRequire} from 'node:module';
+const require=createRequire(import.meta.url),esbuild=require(process.env.COMFY_ESBUILD_PATH||'esbuild');
+const here=path.dirname(fileURLToPath(import.meta.url)),target=path.resolve(process.argv[2]||path.join(here,'../../.comfy-build'));
+if(target===path.parse(target).root||target===path.resolve(here,'../..'))throw Error('Invalid build output');
+await mkdir(target,{recursive:true});await mkdir(path.join(target,'server'),{recursive:true});await mkdir(path.join(target,'.openai'),{recursive:true});
+await cp(path.join(here,'../site/dist'),path.join(target,'client'),{recursive:true});
+await esbuild.build({entryPoints:[path.join(here,'worker.mjs')],outfile:path.join(target,'server/index.js'),bundle:true,format:'esm',platform:'browser',target:'es2022',legalComments:'inline'});
+const manifest={project_id:'appgprj_6acc3bb3fcd4819181f55b4757d282a8'};
+await writeFile(path.join(target,'.openai/hosting.json'),JSON.stringify(manifest,null,2)+'\n');
+await writeFile(path.join(target,'server/wrangler.json'),JSON.stringify({name:'comfy-days-world',main:'index.js',compatibility_date:'2026-08-06',assets:{directory:'../client',binding:'ASSETS',run_worker_first:['/api/*']}},null,2)+'\n');
+console.log(JSON.stringify({directory:target,worker:'server/index.js',assets:'client'}));

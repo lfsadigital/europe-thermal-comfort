@@ -1,0 +1,48 @@
+{
+  "strict": {
+    "counts": {
+      "matched": 40,
+      "excluded": 16054,
+      "unknown": 2
+    },
+    "features": 19,
+    "year": 2024,
+    "limit": 5
+  },
+  "loose": {
+    "counts": {
+      "matched": 44,
+      "excluded": 16050,
+      "unknown": 2
+    },
+    "features": 20,
+    "year": 2024,
+    "limit": 100
+  },
+  "allStrict": {
+    "counts": {
+      "matched": 443,
+      "excluded": 15469,
+      "unknown": 184
+    },
+    "features": 135,
+    "year": 2024,
+    "limit": 5
+  },
+  "allLoose": {
+    "counts": {
+      "matched": 696,
+      "excluded": 15216,
+      "unknown": 184
+    },
+    "features": 274,
+    "year": 2024,
+    "limit": 100
+  },
+  "panelHeight": 261.625,
+  "keyboardDrag": true,
+  "pointerDrag": true,
+  "sliderScore": 7.2,
+  "mobileOverflow": false,
+  "errors": []
+}

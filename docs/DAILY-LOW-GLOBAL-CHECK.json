@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "name": "Porto",
+      "index": 70183,
+      "score": 7.857869522223745,
+      "days": 39.33333333333333,
+      "count": 2192
+    },
+    {
+      "name": "Miami",
+      "index": 92359,
+      "score": 8.420574816582846,
+      "days": 58.666666666666664,
+      "count": 2192
+    },
+    {
+      "name": "Nairobi",
+      "index": 131473,
+      "score": 9.59455976238216,
+      "days": 145.33333333333334,
+      "count": 2192
+    },
+    {
+      "name": "Oslo",
+      "index": 43581,
+      "score": 5.289039690241244,
+      "days": 27.000000000000004,
+      "count": 2192
+    }
+  ],
+  "regionsEqual": true,
+  "defaultOffExact": true,
+  "export": true,
+  "errors": []
+}

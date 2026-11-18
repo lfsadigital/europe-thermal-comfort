@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "url": "https://comfy.lfsadigital.com/",
+  "checks": [
+    "lazy USA-only data",
+    "regional Miami value",
+    "Unknown city retained",
+    "known over-budget excluded",
+    "no failed/unknown markers",
+    "exact climate arrays unchanged across regions",
+    "EPI scope and restored selection",
+    "two budget-aware PNGs",
+    "URL reload",
+    "real city hover",
+    "mobile spacing",
+    "invalid budget blocks PNG",
+    "reset",
+    "source outage preserves Unknown; retry succeeds"
+  ],
+  "errors": []
+}

@@ -1,0 +1,14 @@
+{
+  "sha256": {
+    "app.js": "0d25a345006e927453c3c6d65aed0b8415f9bcc1f2461b4c78b4afacf2c51254",
+    "climate-worker.js": "dd23b76e60fc08f852b8b4c1660c5753bcc571c8c9baa71f2917bba15c89e9c7",
+    "sunshine-core.js": "d04f91126652c63fa87af02d4d061842cdf799299efc92d2f9c6714c729eb74d",
+    "index.html": "054e6496d0f4d97383fee9957d716b84ed135b95375e3916ef193c471c9da494",
+    "styles.css": "8107e7318bbb48c23a59a5fba85a98b6edc7c3149fe298b163b6c7b744f9228a",
+    "map-bootstrap.js": "7ed64a2ae460c04da01593ad50f6e3c8dc78712e26e8be58e596bd5071f68836",
+    "assets/metadata.json": "ce6d58fd04366f528ade6e851f8909a7a1ae62d86a6fc00b97af4c2714c959a7"
+  },
+  "period": "2020\u20132025",
+  "default_enabled": false,
+  "minimum_hours_default": 6
+}

@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "checks": [
+    "exact original-cell mask",
+    "original score/day arrays unchanged",
+    "verified city highlights only",
+    "no quick-city chips",
+    "invalid highlight blocks PNG",
+    "expanded map height above400px",
+    "Escape exits immersion",
+    "320px no overflow",
+    "PNG records highlight limits"
+  ],
+  "errors": []
+}

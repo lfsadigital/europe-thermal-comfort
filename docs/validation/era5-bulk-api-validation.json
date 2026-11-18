@@ -1,0 +1,62 @@
+[
+  {
+    "city": "Porto",
+    "max_temperature_api_difference": 0.05000152587890483,
+    "max_precipitation_api_difference": 3.051757815342171e-06
+  },
+  {
+    "city": "Madrid",
+    "max_temperature_api_difference": 0.05000152587890483,
+    "max_precipitation_api_difference": 1.5258789076710855e-06
+  },
+  {
+    "city": "London",
+    "max_temperature_api_difference": 0.050000762939454546,
+    "max_precipitation_api_difference": 1.5258789076710855e-06
+  },
+  {
+    "city": "Rome",
+    "max_temperature_api_difference": 0.05000152587890483,
+    "max_precipitation_api_difference": 2.2888183579539145e-06
+  },
+  {
+    "city": "Los Angeles",
+    "max_temperature_api_difference": 0.05000152587890483,
+    "max_precipitation_api_difference": 3.051757815342171e-06
+  },
+  {
+    "city": "New York",
+    "max_temperature_api_difference": 0.05000152587890483,
+    "max_precipitation_api_difference": 2.2888183579539145e-06
+  },
+  {
+    "city": "Miami",
+    "max_temperature_api_difference": 0.05000152587890483,
+    "max_precipitation_api_difference": 3.051757815342171e-06
+  },
+  {
+    "city": "Chicago",
+    "max_temperature_api_difference": 0.05000152587890483,
+    "max_precipitation_api_difference": 3.051757815342171e-06
+  },
+  {
+    "city": "Nairobi",
+    "max_temperature_api_difference": 0.050000762939454546,
+    "max_precipitation_api_difference": 1.1444091789769573e-06
+  },
+  {
+    "city": "Nguruka",
+    "max_temperature_api_difference": 0.05000152587890483,
+    "max_precipitation_api_difference": 2.2888183579539145e-06
+  },
+  {
+    "city": "Cape Town",
+    "max_temperature_api_difference": 0.05000152587890483,
+    "max_precipitation_api_difference": 1.5258789076710855e-06
+  },
+  {
+    "city": "Marrakech",
+    "max_temperature_api_difference": 0.05000152587890483,
+    "max_precipitation_api_difference": 1.1444091789769573e-06
+  }
+]
