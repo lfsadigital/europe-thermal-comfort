@@ -1,0 +1,12 @@
+{
+  "name": "comfy-days-world",
+  "main": "index.js",
+  "compatibility_date": "2026-08-06",
+  "assets": {
+    "directory": "../client",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api/*"
+    ]
+  }
+}

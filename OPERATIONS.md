@@ -150,3 +150,8 @@ Custom domain recheck: HTTPS HTTP 200; fetched HTML matched v45 source byte for 
 Scoped local Chromium checks passed at 320/390/768/1440px, with no horizontal overflow, one sponsor slot, correct mailto destinations and keyboard focus. Scoped Impeccable detector and build/whitespace checks passed. Physical touch, other browser engines and external email-client launch were not tested. Doctor setup was fixed locally and returned no findings; hook delivery may require harness reload. No development credentials, local consent or binaries were added to production.
 
 Documentation reconciliation updated current entrypoints, preserved historical reports and added `docs/SUPPORT-RELEASE.json` with frontend source hashes. Documentation-only updates do not republish or increment the application version.
+
+
+## 2026-11-18 — GitHub source migration
+
+Imported the current application into GitHub `main` in [PR #2](https://github.com/lfsadigital/europe-thermal-comfort/pull/2). Verified 92 frontend hashes against the v45 receipt and ran the query checks and production build. The live application remains Sites v45. See [publishing](docs/PUBLISHING.md) for future releases.

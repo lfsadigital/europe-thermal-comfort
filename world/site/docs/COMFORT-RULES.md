@@ -1,5 +1,7 @@
 # Published comfort rules and defaults
 
+> Historical rules snapshot. See the [current rules](../../../README.md#current-rules) and [daily AQI method](../../../docs/AIR-QUALITY-DAILY.md) for the live configuration.
+
 Applies to Sites v27, source `53b536eddf21e04382027f81cc5174365c3b5ee4`, published October 14, 2026 (São Paulo), at https://comfy.lfsadigital.com/ . This GitHub repository is the code backup; it is not the website host.
 
 ## Fresh visits and Weather Reset

@@ -1,6 +1,6 @@
 # Documentation map
 
-For current behavior and verified publication, start with [CURRENT-STATE.md](CURRENT-STATE.md), [README](../README.md), [DESIGN](../DESIGN.md), [OPERATIONS](../OPERATIONS.md), and [the current release receipt](SUPPORT-RELEASE.json).
+For releases, see [Publishing from GitHub](PUBLISHING.md). For current behavior and verified publication, start with [CURRENT-STATE.md](CURRENT-STATE.md), [README](../README.md), [DESIGN](../DESIGN.md), [OPERATIONS](../OPERATIONS.md), and [the current release receipt](SUPPORT-RELEASE.json).
 
 Current daily AQI method: [AIR-QUALITY-DAILY.md](AIR-QUALITY-DAILY.md). Backend/development: [query service](../world/query-service/README.md). Source and credit records include [ERA5 migration](ERA5-MIGRATION.md), [sunshine](SUNSHINE.md), [homicide](CITY-HOMICIDE.md) and [EPI budget](EPI-BUDGET.md); read each within its stated scope.
 

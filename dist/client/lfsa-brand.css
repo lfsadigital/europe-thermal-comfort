@@ -1,0 +1,22 @@
+/* LFSA Digital website tokens, recorded in Obsidian/04-LFSA/LFSA-Digital.md. */
+@font-face{font-family:Inter;src:url('fonts/inter-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:Inter;src:url('fonts/inter-500.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:Inter;src:url('fonts/inter-600.woff2') format('woff2');font-weight:600 900;font-display:swap}
+@font-face{font-family:'Space Grotesk';src:url('fonts/space-grotesk-600.woff2') format('woff2');font-weight:400 600;font-display:swap}
+@font-face{font-family:'Space Grotesk';src:url('fonts/space-grotesk-700.woff2') format('woff2');font-weight:700 900;font-display:swap}
+:root{--lfsa-navy:#0a2463;--lfsa-deep:#061640;--lfsa-gold:#f5c518;--lfsa-blue:#2da0e0;--ink:var(--lfsa-navy);--teal:var(--lfsa-navy);--line:#d8dfeb;--cream:#fff}
+body{background:linear-gradient(180deg,var(--lfsa-navy),var(--lfsa-deep) 650px);color:#f4f4f5;font-family:Inter,system-ui,sans-serif}
+body:before{content:'';display:block;height:3px;background:linear-gradient(135deg,var(--lfsa-gold),var(--lfsa-blue))}
+h1,h2,h3,.brand,.metric-card strong,.rank-metrics strong{font-family:'Space Grotesk',Inter,sans-serif}
+header{border-color:#ffffff26}.brand{color:inherit}.badge{color:#cbd5e1;border-color:#ffffff40}.header-note{color:#cbd5e1}
+h1 em{color:var(--lfsa-gold)}.hero>p:last-child,.region-source{color:#cbd5e1}
+.region-tabs{background:var(--lfsa-deep);border:1px solid #ffffff26;box-shadow:0 4px 16px #06164026}.region-tabs button{color:#cbd5e1}.region-tabs button.active{background:var(--lfsa-gold);color:var(--lfsa-deep);font-weight:700}.region-tabs button:hover{background:#ffffff14}.region-tabs button.active:hover{background:#d4a912}
+.workspace,#rules,.city-ranking{color:var(--lfsa-navy)}.primary{background:var(--lfsa-gold);border-color:var(--lfsa-gold);color:var(--lfsa-deep)}.primary:hover{background:#d4a912;border-color:#d4a912;color:var(--lfsa-deep)}
+.switch button.active,.display-switch button.active{background:var(--lfsa-navy);color:#fff}
+.metric-card{border-top:3px solid var(--lfsa-gold)}.metric-card.secondary{border-top:3px solid var(--lfsa-blue)}
+input,select{font-family:Inter,system-ui,sans-serif}input:focus{border-color:var(--lfsa-navy)}input[type=checkbox]{accent-color:var(--lfsa-navy)}
+.method h2,.method h3,.method summary{color:#f4f4f5}.method p,.method details{color:#cbd5e1}.method details{border-color:#ffffff26}.method a,footer a{color:#8acff5}.method a:hover,footer a:hover{color:var(--lfsa-gold)}
+footer{border-color:#ffffff26}footer p{color:#cbd5e1}footer .brand{color:#f4f4f5}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline-color:var(--lfsa-gold)}
+::selection{background:var(--lfsa-gold);color:var(--lfsa-deep)}html{scrollbar-color:#94a3b8 var(--lfsa-deep)}
+/* Climate palette is data encoding, independent of brand action colors. */

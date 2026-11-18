@@ -1,5 +1,7 @@
 # Comfy Days · World, Europe & USA
 
+> Historical site documentation. See the [root README](../../README.md), [current state](../../docs/CURRENT-STATE.md) and [publishing workflow](../../docs/PUBLISHING.md) for current instructions.
+
 One public site, one climate source, one calculation engine.
 
 Buildless static HTML, CSS, JavaScript, Web Worker. No API keys or server are needed at runtime. Serve `dist/` over HTTP; open index.html through a local server, not file://.

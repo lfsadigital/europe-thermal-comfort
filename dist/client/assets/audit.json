@@ -1,0 +1,48 @@
+{
+  "source": "Copernicus ERA5 / ECMWF \u00b7 Open-Meteo",
+  "period": "2020\u20132025",
+  "days": 2192,
+  "checks": [
+    "UTC hourly aggregation",
+    "Same ERA5 source for both variables, all tabs",
+    "All default scores/day counts match daily arrays",
+    "Monthly paired-day eligibility; no imputation"
+  ],
+  "comparisons": [
+    {
+      "period": "mean",
+      "eligible_cells": 85699,
+      "max_histogram_raw_score_error": 0
+    },
+    {
+      "period": "2020",
+      "eligible_cells": 85699,
+      "max_histogram_raw_score_error": 0
+    },
+    {
+      "period": "2021",
+      "eligible_cells": 85699,
+      "max_histogram_raw_score_error": 0
+    },
+    {
+      "period": "2022",
+      "eligible_cells": 85699,
+      "max_histogram_raw_score_error": 0
+    },
+    {
+      "period": "2023",
+      "eligible_cells": 85699,
+      "max_histogram_raw_score_error": 0
+    },
+    {
+      "period": "2024",
+      "eligible_cells": 85699,
+      "max_histogram_raw_score_error": 0
+    },
+    {
+      "period": "2025",
+      "eligible_cells": 85699,
+      "max_histogram_raw_score_error": 0
+    }
+  ]
+}
