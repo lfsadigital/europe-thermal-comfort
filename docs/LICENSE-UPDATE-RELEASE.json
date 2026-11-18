@@ -1,0 +1,21 @@
+{
+  "version": 22,
+  "site": "https://comfy.lfsadigital.com/",
+  "source_commit": "0f50cf75911f2936bea82cc9c666eeb6f8e0ffc1",
+  "github_code_commit": "08d566f",
+  "deployment_id": "appgdep_6acfe31719a4819182acb9a226899dae",
+  "status": "succeeded",
+  "completed_at": "2026-10-14T20:16:40.060037+00:00",
+  "climate_changed": false,
+  "retired_sources": [
+    "Nomads score/cost",
+    "UNODC country rates"
+  ],
+  "preserved_sources": [
+    "ERA5 weather",
+    "FBI/Eurostat municipal homicide",
+    "GeoNames population"
+  ],
+  "old_history": "Not rewritten; historical copies may remain",
+  "live_verification": "PASS: anonymous custom-domain browser, retired datasets unavailable, filter invariance, municipal values, PNGs, mobile"
+}

@@ -225,3 +225,44 @@ body.map-immersed .location-header{display:flex}
 @media(max-width:760px){.filter-panel-body:has(#rules){height:calc(var(--map-height) - var(--highlight-height,150px) - 184px)}}
 .filter-panel-body:has(#rules){height:min(580px,calc(var(--map-height) - var(--highlight-height,60px) - 88px - var(--map-bottom-clearance,90px)))}
 @media(max-width:760px){body.map-immersed .map-actions{flex-wrap:nowrap;overflow-x:auto;align-items:center;white-space:nowrap;scrollbar-width:thin}body.map-immersed .map-actions>*{flex:none}body.map-immersed .map-actions .info-popover{margin:0;padding:0;border:0}}
+
+/* Keep each floating surface separate, even when controls change height. */
+.filter-tabs .map-filter-panel{margin:0;padding:0;border:0}
+.map-highlights{top:calc(12px + var(--filter-dock-height,48px) + 12px)}
+.filter-panel-body{top:calc(var(--filter-dock-height,48px) + var(--highlight-height,60px) + 24px);max-height:calc(var(--map-height,580px) - var(--filter-dock-height,48px) - var(--highlight-height,60px) - var(--map-bottom-clearance,12px) - 48px)}
+.filter-panel-body:has(#rules){height:min(580px,calc(var(--map-height,580px) - var(--filter-dock-height,48px) - var(--highlight-height,60px) - var(--map-bottom-clearance,12px) - 48px))}
+@media(max-width:760px){.highlight-control{grid-template-columns:minmax(0,1fr) 64px}.highlight-control input[type=number]{width:64px}}
+/* Shared season selection and compact location facts. */
+.workspace>.month-picker{max-width:none;display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 18px;padding:14px 16px;background:#f5f7fb;border:1px solid #d8dfeb;border-radius:12px}
+.workspace>.month-picker .month-picker-heading{gap:12px;flex-wrap:wrap}
+.workspace>.month-picker .month-buttons{margin:0;flex:1 1 620px}
+.workspace>.month-picker .month-buttons button{flex:1 0 44px}
+.location-city-context{margin-top:12px;padding:10px 12px;background:#f5f7fb;border:1px solid #e1e8f1;border-radius:10px}
+.location-city-context:empty{display:none}.location-city-row{display:flex;gap:12px;justify-content:space-between;padding:6px 0;font-size:11px;line-height:1.4}.location-city-row+.location-city-row{border-top:1px solid #e1e8f1}.location-city-row span{color:#50617d}.location-city-row strong{text-align:right;color:#0a2463;font-size:11px;font-weight:600;overflow-wrap:anywhere}
+.region-tabs{max-width:100%;overflow-x:auto}.region-tabs button{white-space:nowrap;flex-shrink:0}
+.monthly-climate>.air-quality{margin:28px 0 12px;padding:20px;background:#f9fbfe;border-radius:14px}
+@media(max-width:650px){.workspace>.month-picker{padding:12px}.workspace>.month-picker .month-buttons{flex-basis:100%}.workspace>.month-picker .month-buttons button{flex:1 0 42px}.region-tabs button{flex:0 0 auto}.monthly-climate>.air-quality{padding:16px}.detail-panel .location-city-row{font-size:12px}}
+.workspace>.month-picker .month-highlight-note{width:100%;margin:0;color:#806000;font-size:12px;line-height:1.5}
+.location-context-title{font-size:11px;color:#50617d}.location-context #urban-density-value{font-weight:600;color:#0a2463;font-size:13px;margin:4px 0}.location-context #urban-density-area{display:block;color:#50617d;font-size:10px;line-height:1.4}
+.month-range{position:relative;flex:none;margin:0;padding:0;border:0;font-size:12px}.month-range>summary{min-height:44px;padding:12px;list-style:none;border:1px solid #d8dfeb;border-radius:9px;background:#fff}.month-range>summary::-webkit-details-marker{display:none}.month-range>summary::after{content:' ▾'}.month-range>div{position:absolute;z-index:9;top:calc(100% + 6px);right:0;display:flex;gap:10px;align-items:end;padding:16px;background:white;border:1px solid #d8dfeb;border-radius:12px;box-shadow:0 8px 28px #06164030}.month-range label{font-size:12px;white-space:nowrap}.month-range select{display:block;margin-top:6px;min-height:44px}.month-range button{min-height:44px;white-space:nowrap}@media(max-width:650px){.month-range>div{right:auto;left:0}}
+@media(max-width:650px){.month-range>div{flex-wrap:wrap;width:min(320px,calc(100vw - 48px));box-sizing:border-box}}
+.share-status{margin:10px 0 0;padding:10px 14px;border:1px solid #d8dfeb;border-radius:10px;background:#f5f7fb;color:#0a2463;font-size:13px;line-height:1.5}.share-status a{font-weight:600;text-underline-offset:3px}
+/* Immersive mode keeps the map in control of the available height. */
+#immersive-months-toggle{display:none}
+body.map-immersed #immersive-months-toggle{display:inline-flex;align-items:center;min-height:44px;padding:8px 12px;font-size:12px}
+body.map-immersed .workspace>.month-picker{display:none;position:absolute;z-index:20;top:calc(var(--immersive-toolbar-height,60px) + 8px);right:16px;width:min(720px,calc(100% - 32px));max-height:calc(100dvh - var(--immersive-toolbar-height,60px) - 24px);overflow:auto;margin:0;flex:none;background:#fff;box-shadow:0 8px 28px #06164030}
+body.map-immersed.immersive-months-open .workspace>.month-picker{display:flex}
+body.map-immersed .map-layout{flex:1 1 0;min-height:0}
+@media(max-width:650px){body.map-immersed .workspace>.month-picker{right:8px;width:calc(100% - 16px)}}
+body.map-immersed .month-range[open]{flex-basis:100%}body.map-immersed .month-range>div{position:static;box-shadow:none;margin-top:6px;width:auto}
+/* Month selection is available on demand, so the map stays prominent. */
+.season-summary{display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid #d8dfeb}
+.season-summary button{display:flex;align-items:center;gap:10px;min-height:44px;padding:8px 12px;background:#fff;font-size:13px}.season-summary button>span:first-child{color:#50617d}.season-summary strong{font-weight:600}.season-change{margin-left:4px;color:#0a2463;text-decoration:underline;text-underline-offset:3px}.season-scope{font-size:12px;color:#50617d}
+body:not(.map-immersed):not(.season-panel-open) .workspace>.month-picker{display:none}body.map-immersed .season-summary{display:none}
+body.map-immersed .workspace>.month-picker{left:var(--months-panel-left,16px);right:auto}
+.filter-overlay #export{background:#fff;border-color:#d8dfeb;color:#0a2463}.filter-overlay #export:hover{background:#edf3fb}
+.highlights-inactive .highlight-control{opacity:.5}.highlights-inactive .highlight-control input:disabled{cursor:not-allowed}
+@media(max-width:760px){.detail-panel,body.map-immersed .detail-panel{top:auto;bottom:var(--detail-mobile-bottom,66px);max-height:var(--detail-mobile-height,calc(100% - 240px));overflow-y:auto;overscroll-behavior:contain}.detail-panel:focus-within{scrollbar-color:#97a7c1 #f5f7fb}body.map-immersed .map-actions{flex-wrap:wrap;overflow:visible}body.map-immersed #all-world{display:none}body.map-immersed .immersive-region select{max-width:min(220px,55vw)}.season-summary{padding:10px 12px}.season-scope{display:none}}
+@media(max-width:650px){body>header{padding-top:12px;padding-bottom:12px}.hero{padding:16px 0 18px}.hero h1{margin:5px 0 10px}.hero>p:last-child{margin:0;font-size:14px;line-height:1.4}.location-search{padding-top:12px;padding-bottom:12px}.map-heading{padding-top:12px;padding-bottom:6px}.map-filter-summary{padding-top:4px;padding-bottom:4px}.region-tabs{scrollbar-width:thin;scrollbar-color:#64789f transparent}.region-tabs::-webkit-scrollbar{height:4px}.region-tabs::-webkit-scrollbar-thumb{background:#64789f;border-radius:4px}}
+.region-nav{position:relative;width:max-content;max-width:100%}.region-nav #region-more{position:absolute;right:4px;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:44px;height:44px;padding:0;color:#fff;background:#18346e;border-color:#52678f;box-shadow:0 3px 10px #06164040}.region-nav #region-more[hidden]{display:none}.region-nav #region-more:hover{background:#264a8d}body.map-immersed .region-nav{display:none}@media(max-width:800px){.region-nav{width:100%}}
+.optional-label,.location-header #detail-place,.detail-panel #detail-distance,.location-metrics dt,.location-metrics small,.location-rule,.location-city-row,.location-city-row strong,.location-context-title,.location-context #urban-density-area,.rank-data-note{font-size:12px}

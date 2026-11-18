@@ -1,0 +1,15 @@
+# Quiet map — version 20
+
+User rejected the previous cluttered map and requested neutral nonmatching areas, no gray failed-city points, an immersive map, concise copy and information controls. User chose both adjustable climate result limits. Defaults: score at least 8/10 and comfortable days at least 180/year, inclusive. These are map-highlight limits, not changes to the daily weather formula or ranking eligibility. Existing Weather rules still calculate the underlying arrays. Turning highlight limits off restores full climate coloring.
+
+The tile worker checks a mask from exact original score/day arrays at the nearest native climate cell before applying display interpolation. Failing or nonfinite cells are transparent; the neutral basemap remains. No socioeconomic metric is painted across a climate region. City points require known passes for population and every enabled city metadata filter, plus climate-highlight limits when enabled. Missing optional values remain ranking eligible but are never shown as verified map matches. The No city highlights option disables only city points. Old highlight URLs normalize to the new matching-only behavior.
+
+The detail panel floats only after a selection and has a close control. Quick-city chips were removed. Technical notes, field explanations and counts sit inside native information/details controls, available by hover, focus and click/tap. About the data folds the previous visible methodology cards. The count container has its own padded information surface rather than an unpadded standalone line.
+
+Expand map uses a fixed full-window workspace, keeping region, metric, period, search, filters and PNG controls. Escape exits; Tab wraps within visible workspace controls. This is a page immersion mode, not the browser Fullscreen API. Navigation/resolution remain MapLibre/native source resolution; no geographic data added. Desktop and 320px map height checked above400px. City info lives in the bottom action flex group, clear of Exit map.
+
+PNG captures the rendered camera/mask/points; header identifies applied highlight thresholds and map mode. Footer explains neutral land as outside highlight limits or missing weather records. Old eyebrow removed. Data/formula files unchanged; no cloud resources, DNS or other projects touched.
+
+Checks: independent 21 city/filter and20 climate/monthly cases; quiet-map browser checks exact mask vs source arrays, array identity across highlight toggles, no gray/unknown highlights, immersion/Escape/height/mobile overflow and PNG mask state; tile color unit checks opacity of matching and transparency of rejected pixels and restoring full colors. Screenshots captured after map idle. Reviewer found three material defects (mobile overlap, stale neutral legend, eyebrow); all three fixes scored resolved. This is a fix-list verdict, not a blanket quality certification. DESIGN.md records the final candidate.
+
+User explicitly authorized publication and GitHub update. Version20 is published and anonymous live checks passed. See QUIET-MAP-RELEASE.json and OPERATIONS.md.

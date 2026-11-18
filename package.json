@@ -1,0 +1,10 @@
+{
+  "name": "comfy-days-world",
+  "private": true,
+  "scripts": {
+    "build": "node world/query-service/build-site.mjs dist"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

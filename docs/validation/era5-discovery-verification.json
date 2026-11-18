@@ -1,0 +1,7 @@
+{
+  "result": "PASS",
+  "rankingChecks": 11,
+  "search": "city/state/region, accents, country, keyboard, no match, missing data",
+  "other": "region switch, cell metrics, custom filters, loading clear, mobile overflow",
+  "errors": []
+}

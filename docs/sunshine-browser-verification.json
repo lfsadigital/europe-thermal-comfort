@@ -1,0 +1,20 @@
+{
+  "result": "PASS",
+  "valueChecks": 516,
+  "maxScoreError": 4.7640208755694857e-7,
+  "maxDaysError": 0.0000050862630303072365,
+  "customYearRecalculationMs": 23886,
+  "checks": [
+    "12 cities, all seven periods, eight sunshine thresholds",
+    "identical values in every regional tab",
+    "disabled baseline restored exactly",
+    "custom temperature/rain/sunshine from all 2025 daily files",
+    "0–10 score bounds",
+    "URL persistence",
+    "12 PNG exports",
+    "mobile overflow",
+    "no-store sunshine HTTP responses"
+  ],
+  "errors": [],
+  "bad": []
+}

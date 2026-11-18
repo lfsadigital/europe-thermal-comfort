@@ -1,108 +1,51 @@
-# Comfy Days
+# Comfy Days · World, Europe & USA
 
-Live worldwide site: https://comfy.lfsadigital.com/
+Live site: [comfy.lfsadigital.com](https://comfy.lfsadigital.com/).
 
-**Current worldwide ERA5 source is in [world/](world/).** The Europe-only code below is an archived implementation, with a different source and historical scoring formula. It does not describe the live site.
+Last confirmed application publication: **Sites v45**, source `3102b6c55d9da056327f08777a47fde8d566db35`, on 2026-11-17. The platform hostname is an alias for this project; use the custom domain in user-facing links. See [current state](docs/CURRENT-STATE.md), [release receipt](docs/SUPPORT-RELEASE.json) and [operations](OPERATIONS.md).
 
-Current defaults: high **18–28°C**, low **14–28°C enabled**, rain **≤4 mm/day**, sunshine **off**. Highlights: **≥7 points and ≥120 days/year**. [Rules and examples](world/site/docs/COMFORT-RULES.md).
+See [publishing from GitHub](docs/PUBLISHING.md) for the release workflow.
 
-The live interface is hosted by Sites and climate statistics by Cloudflare. GitHub stores this public code backup; it does not host the current Comfy Days site.
+## Application and development
 
-## Archived Europe-only implementation
+The frontend source is `world/site/dist/`. Production also requires the same-origin climate and monthly APIs in `world/query-service/worker.mjs`. The site is deployed as a Worker with static assets; a static-only deployment is insufficient.
 
-[Open the archived website](https://conforto-termico-europa.lfsadigital.chatgpt.site)
-
-A real Natural Earth map of Europe with two measures based on daily maximum
-temperatures and daily rain totals from 2020–2025. Choose integer temperature limits from −30 to 50 °C.
-The default interval is 18–26 °C. Both endpoints are included.
-
-## Run locally
-
-This repository contains code only. Derived climate data and maps are not
-redistributed here. For local development, download the published assets
-from the website (non-commercial research/education terms still apply):
+From this repository root, with Node.js and the locked dependencies installed:
 
 ```sh
-python3 download_site_assets.py
+npm ci
+node world/query-service/local-server.mjs
 ```
 
-Or rebuild from the official sources (see below). Then run:
+The full development server listens on `http://127.0.0.1:8778`. A Python static server can inspect presentation but cannot validate custom-rule or monthly API flows. API checks require access to the configured public data sources. Keep raw climate archives remote.
 
 ```sh
-python3 -m http.server 8000 --directory site/dist
+node world/query-service/check.mjs
+node world/city-data/temperature-bounds-check.cjs
+npm run build
+git diff --check
 ```
 
-Open http://localhost:8000. Use a recent browser with Web Workers and gzip
-DecompressionStream. Calculations run locally without weather API calls.
-The URL preserves the interval, year and view for sharing. First use of a
-custom interval loads about 20 MB for six years or 12–13 MB for one year.
+Build output is `dist/server/index.js`, `dist/server/wrangler.json`, `dist/client/` and `dist/.openai/hosting.json`. Packaging includes the root `.openai/hosting.json` with the existing project identity, plus `dist/server` and `dist/client`. Use the existing Sites project; preserve its custom domain and public audience. No data rebuild is needed for UI or documentation edits. See [query service](world/query-service/README.md).
 
-## Calculation
+## Current rules
 
-For each daily maximum T, lower limit L and upper limit U:
+Live defaults come from `uiDefaults()` in `world/site/dist/app.js`, not archived defaults in `assets/metadata.json` or old preset manifests. The current temperature controls share a **14–30°C** band, with daily lows enabled; rainfall is **≤4 mm/day**. Sunshine is off (6 h/day minimum when enabled), AQI is off (initial limit 100). Highlights use score ≥7 and comfortable days/year ≥120.
 
-`score = 100 - max(L - T, 0) - max(T - U, 0) - (rain > 1 mm ? 1 : 0)`
+Each UTC day starts at 10. Temperature loses 0.5 point per degree using the larger high/low deviation, never their sum. Subtract rain and enabled sunshine/AQI penalties, then floor the daily result at zero before averaging. Comfortable days must meet the enabled weather limits on the same date. Monthly weather coverage, matched-date alignment, calendar annualization and explicit unknown-data behavior are preserved. AQI uses a common 2023–2025 period or a year within it; unknown AQI adds no penalty. See [daily AQI rules](docs/AIR-QUALITY-DAILY.md), the application and the query core for the full current implementation.
 
-The period score averages **2,192 daily scores**, not the mean temperature.
-Comfortable days count `L <= T <= U AND rain <= 1 mm`. Exactly 1 mm qualifies.
-The rain penalty is one extra point, independent of the temperature penalty.
-For example, 17 °C with 2 mm rain scores 98 for an 18–26 °C interval. For 2020–2025 divide the total by
-**six years**, not by 2,192 days. Individual years show actual counts.
-Leap years 2020 and 2024 each contain 366 days.
+World, Europe and USA are views over the same climate source and calculation. ERA5 supplies weather; CAMS supplies optional AQI. Map tiles, GeoNames, urban context and optional city filters retain their individual credits and licenses. Keep the full credits in the application. Historical scientific/import checks are preserved under [documentation](docs/README.md), with their original scope and date.
 
-Sparse histograms store joint dry-day temperature counts, wet-day counts,
-paired-record validity, original fractional temperature sums and exact
-integer-boundary counts. They are sufficient for integer endpoints without
-storing all daily series in the browser. E-OBS sums use a lossless int16 residual around each bucket midpoint,
-reconstructed with the original NetCDF scale; NOAA sums remain float64. Browser arithmetic uses float64.
+## Support, sponsorship and navigation
 
-## Data and map
+The header links to [LFSA Digital Lab](https://lfsadigital.com/lab/), sponsorship email and [Ko-fi](https://ko-fi.com/luizalmeida). A small sponsor space sits to the right of the hero on desktop and below its introduction on narrower screens. Both sponsor links use `mailto:lfsa.business@gmail.com?subject=Comfy%20Days%20sponsorship`. Ko-fi support remains below city rankings. Sponsors do not influence scores or rankings.
 
-E-OBS v33.0e ensemble daily Tmax and rainfall (TX/RR), native 0.1° (roughly 11 km north–south),
-plus NOAA CPC daily Tmax and Global Unified Precipitation, native 0.5°, in eastern gaps. Compute score and day
-counts on the original NOAA grid **before** bilinear interpolation. Do not
-interpolate temperatures first. Cells need all paired daily records. Six-year coverage:
-110,182 of 117,065 land cells (94.12%). Missing rain is never treated as dry. Source provenance remains visible.
+Styling is in `world/site/dist/project-support.css`; the official Ko-fi cup mark is local in `kofi-cup.svg`. There is no support JavaScript, floating widget or embedded payment panel. See [design](DESIGN.md).
 
-E-OBS station report days and NOAA 06–06 UTC days differ. These estimates are
-not street-level observations. Wind, humidity and nighttime temperatures
-are excluded. Precipitation is aligned by its recorded date; source reporting
-windows may differ. This is a preference score, not a physiological index.
+## Evidence and historical records
 
-Natural Earth 1:10 million borders and coasts; Lambert Conformal projection.
-Fixed palette across ranges and years: score 76–98; days 0–150+.
-Out-of-scale values use the endpoint color; queries show the actual number.
-Coastal display may use the nearest complete cell within 0.2°.
+The v45 HTML was fetched successfully over HTTPS from the custom domain and matched the published application source byte for byte. Domain and SSL status were active with no reported error. Earlier certificate/network failures were limitations of those verification attempts; they were not evidence of a confirmed site certificate defect.
 
-## Rebuild and verify
+Local Chromium UI checks covered 320, 390, 768 and 1440 CSS pixels, sponsor destinations and visible keyboard focus. Impeccable's scoped detector returned no findings. These are scoped UI checks, not a complete accessibility or cross-browser certification. Physical-device touch and external email-client launch were not tested.
 
-```sh
-cd site
-node verify-dynamic.cjs
-```
-
-Run this after rebuilding. It checks all valid cells in seven periods against the served data and six custom
-intervals against independent raw E-OBS and NOAA temperature/rain references.
-
-Rebuild derived assets (several GB of source downloads on the first run):
-
-```sh
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python rebuild_site.py
-```
-
-`rain_data.py` checks all 2,192 paired daily fields, inclusive boundaries,
-additive penalties, annualization and leap-day weighting. `verify-rain.cjs` checks
-all 14 served numeric grids and 84 raw-data custom-range references.
-The report is `site/dist/assets/rain-audit.json`.
-`verify_rain_ranges.py` recreates independent references even when caches are reused.
-`verify_2025.py` independently recalculates all 365 paired 2025 daily fields,
-checks the native NOAA grid, the six-year denominators and unchanged 2020–2024
-annual values. `period_config.py` defines the published period and default limits.
-
-Contributions: [CONTRIBUTING.md](CONTRIBUTING.md). Code: MIT.
-**Climate data are not MIT-licensed.** E-OBS is restricted to non-commercial
-research and education. See [DATA_LICENSE.md](DATA_LICENSE.md) for attribution
-and source policies.
+Prior implementation notes are retained in [the archive](docs/ARCHIVE-IMPLEMENTATION.md). Historical release receipts and dated tests remain evidence of their own versions; do not treat them as fresh checks of v45.

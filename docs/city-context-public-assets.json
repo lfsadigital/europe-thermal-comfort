@@ -1,0 +1,61 @@
+{
+  "result": "PASS",
+  "url": "https://comfy.lfsadigital.com/",
+  "files": [
+    {
+      "file": "app.js",
+      "sha256": "fd71c480cb832e537b3e5c5b0ed99689c353bb429a7b5b0769cd632aec575f5e",
+      "bytes": 20771
+    },
+    {
+      "file": "city-map.js",
+      "sha256": "e74f4b1df19aed564ed5ddcf9d8f678bee5032b261f8f7b55ad1c92e432e8db5",
+      "bytes": 5601
+    },
+    {
+      "file": "city-filters.js",
+      "sha256": "b65a68dd9184f9c137f131e119e097854804e4a500967c69fcd732d605a6f366",
+      "bytes": 8768
+    },
+    {
+      "file": "monthly-core.js",
+      "sha256": "9fb00ca5a3c587092090aa9d82f4645d8f6e6a5b26ae62c974c4c13b7656ecb7",
+      "bytes": 2593
+    },
+    {
+      "file": "monthly-worker.js",
+      "sha256": "5df85cab697857f5d4f63974d4b83e9f74b77aa4f6b93142f3234b66b0dccd6b",
+      "bytes": 1454
+    },
+    {
+      "file": "monthly-charts.js",
+      "sha256": "db52ed62006f456de5587f44913608004b10db6266e6297104d6fd4fc6ecdb7c",
+      "bytes": 8551
+    },
+    {
+      "file": "styles.css",
+      "sha256": "9368870eb9206f3dffef6203bac912666c96b6c501137ac91f255bd51a44fca7",
+      "bytes": 21341
+    },
+    {
+      "file": "map-bootstrap.js",
+      "sha256": "2d1f39654126cdd2a015ec415b67205c0f5fd449943373ab308149ebce64ce45",
+      "bytes": 708
+    },
+    {
+      "file": "geo-map.js",
+      "sha256": "e584feaf7a94b8c6b8bc2766baed5a30de390b1f372f1da2e1e133f4f4a14203",
+      "bytes": 14245
+    },
+    {
+      "file": "assets/nomads-cities.json",
+      "sha256": "8067281bc9053be6760643d4cd0a7c2db4820b60ded8d5aea2e39fa72de75f62",
+      "bytes": 214058
+    },
+    {
+      "file": "assets/homicide-country.json",
+      "sha256": "d4a329bae23885bb3caa7bf04f329f4931b795a6b6e482f98d28c38e29234741",
+      "bytes": 88888
+    }
+  ]
+}

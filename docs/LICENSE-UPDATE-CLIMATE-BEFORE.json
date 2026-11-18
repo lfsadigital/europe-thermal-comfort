@@ -1,0 +1,8 @@
+{
+  "monthly-core.js": "9fb00ca5a3c587092090aa9d82f4645d8f6e6a5b26ae62c974c4c13b7656ecb7",
+  "map-tiles-worker.js": "03301c2bdec543a36efdcaa34ea742c95718d1f82c9862759758398d91c8d54d",
+  "climate-worker.js": "dd23b76e60fc08f852b8b4c1660c5753bcc571c8c9baa71f2917bba15c89e9c7",
+  "sunshine-core.js": "d04f91126652c63fa87af02d4d061842cdf799299efc92d2f9c6714c729eb74d",
+  "climate-core.js": "d647276e329c6ae2e7184bbaf8ef0ae15f9ebf057b9cb89b6b5ad2c2b171ef9b",
+  "monthly-worker.js": "5df85cab697857f5d4f63974d4b83e9f74b77aa4f6b93142f3234b66b0dccd6b"
+}
