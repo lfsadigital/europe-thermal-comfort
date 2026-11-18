@@ -4,7 +4,7 @@ Live site: [comfy.lfsadigital.com](https://comfy.lfsadigital.com/).
 
 Last confirmed application publication: **Sites v45**, source `3102b6c55d9da056327f08777a47fde8d566db35`, on 2026-11-17. The platform hostname is an alias for this project; use the custom domain in user-facing links. See [current state](docs/CURRENT-STATE.md), [release receipt](docs/SUPPORT-RELEASE.json) and [operations](OPERATIONS.md).
 
-See [publishing from GitHub](docs/PUBLISHING.md) for the release workflow.
+GitHub `main` is the source of truth. ChatGPT Sites hosts production at the custom domain above. Each release is published manually from a reviewed GitHub revision. See [publishing from GitHub](docs/PUBLISHING.md).
 
 ## Application and development
 

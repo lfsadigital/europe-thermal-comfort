@@ -1,4 +1,6 @@
 
+
+> Historical site documentation. See the [root README](../../README.md), [current state](../../docs/CURRENT-STATE.md) and [publishing workflow](../../docs/PUBLISHING.md) for current instructions.
 ## 2026-10-12 — local city context and monthly charts
 
 Prepared, not pushed or deployed. Browser verification passed 133 checks with zero page errors across region tabs, filters, shared URLs, and Porto/Miami/Nairobi monthly comparisons. Separate checks passed for missing US crime data, monthly-request failure and retry, mobile overflow, and both 2400×1800 PNG exports. Independent design review passed after three chart fixes. Production weather calculations and original climate arrays remain unchanged. Temporary Nomads and UNODC source downloads were removed; curated small tables remain in dist/assets.

@@ -1,10 +1,10 @@
-# Current state · 2026-11-17
+# Current state · 2026-11-18
 
 The canonical site is https://comfy.lfsadigital.com/. Latest confirmed application publication is Sites **v45**, source `3102b6c55d9da056327f08777a47fde8d566db35`. See [the machine-readable receipt](SUPPORT-RELEASE.json).
 
 ## Source authority
 
-The GitHub migration imports current Sites application sources into GitHub while preserving the earlier repository history. Once merged, review and merge changes in GitHub and use the existing Sites repository as a release target. See [publishing](PUBLISHING.md).
+GitHub `main` is the source of truth. The migration merged on 2026-11-18 in [PR #2](https://github.com/lfsadigital/europe-thermal-comfort/pull/2). ChatGPT Sites hosts production. Publish reviewed GitHub revisions using the [manual release workflow](PUBLISHING.md).
 
 Frontend: `world/site/dist/`. Backend: `world/query-service/worker.mjs`. Local full preview: `node world/query-service/local-server.mjs`; build: `npm run build`. Static HTML alone does not provide the custom climate/monthly routes. The [root README](../README.md) describes current defaults and commands; [query service](../world/query-service/README.md) covers backend verification.
 
