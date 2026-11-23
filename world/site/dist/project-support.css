@@ -26,3 +26,19 @@ body.map-immersed .project-support{display:none}
 @media(max-width:950px){body>header>.badge{display:none}}
 @media(max-width:600px){body>header{flex-wrap:wrap;gap:6px 16px}body>header .site-links{width:100%;margin-left:0;gap:20px;justify-content:flex-end}.site-links .kofi-button{margin-left:auto;font-size:12px;padding:8px 12px}.site-links>a:not(.kofi-button){font-size:13px}.support-row{align-items:flex-start;flex-direction:column;gap:14px}.project-support{margin-top:24px}}
 @media(forced-colors:active){.kofi-button,.sponsor-slot{border-color:ButtonText}}
+
+.mobile-region,.mobile-sponsor{display:none}
+.workspace .switch button,.workspace .rule-chip{min-height:44px}
+@media(max-width:760px){
+  body:not(.map-immersed) .region-nav{display:none}
+  body:not(.map-immersed) .mobile-region{display:flex;align-items:center;gap:12px;margin:0 0 12px;font-size:13px;color:#cbd5e1}
+  .mobile-region select{margin:0;width:auto;max-width:100%;min-height:44px}
+  .hero #sponsor-space{display:none}
+  .project-support .mobile-sponsor{display:grid;margin-top:24px;max-width:320px}
+  .workspace .location-search{padding-block:10px}
+  .workspace #search-message:empty,.workspace #search-message.is-idle{display:none}
+  .workspace .toolbar{padding-block:8px;gap:8px}
+  .workspace .season-summary{padding-block:6px}
+  .workspace .season-scope{display:none}
+  .workspace .map-heading{padding-block:10px}
+}
