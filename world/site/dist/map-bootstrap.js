@@ -11,7 +11,7 @@ try {
   await import('./monthly-charts.js?v=45');
   await import('./city-map.js?v=40');
   await import('./air-quality.js?v=42');
-  await import('./app.js?v=45');
+  await import('./app.js?v=46');
 } catch (error) {
   document.getElementById('status').textContent='The interactive map could not start. Enable WebGL and reload, or try another browser.';
   document.getElementById('map-hud').textContent='Map unavailable';
