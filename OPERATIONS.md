@@ -155,3 +155,8 @@ Documentation reconciliation updated current entrypoints, preserved historical r
 ## 2026-11-18 — GitHub source migration
 
 Imported the current application into GitHub `main` in [PR #2](https://github.com/lfsadigital/europe-thermal-comfort/pull/2). Verified 92 frontend hashes against the v45 receipt and ran the query checks and production build. The live application remains Sites v45. See [publishing](docs/PUBLISHING.md) for future releases.
+
+
+## 2026-11-23 — Map and search update
+
+Published Sites v46 from [PR #4](https://github.com/lfsadigital/europe-thermal-comfort/pull/4). Verified that the HTML served over HTTPS at the custom domain matched the release build. See the [release receipt](docs/MAP-FIRST-RELEASE.json).

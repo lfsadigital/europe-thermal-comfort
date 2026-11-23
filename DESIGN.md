@@ -139,3 +139,8 @@ The button uses Ko-fi's published blue (#72A5F2) and ink (#202020), with the off
 The official Impeccable 4.9.2 context, polish and craft-floor guidance were used. Its changed-source detector returned no findings. Chromium checks at 320, 390, 768 and 1440 CSS pixels found no horizontal overflow, loaded local Ko-fi marks and 44px header links. Header and support screenshots were visually reviewed on desktop and mobile; keyboard focus is visible; expanded-map mode hides header and support. No page errors were observed. The sponsor placement was additionally checked at all four widths, and sponsor destinations and keyboard focus were checked. There is no support animation. Physical-device touch and other engines were not tested. Production build and whitespace checks passed. This is a scoped review, not a full application accessibility audit.
 
 Impeccable setup was repaired in this checkout at the maintainer's request: installed the official skill and local engine, enabled the hook manifests, and verified Doctor reports no findings. Skill binaries, local consent and hook settings remain checkout-local; the current Codex session may require a reload to activate automatic hook delivery.
+
+
+## 2026-11-23 — Map and search update
+
+The v46 interface puts search before map settings and defaults to Comfy days per year. At 760px and below, a native selector replaces the region tabs, and the sponsor space moves below the rankings. Metric controls and weather shortcuts have a 44 CSS pixel minimum height. The support prompt reads “Help keep Comfy Days free to explore.”

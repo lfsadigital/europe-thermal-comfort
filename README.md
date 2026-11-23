@@ -2,7 +2,7 @@
 
 Live site: [comfy.lfsadigital.com](https://comfy.lfsadigital.com/).
 
-Last confirmed application publication: **Sites v45**, source `3102b6c55d9da056327f08777a47fde8d566db35`, on 2026-11-17. The platform hostname is an alias for this project; use the custom domain in user-facing links. See [current state](docs/CURRENT-STATE.md), [release receipt](docs/SUPPORT-RELEASE.json) and [operations](OPERATIONS.md).
+Last confirmed application publication: **Sites v46**, source `fc92c4ff49a2fda2406dd2b55a9f34ccea1530eb`, on 2026-11-23. The platform hostname is an alias for this project; use the custom domain in user-facing links. See [current state](docs/CURRENT-STATE.md), [release receipt](docs/MAP-FIRST-RELEASE.json) and [operations](OPERATIONS.md).
 
 GitHub `main` is the source of truth. ChatGPT Sites hosts production at the custom domain above. Each release is published manually from a reviewed GitHub revision. See [publishing from GitHub](docs/PUBLISHING.md).
 
@@ -38,14 +38,14 @@ World, Europe and USA are views over the same climate source and calculation. ER
 
 ## Support, sponsorship and navigation
 
-The header links to [LFSA Digital Lab](https://lfsadigital.com/lab/), sponsorship email and [Ko-fi](https://ko-fi.com/luizalmeida). A small sponsor space sits to the right of the hero on desktop and below its introduction on narrower screens. Both sponsor links use `mailto:lfsa.business@gmail.com?subject=Comfy%20Days%20sponsorship`. Ko-fi support remains below city rankings. Sponsors do not influence scores or rankings.
+The header links to [LFSA Digital Lab](https://lfsadigital.com/lab/), sponsorship email and [Ko-fi](https://ko-fi.com/luizalmeida). A small sponsor space sits to the right of the hero on desktop and below the rankings at 760px and below. Both sponsor links use `mailto:lfsa.business@gmail.com?subject=Comfy%20Days%20sponsorship`. Ko-fi support remains below city rankings. Sponsors do not influence scores or rankings.
 
 Styling is in `world/site/dist/project-support.css`; the official Ko-fi cup mark is local in `kofi-cup.svg`. There is no support JavaScript, floating widget or embedded payment panel. See [design](DESIGN.md).
 
 ## Evidence and historical records
 
-The v45 HTML was fetched successfully over HTTPS from the custom domain and matched the published application source byte for byte. Domain and SSL status were active with no reported error. Earlier certificate/network failures were limitations of those verification attempts; they were not evidence of a confirmed site certificate defect.
+The v46 HTML was fetched successfully over HTTPS from the custom domain and matched the published application source byte for byte. Domain and SSL status were active with no reported error. Earlier certificate/network failures were limitations of those verification attempts; they were not evidence of a confirmed site certificate defect.
 
-Local Chromium UI checks covered 320, 390, 768 and 1440 CSS pixels, sponsor destinations and visible keyboard focus. Impeccable's scoped detector returned no findings. These are scoped UI checks, not a complete accessibility or cross-browser certification. Physical-device touch and external email-client launch were not tested.
+The v46 HTML matched the release build over HTTPS on the custom domain. Local Chromium checks at 390 and 1440 CSS pixels confirmed map visibility in the first viewport, the default metric, score selection after reload, and mobile region selection.
 
-Prior implementation notes are retained in [the archive](docs/ARCHIVE-IMPLEMENTATION.md). Historical release receipts and dated tests remain evidence of their own versions; do not treat them as fresh checks of v45.
+Prior implementation notes are retained in [the archive](docs/ARCHIVE-IMPLEMENTATION.md). Historical release receipts and dated tests remain evidence of their own versions; do not treat them as fresh checks of v46.
